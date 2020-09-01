@@ -14,5 +14,5 @@ function createList(){
 
     // ARRAY
     var json = this.responseText;
-    document.getElementById("booklisting").innerHTML = json;
+    document.getElementById("booklisting").innerHTML = "<li>" + json + "</li>";
 }
