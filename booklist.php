@@ -27,6 +27,10 @@ if ($result = mysqli_query($conn, $test)) {
     // FOUND TRUE
     if(mysqli_num_rows($result) > 0){
 
+        $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
+
+        echo json_encode($age);
+        
     }else{// FALSE
 
     }
