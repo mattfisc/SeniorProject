@@ -41,3 +41,11 @@ OTHER FEATURES:
 
 EXTRA Features:
 -	Web scrap free pdf textbooks
+
+
+book object
+- title
+- author
+- ibn
+- picture
+- owner
