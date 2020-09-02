@@ -21,16 +21,16 @@ $test = "SELECT * FROM `booklisting` WHERE title = '$book' ";
 //  PERFORM QUERY
 if ($result = mysqli_query($conn, $test)) {
 
-    // ROW NUMBER
-    $num_results = mysqli_num_rows($result);
+    // // ROW NUMBER
+    // $num_results = mysqli_num_rows($result);
 
     // FOUND TRUE
     if(mysqli_num_rows($result) > 0){
 
+        // tester
         $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
-
         echo json_encode($age);
-        
+
     }else{// FALSE
 
     }

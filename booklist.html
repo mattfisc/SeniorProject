@@ -33,28 +33,44 @@
         </div>
 
         <!--listing-->
-        <div class='middle'>
-            
-            <!-- search form -->
-            <div style="margin:auto;max-width:300px">
-                <h1>Book Listing</h1>
-                <input id="findBook" type="text" placeholder="Search.." name="search">
-                <button onclick="searchforbook()" type="submit" ><i class="fa fa-search"></i></button>
-            </div>
+        <div class="container">
+          <h2 class="text-center font-weight-bold text-light">Book List</h2>
+          <div class="row">
+            <div class="col-m-4" id="sticky-sidebar">
+              <!--SEARCH BAR-->
+              <div class="container" style="margin-top:50px">
+                
+                <p>Searching filters</p>  
+                <input class="form-control shadow-lg p-3 mb-5 bg-white rounded" id="myInput" type="text" placeholder="Search..">
+                <br>
+                <ul class="list-group" id="myList">
+                  <li class="list-group-item bg-secondary">Title</li>
+                  <li class="list-group-item bg-secondary">Author</li>
+                  <li class="list-group-item bg-secondary">IBSN</li>
+                  <li class="list-group-item bg-secondary">Location</li>
+                </ul>  
+              </div>
+              
+              <script>
+              $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                  var value = $(this).val().toLowerCase();
+                  $("#myList li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                  });
+                });
+              });
+              </script>
 
-            <!--book listing-->
-            <div style="margin:auto;max-width:300px">
-                    <ul id="booklisting" >
-                        <li>book</li>
-                    </ul>
-            </div>
-            
+            </div><!--END OF SEARCH-->
 
-            <!--Output-->
-            <div id="output">
+            <div class="col-m-8" id="main">
+              <!--BOOK LISTING-->
 
             </div>
-        </div>
+          </div>
+
+        </div><!--end of container middle-->
         
         <!--footer-->
         <div class='footer'>
