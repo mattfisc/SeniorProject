@@ -1,10 +1,10 @@
 
 // SEARCH WORD IN QUERY 
 function searchforbook(){
-    var input = document.getElementById("findBook").value;
+    var input = document.getElementById("input").value;
 
     var xhr = new XMLHttpRequest();
-    xhr.onload = createList;
+    xhr.onreadystatechange = createList;
     xhr.open("GET", "booklist.php?q=" + input, true); 
     xhr.send();
 
@@ -13,19 +13,39 @@ function searchforbook(){
 
 // CREATING BOOK LIST
 function createList(){
+    // IF NO ERRORS
+    if(this.readyState == 4 && this.status == 200){
+        // ARRAY
+        var json = this.responseText;
+        
+        // seems to be a string?????????????????????
 
-    // ARRAY
-    var json = this.responseText;
-    document.getElementById("booklisting").innerHTML = "<li>" + json + "</li>";
+        document.getElementById("my-table").innerHTML = "title: " +json[0];
+
+        // // ADD ROW
+        // "<tr>"+
+        //     "<th>"+ 
+        //     // BOOK IMAGE
+        //     "</th>"+
+
+        //     "<th>"+
+        //     // BOOK DETAILS
+        //         "<ul>" +
+                
+        //             "<li>" + "Title: " + json[title] + "</li>"+
+        //             "<li>" + "Author: " + json[author] + "</li>"+
+        //             "<li>" + "IBSN: " + json[isbn] + "</li>"+
+
+        //             "<li>" + "Owner: " + json[owner_id] + "</li>"+
+        //         "</ul>"+
+        //     "</th>"+
+        // "</tr>";
+
+    }
+    else{
+        document.getElementById("my-table").innerHTML="Error retrieving xmlrequest";
+    }
 }
 
 
 
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
