@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body id="mainbody">
+<body id="mainbody" >
     <div class='page'>
 
         <!--heading-->
         <div class='header'>
         
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
                 <a id="my-title" class="navbar-brand" href="#">Textbook Swap</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
                     <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true" href="booklist.html">Home</a><!-- <span class="sr-only">(current)</span>-->
-                    <!-- <a class="nav-item nav-link" >Profile</a> -->
+                    <a class="nav-item nav-link" >Profile</a>
                     <a class="nav-item nav-link" href="#">Booklisting</a>
                     <a class="nav-item nav-link " href="#" >Register or Login</a>
                   </div>
@@ -42,33 +42,20 @@
               <div class="container" style="margin-top:50px">
                 
                 <p>Searching filters</p>  
-                <input class="form-control shadow-lg p-3 mb-5 bg-white rounded" id="input" type="text" placeholder="Search..">
+                <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
+                <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
+                <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
+                <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="University..">
+
                 <button onclick="searchforbook()" type="submit">Submit</button>
-                <br>
-                <ul class="list-group" id="myList">
-                  <li class="list-group-item bg-secondary">Title</li>
-                  <li class="list-group-item bg-secondary">Author</li>
-                  <li class="list-group-item bg-secondary">IBSN</li>
-                  <li class="list-group-item bg-secondary">Location</li>
-                </ul>  
               </div>
           
             </div><!--END OF SEARCH-->
 
             <!--BOOK LISTING-->
             <div class="col-m-8" id="booklist">
-              <table class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th class="book-image">Image</th>
-                    <th class="book-details">Details</th>
-                    
-                  </tr>
-                </thead>
-                <tbody id="my-table">
-                  
-                  
-                </tbody>
+              <table id="my-table" class="table table-bordered table-striped">
+                
               </table>
             </div>
           </div><!--Row End-->

@@ -36,3 +36,6 @@ form.example::after {
   display: table;
 }
 
+tr {
+  width : 400px;
+}
