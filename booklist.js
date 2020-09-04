@@ -6,8 +6,8 @@ function searchforbook(){
     var text = '';
     var state = 1;// ERROR STATE
 
-    // TITLE CHECK
-    if(!document.getElementById("title_input").value.length==0){
+    // GET TITLE AND VALIDATE
+    if(document.getElementById("title_input").value.length != ""){
         var word = document.getElementById("title_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERROR TITLE... LETTERS ONLY
             text += 'title='.concat(word);
@@ -17,8 +17,8 @@ function searchforbook(){
     else
         text += 'title=empty';
 
-    // AUTHOR CHECK
-    if(!document.getElementById("author_input").value.length == 0){
+    // GET AUTHOR AND VALIDATE
+    if(document.getElementById("author_input").value != ""){
         var word = document.getElementById("author_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERROR AUTHOR.. LETTERS ONLY
             text += '&author='.concat(word);
@@ -26,10 +26,10 @@ function searchforbook(){
             state = -2;
     }
     else
-        text += 'author=empty';
+        text += '&author=empty';
 
-    // ISBN CHECK
-    if(!document.getElementById("isbn_input").value.length==0){
+    // GET ISBN AND VALIDATE
+    if(document.getElementById("isbn_input").value.length != ""){
         var word = document.getElementById("isbn_input").value;
         if(!/[^0-9]/.test(word))// ERROR ISBN...NUMBERS ONLY
             text += '&isbn='.concat(word);
@@ -37,10 +37,10 @@ function searchforbook(){
             state = -3;
     }
     else
-        text += 'isbn=empty';
+        text += '&isbn=empty';
 
-    // LOCATION CHECK
-    if(!document.getElementById("location_input").value.length==0){
+    // GET LOCATION AND VALIDATE
+    if(document.getElementById("location_input").value.length != ""){
         var word = document.getElementById("location_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERRORS LOCATION.. LETTERS ONLY
             text += '&location='.concat(word);
@@ -48,17 +48,22 @@ function searchforbook(){
             state = -4;
     }
     else
-        text += 'location=empty';
+        text += '&location=empty';
     
+    window.alert(text);
     // OUTPUTS DISPLAYED
     errorOuput(state);
+    
+    // SEARCH WITH INPUT
+    if(text != ""){
+        var xml_str = "booklist.php?".concat(text);
 
-    var xml_str = "booklist.php?".concat(text);
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = createList;
-    xhr.open("GET",xml_str, true); 
-    xhr.send();
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = createList;
+        xhr.open("GET",xml_str, true); 
+        xhr.send();
+    }
+    
 
 }
 
@@ -90,9 +95,7 @@ function createList(){
     if(this.readyState == 4 && this.status == 200){
         // ARRAY
         var json = this.responseText;
-        
-        // seems to be a string?????????????????????
-        //window.alert(json);
+    
         document.getElementById("my-table").innerHTML = json;
 
         // // ADD ROW
@@ -116,9 +119,7 @@ function createList(){
         // "</tr>";
 
     }
-    else{
-        document.getElementById("my-table").innerHTML="Error retrieving xmlrequest";
-    }
+   
 }
 
 
