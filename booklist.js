@@ -10,7 +10,7 @@ function searchforbook(){
     if(!document.getElementById("title_input").value.length==0){
         var word = document.getElementById("title_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERROR TITLE... LETTERS ONLY
-            text += 'title=' + document.getElementById("title_input").value;
+            text += 'title='.concat(word);
         else
             state = -1;
     }
@@ -21,7 +21,7 @@ function searchforbook(){
     if(!document.getElementById("author_input").value.length == 0){
         var word = document.getElementById("author_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERROR AUTHOR.. LETTERS ONLY
-            text += '&author=' + document.getElementById("author_input").value;
+            text += '&author='.concat(word);
         else
             state = -2;
     }
@@ -32,7 +32,7 @@ function searchforbook(){
     if(!document.getElementById("isbn_input").value.length==0){
         var word = document.getElementById("isbn_input").value;
         if(!/[^0-9]/.test(word))// ERROR ISBN...NUMBERS ONLY
-            text += '&isbn=' + document.getElementById("isbn_input").value;
+            text += '&isbn='.concat(word);
         else
             state = -3;
     }
@@ -43,7 +43,7 @@ function searchforbook(){
     if(!document.getElementById("location_input").value.length==0){
         var word = document.getElementById("location_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERRORS LOCATION.. LETTERS ONLY
-            text += '&location=' + document.getElementById("location_input").value;
+            text += '&location='.concat(word);
         else
             state = -4;
     }
@@ -92,24 +92,25 @@ function createList(){
         var json = this.responseText;
         
         // seems to be a string?????????????????????
-        window.alert(json);
-        document.getElementById("my-table").innerHTML = "title: " + json;
+        //window.alert(json);
+        document.getElementById("my-table").innerHTML = json;
 
         // // ADD ROW
         // "<tr>"+
         //     "<th>"+ 
         //     // BOOK IMAGE
+        //         "Picture: " + json[picture_loc] +
         //     "</th>"+
 
         //     "<th>"+
         //     // BOOK DETAILS
-        //         "<ul>" +
+        //         "<ul>" + 3
                 
         //             "<li>" + "Title: " + json[title] + "</li>"+
         //             "<li>" + "Author: " + json[author] + "</li>"+
         //             "<li>" + "IBSN: " + json[isbn] + "</li>"+
-
-        //             "<li>" + "Owner: " + json[owner_id] + "</li>"+
+                    
+        //             "<li>" + "Owner: " + json[location] + "</li>"+
         //         "</ul>"+
         //     "</th>"+
         // "</tr>";
