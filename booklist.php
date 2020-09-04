@@ -1,11 +1,14 @@
 <?php
 
 $title = $_GET['title'];
-// $author = $_GET['author'];
-// $isbn = $_GET['isbn'];
-// $location = $_GET['location'];
+$author = $_GET['author'];
+$isbn = $_GET['isbn'];
+$location = $_GET['location'];
 
-//echo $title;
+echo $title;
+echo $author;
+echo $isbn;
+echo $location;
 
 
 // //WEBPAGE NOTE: $mysqli = new mysqli("127.0.0.1", "username", "password", "database", 3306);

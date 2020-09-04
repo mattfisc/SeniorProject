@@ -10,50 +10,49 @@ function searchforbook(){
     if(!document.getElementById("title_input").value.length==0){
         var word = document.getElementById("title_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERROR TITLE... LETTERS ONLY
-            text += 'title:' + document.getElementById("title_input").value;
+            text += 'title=' + document.getElementById("title_input").value;
         else
             state = -1;
     }
     else
-        text += 'title:empty';
+        text += 'title=empty';
 
     // AUTHOR CHECK
     if(!document.getElementById("author_input").value.length == 0){
         var word = document.getElementById("author_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERROR AUTHOR.. LETTERS ONLY
-            text += '&author:' + document.getElementById("author_input").value;
+            text += '&author=' + document.getElementById("author_input").value;
         else
             state = -2;
     }
     else
-        text += 'author:empty';
+        text += 'author=empty';
 
     // ISBN CHECK
     if(!document.getElementById("isbn_input").value.length==0){
         var word = document.getElementById("isbn_input").value;
         if(!/[^0-9]/.test(word))// ERROR ISBN...NUMBERS ONLY
-            text += '&isbn:' + document.getElementById("isbn_input").value;
+            text += '&isbn=' + document.getElementById("isbn_input").value;
         else
             state = -3;
     }
     else
-        text += 'isbn:empty';
+        text += 'isbn=empty';
 
     // LOCATION CHECK
     if(!document.getElementById("location_input").value.length==0){
         var word = document.getElementById("location_input").value.toLowerCase();
         if(!/[^a-z ]/.test(word))// ERRORS LOCATION.. LETTERS ONLY
-            text += '&location:' + document.getElementById("location_input").value;
+            text += '&location=' + document.getElementById("location_input").value;
         else
             state = -4;
     }
     else
-        text += 'location:empty';
+        text += 'location=empty';
     
     // OUTPUTS DISPLAYED
     errorOuput(state);
 
-    
     var xml_str = "booklist.php?".concat(text);
 
     var xhr = new XMLHttpRequest();
