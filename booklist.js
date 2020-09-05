@@ -14,8 +14,7 @@ function searchforbook(){
         else
             state = -1;
     }
-    else
-        text += 'title=empty';
+
 
     // GET AUTHOR AND VALIDATE
     if(document.getElementById("author_input").value != ""){
@@ -25,8 +24,7 @@ function searchforbook(){
         else
             state = -2;
     }
-    else
-        text += '&author=empty';
+    
 
     // GET ISBN AND VALIDATE
     if(document.getElementById("isbn_input").value.length != ""){
@@ -36,8 +34,7 @@ function searchforbook(){
         else
             state = -3;
     }
-    else
-        text += '&isbn=empty';
+ 
 
     // GET LOCATION AND VALIDATE
     if(document.getElementById("location_input").value.length != ""){
@@ -47,8 +44,7 @@ function searchforbook(){
         else
             state = -4;
     }
-    else
-        text += '&location=empty';
+
     
     window.alert(text);
     // OUTPUTS DISPLAYED
@@ -96,27 +92,27 @@ function createList(){
         // ARRAY
         var json = this.responseText;
     
-        document.getElementById("my-table").innerHTML = json;
+        document.getElementById("my-table").innerHTML = 
 
-        // // ADD ROW
-        // "<tr>"+
-        //     "<th>"+ 
-        //     // BOOK IMAGE
-        //         "Picture: " + json[picture_loc] +
-        //     "</th>"+
+        // ADD ROW
+        "<tr>"+
+            "<th>"+ 
+            // BOOK IMAGE
+                "Picture: " + json[picture_loc] +
+            "</th>"+
 
-        //     "<th>"+
-        //     // BOOK DETAILS
-        //         "<ul>" + 3
+            "<th>"+
+            // BOOK DETAILS
+                "<ul>" + 3
                 
-        //             "<li>" + "Title: " + json[title] + "</li>"+
-        //             "<li>" + "Author: " + json[author] + "</li>"+
-        //             "<li>" + "IBSN: " + json[isbn] + "</li>"+
+                    "<li>" + "Title: " + json[title] + "</li>"+
+                    "<li>" + "Author: " + json[author] + "</li>"+
+                    "<li>" + "IBSN: " + json[isbn] + "</li>"+
                     
-        //             "<li>" + "Owner: " + json[location] + "</li>"+
-        //         "</ul>"+
-        //     "</th>"+
-        // "</tr>";
+                    "<li>" + "Owner: " + json[location] + "</li>"+
+                "</ul>"+
+            "</th>"+
+        "</tr>";
 
     }
    
