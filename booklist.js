@@ -92,8 +92,9 @@ function errorOuput(state){
 }
 
 
-// CREATING BOOK LIST
-function createList(arr){
+// sccrap junk it
+function createList3(res_text){
+    var arr = JSON.parse(res_text)
     var out = "";
     var i;
     for(i = 0; i < arr.length; i++) {
@@ -126,9 +127,24 @@ function createList(arr){
    
 }
 
-// Working
-function createList1(s){
-    var text = JSON.parse(s);
-    document.getElementById("my-table").innerHTML = text;
+// working
+// CREATING BOOK LIST
+function createList(s){
+    // IF NO ERRORS
+    
+        
+    var jsonobj = JSON.parse(s);
+   
+    var strBuilder = [];
+    for(key in jsonobj) {
+        if (jsonobj.hasOwnProperty(key)) {
+        strBuilder.push("Key is " + key + ", value is " + jsonobj[key] + "\n");
+        }
+    }
+    
+  
+    console.log(strBuilder.join(""))
+
+    
 }
 
