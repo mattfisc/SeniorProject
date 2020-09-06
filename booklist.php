@@ -16,7 +16,7 @@ if(isset($_GET['title']))
 if(isset($_GET['author']))
     $author = $_GET['author'];
 
-if(isset($_GET['isbn']))
+if(isset($_GET['isbn']))// check if numerber
     $isbn = $_GET['isbn'];
 
 if(isset($_GET['location']))

@@ -53,7 +53,16 @@ function searchforbook(){
         var xml_str = "booklist.php?".concat(text);
 
         var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = createList;
+        xhr.onreadystatechange = function() {
+            // NO ERRORS
+            if(this.readyState == 4 && this.status == 200){
+                // CREATE ARRAY of BOOK OBJECT
+                //var book_obj = JSON.parse(this.responseText);
+                createList1(this.responseText);
+                
+            }
+        }
+
         xhr.open("GET",xml_str, true); 
         xhr.send();
     }
@@ -84,37 +93,42 @@ function errorOuput(state){
 
 
 // CREATING BOOK LIST
-function createList(){
-    // IF NO ERRORS
-    if(this.readyState == 4 && this.status == 200){
-        // ARRAY
-        var json = this.responseText;
+function createList(arr){
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out += '<p>' + arr[i].title + '</p>';
+    }
     
-        document.getElementById("my-table").innerHTML = json;
-
+    document.getElementById("my-table").innerHTML = out;
         // // ADD ROW
         // "<tr>"+
         //     "<th>"+ 
         //     // BOOK IMAGE
-        //         "Picture: " + json[picture_loc] +
+        //         "Picture: " + json["picture_loc"] +
         //     "</th>"+
 
         //     "<th>"+
         //     // BOOK DETAILS
-        //         "<ul>" + 3
+        //         "<ul>" +
                 
-        //             "<li>" + "Title: " + json[title] + "</li>"+
-        //             "<li>" + "Author: " + json[author] + "</li>"+
-        //             "<li>" + "IBSN: " + json[isbn] + "</li>"+
+        //             "<li>" + "Title: " + json["title"] + "</li>"+
+        //             "<li>" + "Author: " + json["author"] + "</li>"+
+        //             "<li>" + "IBSN: " + json["isbn"] + "</li>"+
                     
-        //             "<li>" + "Owner: " + json[location] + "</li>"+
+        //             "<li>" + "Owner: " + json["location"] + "</li>"+
         //         "</ul>"+
         //     "</th>"+
         // "</tr>";
 
-    }
+        
+    
    
 }
 
-
+// Working
+function createList1(s){
+    var text = JSON.parse(s);
+    document.getElementById("my-table").innerHTML = text;
+}
 
