@@ -1,25 +1,36 @@
 <?php
 
 
-// SET INPUT
+/** 
+ * 
+ * GET INPUT FROM REQUEST
+ * 
+ * SEARCH DATABASE
+ * 
+ * RETURN JSON BOOKS LIST
+*/
+
 if(isset($_GET['title']))
     $title =$_GET['title'];
+
 if(isset($_GET['author']))
     $author = $_GET['author'];
+
 if(isset($_GET['isbn']))
     $isbn = $_GET['isbn'];
+
 if(isset($_GET['location']))
     $location = $_GET['location'];
 
-// SEARCH QUERY STR
+// CREATE QUERY STR
 $base =  "SELECT * FROM `booklisting` WHERE";
 $query_str = $base;
 
 $operator = " OR";
 if(isset($_GET['title']))
-    $query_str .= " `title` LIKE '". $title . "'";
+    $query_str .= " `title` LIKE '%". $title . "%'";
 
-if(isset($_GET['author'])){
+if(isset($_GET['author'])){// TODO WHAT ABOUT MIDDLE NAME
     if(strcmp($query_str, $base) !== 0)
         $query_str .= $operator;
     $query_str .= " `author` LIKE '". $author . "'";
@@ -29,29 +40,28 @@ if(isset($_GET['isbn'])){
         $query_str .= $operator;
     $query_str .= " `isbn` LIKE '". $isbn . "'";
 }
-if(isset($_GET['location'])){
+if(isset($_GET['location'])){// TODO... THE?
     if(strcmp($query_str, $base) !== 0)
         $query_str .= $operator;
     $query_str .= " `location` LIKE '". $location . "'";
 }
 
-
+// CONNECT TO DATABASE
 //WEBPAGE NOTE: $mysqli = new mysqli("127.0.0.1", "username", "password", "database", 3306);
 $conn = new mysqli("localhost", "root", "", "cs450");
 
-// Check connection
+// CHECK CONNECTION
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// TEST
+// TEST QUERY STRINGS
 //$test = "SELECT * FROM `booklisting` WHERE `title` LIKE '$title'";
-$test = "SELECT * FROM `booklisting` WHERE `title` LIKE 'matt'";
+//$test = "SELECT * FROM `booklisting` WHERE `title` LIKE 'matt'";
 //$test = "SELECT * FROM `booklisting` WHERE `title` LIKE 'matt' AND `author` LIKE 'fischer'";
-$sql = "SELECT * FROM `booklisting` WHERE `title` LIKE 'matt' OR `author` LIKE 'fischer'";
+//$test = "SELECT * FROM `booklisting` WHERE `title` LIKE 'matt' OR `author` LIKE 'fischer'";
 
-// QUERY
-//$result = $conn->query($query_str);
+// QUERY DATABASE
 $result = $conn->query($query_str);
 
 if ($result->num_rows > 0) {

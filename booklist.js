@@ -15,7 +15,6 @@ function searchforbook(){
             state = -1;
     }
 
-
     // GET AUTHOR AND VALIDATE
     if(document.getElementById("author_input").value != ""){
         var word = document.getElementById("author_input").value.toLowerCase();
