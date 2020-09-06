@@ -2,7 +2,7 @@
 // SEARCH WORD IN QUERY 
 // INPUT VALIDATED BY REGULAR EXPRESSION
 
-function searchforbook(){ 
+function searchforbook(){
     var text = '';
     var state = 1;// ERROR STATE
 
@@ -46,7 +46,6 @@ function searchforbook(){
     }
 
     
-    window.alert(text);
     // OUTPUTS DISPLAYED
     errorOuput(state);
     
@@ -92,27 +91,27 @@ function createList(){
         // ARRAY
         var json = this.responseText;
     
-        document.getElementById("my-table").innerHTML = 
+        document.getElementById("my-table").innerHTML = json;
 
-        // ADD ROW
-        "<tr>"+
-            "<th>"+ 
-            // BOOK IMAGE
-                "Picture: " + json[picture_loc] +
-            "</th>"+
+        // // ADD ROW
+        // "<tr>"+
+        //     "<th>"+ 
+        //     // BOOK IMAGE
+        //         "Picture: " + json[picture_loc] +
+        //     "</th>"+
 
-            "<th>"+
-            // BOOK DETAILS
-                "<ul>" + 3
+        //     "<th>"+
+        //     // BOOK DETAILS
+        //         "<ul>" + 3
                 
-                    "<li>" + "Title: " + json[title] + "</li>"+
-                    "<li>" + "Author: " + json[author] + "</li>"+
-                    "<li>" + "IBSN: " + json[isbn] + "</li>"+
+        //             "<li>" + "Title: " + json[title] + "</li>"+
+        //             "<li>" + "Author: " + json[author] + "</li>"+
+        //             "<li>" + "IBSN: " + json[isbn] + "</li>"+
                     
-                    "<li>" + "Owner: " + json[location] + "</li>"+
-                "</ul>"+
-            "</th>"+
-        "</tr>";
+        //             "<li>" + "Owner: " + json[location] + "</li>"+
+        //         "</ul>"+
+        //     "</th>"+
+        // "</tr>";
 
     }
    
