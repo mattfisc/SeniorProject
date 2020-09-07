@@ -57,8 +57,7 @@ function searchforbook(){
             // NO ERRORS
             if(this.readyState == 4 && this.status == 200){
                 // CREATE ARRAY of BOOK OBJECT
-                //var book_obj = JSON.parse(this.responseText);
-                createList1(this.responseText);
+                createList(this.responseText);
                 
             }
         }
@@ -92,47 +91,13 @@ function errorOuput(state){
 }
 
 
-// sccrap junk it
-function createList3(res_text){
-    var arr = JSON.parse(res_text)
-    var out = "";
-    var i;
-    for(i = 0; i < arr.length; i++) {
-        out += '<p>' + arr[i].title + '</p>';
-    }
-    
-    document.getElementById("my-table").innerHTML = out;
-        // // ADD ROW
-        // "<tr>"+
-        //     "<th>"+ 
-        //     // BOOK IMAGE
-        //         "Picture: " + json["picture_loc"] +
-        //     "</th>"+
 
-        //     "<th>"+
-        //     // BOOK DETAILS
-        //         "<ul>" +
-                
-        //             "<li>" + "Title: " + json["title"] + "</li>"+
-        //             "<li>" + "Author: " + json["author"] + "</li>"+
-        //             "<li>" + "IBSN: " + json["isbn"] + "</li>"+
-                    
-        //             "<li>" + "Owner: " + json["location"] + "</li>"+
-        //         "</ul>"+
-        //     "</th>"+
-        // "</tr>";
-
-        
-    
-   
-}
 
 // working
 // CREATING BOOK LIST
 function createList(s){
     // IF NO ERRORS
-    
-        
+
     var jsonobj = JSON.parse(s);
    
     var strBuilder = [];
