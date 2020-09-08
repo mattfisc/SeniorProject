@@ -95,15 +95,21 @@ function errorOuput(state){
 
 // working
 // CREATING BOOK LIST
-function createList(s){
+function createList1(s){
     // IF NO ERRORS
+    //var jsonobj = JSON.parse(s);// single objects
+    // PARSE STRING OF MULTIPLE JSON OBJECTS
+    var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
 
-    var jsonobj = JSON.parse(s);
-   
+    var table = document.getElementById("booklist");
+    var row = document.createElement
+
     var strBuilder = [];
+
+
     for(key in jsonobj) {
         if (jsonobj.hasOwnProperty(key)) {
-        strBuilder.push("Key is " + key + ", value is " + jsonobj[key] + "\n");
+            strBuilder.push("Key is " + key + ", value is " + jsonobj[key] + "\n");
         }
     }
     
@@ -112,4 +118,93 @@ function createList(s){
 
     
 }
+function createList(str){
+    // PARSE STRING OF MULTIPLE JSON OBJECTS
+    var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
 
+    // GET ELEMENT
+    var table = document.getElementById("booklist");
+
+    // SEARCH JSONOBJECT ARRAY
+    for (let i = 0; i < res.length; i++) {
+        // CREATE TABLE ELEMENTS
+        var row = table.insertRow(i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+
+        // SELECT JSON OBJECT
+        const jsonObj = res[i];
+
+        var leftstr = "";
+        var rightstr = "<ul>";
+
+        // SEARCH JSON OBJECT
+        for(key in jsonObj) {
+            
+            if("".concat(key).valueOf == "picture_loc".valueOf){
+                leftstr = jsonObj[key];
+            }
+            else{
+                // rightstr.push("Key is " + key + ", value is " + jsonObj[key] + "\n");
+                
+                rightstr = rightstr.concat( "<li>");
+                console.log(jsonObj.hasOwnProperty('title'));
+                rightstr = rightstr.concat( jsonObj[key] );
+                rightstr = rightstr.concat( "</li>");
+            }
+            
+        }
+        // ADD TEXT TO CELLS
+        cell1.innerHTML = leftstr; 
+
+        rightstr = rightstr.concat("</ul>");
+        console.log(rightstr);
+        cell2.innerHTML = rightstr;
+    }
+
+}
+
+
+function createList2(str){
+    //var jsonobj = JSON.parse(str);// single objects
+
+    // PARSE STRING OF MULTIPLE JSON OBJECTS
+    var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
+    // GET ELEMENT
+    var table = document.getElementById("booklist");
+    // ARRAY OF JSON OBJECTS
+    for (let i = 0; i < res.length; i++) {
+
+        // CREATE TABLE ELEMENTS
+        var row = table.insertRow(i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+
+        // SELECT JSON OBJECT
+        const jsonObj = res[i];
+
+        var leftstr = "";
+        var rightstr = "<ul>";
+
+
+        leftstr = jsonObj[i]["picture_loc"];
+
+        rightstr.concat("<li>", jsonObj[i]["title"],"</li>" );
+        rightstr.concat("<li>", jsonObj[i]["author"],"</li>" );
+        rightstr.concat("<li>", jsonObj[i]["isbn"],"</li>" );
+        rightstr.concat("<li>", jsonObj[i]["location"],"</li>" );
+
+        
+        
+        // Add some text to the new cells:
+        cell1.innerHTML = leftstr; 
+        rightstr.concat("</ul>");
+        
+        console.log(rightstr);
+        cell2.innerHTML = rightstr;
+        
+  
+    }
+    // rightstr.push("Key is " + key + ", value is " + jsonObj[key] + "\n");
+    // console.log(strBuilder.join(""))  
+}
