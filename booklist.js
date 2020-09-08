@@ -161,7 +161,6 @@ function createList(str){
         console.log(rightstr);
         cell2.innerHTML = rightstr;
     }
-
 }
 
 
@@ -183,22 +182,19 @@ function createList2(str){
         // SELECT JSON OBJECT
         const jsonObj = res[i];
 
-        var leftstr = "";
-        var rightstr = "<ul>";
-
-
-        leftstr = jsonObj[i]["picture_loc"];
-
-        rightstr.concat("<li>", jsonObj[i]["title"],"</li>" );
-        rightstr.concat("<li>", jsonObj[i]["author"],"</li>" );
-        rightstr.concat("<li>", jsonObj[i]["isbn"],"</li>" );
-        rightstr.concat("<li>", jsonObj[i]["location"],"</li>" );
+        var leftstr = jsonObj[i]["picture_loc"];
+        
+        var rightstr = "<ul>".concat(
+            "<li>", jsonObj[i]["title"],"</li>",
+            "<li>", jsonObj[i]["author"],"</li>",
+            "<li>", jsonObj[i]["isbn"],"</li>",
+            "<li>", jsonObj[i]["location"],"</li>","</ul>");
 
         
         
         // Add some text to the new cells:
         cell1.innerHTML = leftstr; 
-        rightstr.concat("</ul>");
+        
         
         console.log(rightstr);
         cell2.innerHTML = rightstr;
