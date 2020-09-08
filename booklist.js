@@ -50,7 +50,8 @@ function searchforbook(){
     
     // SEARCH WITH INPUT
     if(text != ""){
-        var xml_str = "booklist.php?".concat(text);
+        //var xml_str = "booklist.php?".concat(text);
+        var xml_str = "test.php?".concat(text);
 
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
