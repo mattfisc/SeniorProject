@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body id="mainbody" >
+<body id="mainbody" style="background-color: #6b6b6b;">
     <div class='page'>
 
         <!--heading-->
         <div class='header'>
         
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light text-white" id="mainNav">
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark " id="mainNav">
                 <div class="container">
                     <a class="navbar-brand js-scroll-trigger" href="#page-top">Book Swap</a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +35,38 @@
 
         </div>
 
-        <!--listing-->
-        <div class="content">
-          
+        <!--LOGIN-->
+        <div class="content pt-5 text-center border-top" >
+            <div class="row">
+                <div class="col-4">
+                    <h2>Login</h2>
+                    <form action="login.php" method="post">
+
+                        <input type="text" name="userEmail" id="userEmail" placeholder="Email" required><br>
+                        <input type="password" name="userPwd" id="userPwd" placeholder="Password" required><br>
+    
+                        <!--SUBMIT BUTTON -->
+                        <br>
+                        <input class="button" type="submit" value="Login">
+                    </form>
+                </div>
+                
+            <!--REGISTRATION-->
+                <div class="col-4">
+                    <h2>Register</h2>
+                    <form action="registration.php" method="post">
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" required><br>
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required><br>
+                        <input type="text" id="email" name="email" placeholder="Email Address" required><br>
+                    <br><br>
+                        <input type="password" id="pwd" name="pwd" placeholder="Password (numberic values only):" required>
+                        <br><!--Button--><br>
+                        <input class="button" type="submit" value="Submit">
+                    </form>
+                </div>
+                
+            </div>
+            
 
         </div><!--end of content middle-->
         

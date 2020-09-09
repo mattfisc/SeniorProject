@@ -117,7 +117,6 @@ function createList(str){
     // EMPTY OLD TABLE
     emptyOfTable();
 
-
     // PARSE STRING OF MULTIPLE JSON OBJECTS
     var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
 
@@ -135,35 +134,34 @@ function createList(str){
         const jsonObj = res[i];
 
         // LEFT IMAGE
-        var leftstr = "upload/dead.jpg";
+        var leftstr = "";
         var img = document.createElement("img");
-        img.src = leftstr;
+        
+        // PICTURE FILE
+
+        leftstr = "upload/".concat(jsonObj.picture);  
+        img.src = leftstr; 
         cell1.appendChild(img);
+        
+        
+        
+       
 
-
-        var rightstr = "<ul>";
-
-        // SEARCH JSON OBJECT
-        for(key in jsonObj) {
-            rightstr = rightstr.concat("<li>",jsonObj[key],"</li>");
-        }
-        // ADD TEXT TO CELLS
-        //cell1.innerHTML = leftstr; 
-
-        rightstr = rightstr.concat("</ul>");
-        //console.log(rightstr);
+        // BOOK LIST
+        var rightstr = "<ul>".concat(
+            "<li>Title:  ",jsonObj.title,"</li>",
+            "<li>Author:  ",jsonObj.author,"</li>",
+            "<li>Isbn:  ",jsonObj.isbn,"</li>",
+            "<li>Location:  ",jsonObj.location,"</li>",
+            "</ul>");
+        
         cell2.innerHTML = rightstr;
     }
 }
-
-
-
-
-
-
 
 function emptyOfTable(){
     // EMPTY OLD TABLE SEARCH
     var table = document.getElementById("booklist");
     table.innerHTML = "";
 }
+
