@@ -1,4 +1,8 @@
 
+
+var booklist = new Array();
+
+
 // SEARCH WORD IN QUERY 
 // INPUT VALIDATED BY REGULAR EXPRESSION
 
@@ -44,13 +48,13 @@ function searchforbook(){
             state = -4;
     }
 
-    
+
     // OUTPUTS DISPLAYED
-    errorOuput(state);
+    searchError(state);
     
     // SEARCH WITH INPUT
     if(text != ""){
-        var xml_str = "booklist.php?".concat(text);
+        var xml_str = "booklist/searchBook.php?".concat(text);
         //var xml_str = "test.php?".concat(text);
 
         var xhr = new XMLHttpRequest();
@@ -58,7 +62,7 @@ function searchforbook(){
             // NO ERRORS
             if(this.readyState == 4 && this.status == 200){
                 // CREATE ARRAY of BOOK OBJECT
-                createList(this.responseText);
+                fillBookList(this.responseText);
                 
             }
         }
@@ -71,7 +75,7 @@ function searchforbook(){
 }
 
 // DISPLAY ERROR
-function errorOuput(state){
+function searchError(state){
     // ERROR
     switch(state){
         case -1:
@@ -94,28 +98,10 @@ function errorOuput(state){
 
 
 
-// working
-// CREATING BOOK LIST
-function createList1(str){
-    // EMPTY OLD TABLE
-    emptyOfTable();
-    
-    // IF NO ERRORS
-    var jsonobj = JSON.parse(str);// single objects
-    // PARSE STRING OF MULTIPLE JSON OBJECTS
-    //var jsonobj = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
-    var strBuilder = [];
-    for(key in jsonobj) {
-        if (jsonobj.hasOwnProperty(key)) {
-            strBuilder.push("Key is " + key + ", value is " + jsonobj[key] + "\n");
-        }
-    }
-    console.log(strBuilder.join(""))
 
-}
-function createList(str){
+function fillBookList1(str){
     // EMPTY OLD TABLE
-    emptyOfTable();
+    emptyList();
 
     // PARSE STRING OF MULTIPLE JSON OBJECTS
     var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
@@ -142,10 +128,6 @@ function createList(str){
         leftstr = "upload/".concat(jsonObj.picture);  
         img.src = leftstr; 
         cell1.appendChild(img);
-        
-        
-        
-       
 
         // BOOK LIST
         var rightstr = "<ul>".concat(
@@ -159,9 +141,66 @@ function createList(str){
     }
 }
 
-function emptyOfTable(){
-    // EMPTY OLD TABLE SEARCH
+function emptyList(){
+    // EMPTY OBJECT LIST
+    booklist = new Array();
+
+    // EMPTY TABLE IN HTML
     var table = document.getElementById("booklist");
     table.innerHTML = "";
 }
 
+function fillBookList(str){
+    // EMPTY OLD SEARCH LIST
+    emptyList();
+
+    // PARSE STRING OF MULTIPLE JSON OBJECTS
+    var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
+
+    
+
+    // SEARCH JSONOBJECT ARRAY
+    for (let i = 0; i < res.length; i++) {
+        // SELECT JSON OBJECT
+        const jsonObj = res[i];
+
+        // CREATE BOOK LIST
+        const book = initializeBook(res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture);
+        booklist.push(book);
+        
+    }
+    displayList();
+}
+
+
+function displayList(){
+    // GET TABLE ELEMENT
+    var table = document.getElementById("booklist");
+
+    for(let i = 0; i < booklist.length; i++) {
+        // CREATE TABLE ELEMENTS
+        var row = table.insertRow(i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+
+        // LEFT CELL
+        var leftstr = "";
+        var img = document.createElement("img");
+        
+        // PICTURE FILE
+        leftstr = "upload/".concat(booklist[i].picture);  
+        img.src = leftstr; 
+        cell1.appendChild(img);
+
+        // RIGHT CELL BOOK LIST ATTRIBUTES
+        var rightstr = "<ul>".concat(
+            "<li>Title:  ",booklist[i].title,"</li>",
+            "<li>Author:  ",booklist[i].author,"</li>",
+            "<li>Isbn:  ",booklist[i].isbn,"</li>",
+            "<li>Location:  ",booklist[i].location,"</li>",
+            "</ul>");
+        
+        cell2.innerHTML = rightstr;
+        
+    }
+}

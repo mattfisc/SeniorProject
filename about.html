@@ -24,51 +24,31 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger " href="booklist.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" href="#" tabindex="-1" aria-disabled="true" href="login_reg.html">Register of Login</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">About</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger " href="home.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile/form.html#login">Login</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger " href="profile/form.html#registration">Register</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" href="about.html" tabindex="-1" aria-disabled="true">About</a></li>
                         </ul>
                     </div>
-                    <div><a href="#"><img src="img/user.png" width="30" height="30" class="d-inline-block align-top" alt=""></a></div>
+                    <div><a href="profile/profile.html"><img src="img/user.png" width="30" height="30" class="d-inline-block align-top " alt=""></a></div>
                 </div>
             </nav>
 
         </div>
 
-        <!--LOGIN-->
-        <div class="content pt-5 text-center border-top" >
-            <div class="row">
-                <div class="col-4">
-                    <h2>Login</h2>
-                    <form action="login.php" method="post">
+        <!--FORM-->
+            <div class="content border-top m-auto pt-5" >
 
-                        <input type="text" name="userEmail" id="userEmail" placeholder="Email" required><br>
-                        <input type="password" name="userPwd" id="userPwd" placeholder="Password" required><br>
-    
-                        <!--SUBMIT BUTTON -->
-                        <br>
-                        <input class="button" type="submit" value="Login">
-                    </form>
+              <div class="col-4 m-auto">
+                <div class="row">
+                    <h2 class="text-center font-weight-bold text-light" style="text-shadow: 2px 2px black">Book List</h2>
                 </div>
-                
-            <!--REGISTRATION-->
-                <div class="col-4">
-                    <h2>Register</h2>
-                    <form action="registration.php" method="post">
-                        <input type="text" id="firstName" name="firstName" placeholder="First Name" required><br>
-                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required><br>
-                        <input type="text" id="email" name="email" placeholder="Email Address" required><br>
-                    <br><br>
-                        <input type="password" id="pwd" name="pwd" placeholder="Password (numberic values only):" required>
-                        <br><!--Button--><br>
-                        <input class="button" type="submit" value="Submit">
-                    </form>
-                </div>
-                
-            </div>
-            
+                <p>This website was created for the ease of trading books inside of Universties.  
+                      Books are being re-used every semester.  Would you like to get in contact with 
+                      people that just got out of the class and trade or buy there book.</p>
+              </div>
 
-        </div><!--end of content middle-->
+            </div><!--END OF CONTENT-->
         
         <!--footer-->
         <div class='footer'>
