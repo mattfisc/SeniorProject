@@ -27,7 +27,7 @@ $num = mysqli_num_rows($check);
 
 // EMAIL TAKEN REGISTRATION ERROR
 if($num == 1){
-  header('location:form.php?message=emailerror');// TRY AGAIN
+  header('location:registration_form.php?message=emailerror');// TRY AGAIN
 
 }
 else{
@@ -44,11 +44,11 @@ else{
   // CREATE MEMBER TRUE
   if ($conn->query($createMember) === TRUE) {
     // SUCCEESS
-    header('location:form.php?message=created');
+    header('location:login_form.php?message=created');
   } 
   // CREATE MEMBER FALSE
   else {
-    header('location:form.php?message=fail');
+    header('location:registration_form.php?message=fail');
   
 
   }

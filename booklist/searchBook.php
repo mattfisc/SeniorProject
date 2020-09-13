@@ -1,6 +1,6 @@
 <?php
 
-
+echo "hello";
 /** 
  * 
  * GET INPUT FROM REQUEST
@@ -10,41 +10,42 @@
  * RETURN JSON BOOKS LIST
 */
 
-if(isset($_GET['title']))
-    $title =$_GET['title'];
-
-if(isset($_GET['author']))
-    $author = $_GET['author'];
-
-if(isset($_GET['isbn']))// check if numerber
-    $isbn = $_GET['isbn'];
-
-if(isset($_GET['location']))
-    $location = $_GET['location'];
-
 // CREATE QUERY STR
 $base =  "SELECT * FROM `booklisting` WHERE";
 $query_str = $base;
 
 $operator = " OR";
-if(isset($_GET['title']))
-    $query_str .= " `title` LIKE '%". $title . "%'";
 
-if(isset($_GET['author'])){// TODO WHAT ABOUT MIDDLE NAME
+if(isset($_GET['title'])){
+    $title =$_GET['title'];
+    $query_str .= " `title` LIKE '%". $title . "%'";
+}
+    
+
+if(isset($_GET['author'])){
+    $author = $_GET['author'];
     if(strcmp($query_str, $base) !== 0)
         $query_str .= $operator;
     $query_str .= " `author` LIKE '". $author . "'";
 }
+    
+
 if(isset($_GET['isbn'])){
+    $isbn = $_GET['isbn'];
     if(strcmp($query_str, $base) !== 0)
         $query_str .= $operator;
     $query_str .= " `isbn` LIKE '". $isbn . "'";
+
 }
-if(isset($_GET['location'])){// TODO... THE?
+
+
+if(isset($_GET['location'])){
+    $location = $_GET['location'];
     if(strcmp($query_str, $base) !== 0)
-        $query_str .= $operator;
-    $query_str .= " `location` LIKE '". $location . "'";
+    $query_str .= $operator;
+$query_str .= " `location` LIKE '". $location . "'";
 }
+
 
 // CONNECT TO DATABASE
 //WEBPAGE NOTE: $mysqli = new mysqli("127.0.0.1", "username", "password", "database", 3306);

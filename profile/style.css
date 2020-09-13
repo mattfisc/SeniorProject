@@ -1,0 +1,39 @@
+.message {
+    
+    text-align: center;
+    
+    width: fit-content;
+    height: fit-content;
+    background-color: lightblue;
+    border: black 1px dashed;
+    padding: 10px;
+}
+#messageImg {
+    background-image: url('thumbs_up.jpg');
+    background-repeat: no-repeat;
+
+    width:270px;
+    height:185px;
+
+    background-color: black;
+}
+.error {
+    
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+
+    background-color: lightcoral;
+    border: red 1px dashed;
+    padding: 10px;
+
+}
+#errorImg {
+    background-image: url('thumbs_down.jpg');
+    background-repeat: no-repeat;
+
+    width:300px;
+    height:165px;
+    
+    background-color: black;
+}

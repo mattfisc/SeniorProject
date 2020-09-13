@@ -30,17 +30,17 @@ if($check->num_rows > 0){
         // FIND CORRECT EMAIL WITH PASSWORD
         if($row['Email']=== $email && $row['Pass']=== $password){
             // MEMBER EXISTS
-            header('location:profile.html?message=success');
+            header('location:login_form.php?message=success');
             
         }
         else{
-            header('location:form.php?message=error');
+            header('location:login_form.php?message=error');
         }
     }
 }
 else{
     // MEMBER DOES NOT EXIST
-    header('location:form.php?message=fail');
+    header('location:login_form.php?message=fail');
 }
 
 ?>

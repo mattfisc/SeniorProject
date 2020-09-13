@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="booklist.css"> -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
   <script src="booklist/book.js"></script>
   <script src="booklist/booklist.js"></script>
 </head>
@@ -17,7 +17,6 @@
     <!--heading-->
     <div class='header'>
     
-      
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark " id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">Book Swap</a>
@@ -28,8 +27,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" href="#" tabindex="-1" aria-disabled="true" href="home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile/form.php#login" >Login</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile/form.php#registration">Register</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile/login_form.php" >Login</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile/registration_form.php">Register</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about.html">About</a></li>
                 </ul>
             </div>
@@ -58,6 +57,10 @@
             <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="University..">
 
             <button onclick="searchforbook()" type="submit">Submit</button>
+            <br><br><br>
+            <button><a href="booklist/form_add_book.php">Add Book</a></button>
+            <br>
+            <button onclick="deleteBook()" type="submit">Delete Book</button>
           </div>
       
         </div><!--END OF SEARCH-->
