@@ -91,8 +91,6 @@
             <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="City or University..">
             <br>
             <button onclick="addBook()" type="submit">Add Book</button>
-            <br>
-            <button onclick="#" type="submit">Delete Book</button>
           </div>
                 
         </div><!--END OF CONTENT-->

@@ -23,24 +23,15 @@ if ($conn->connect_error) {
 
 
 // CREATE QUERY STR
-$base =  "INSERT INTO `booklisting` (`id`,`title`, `author`, `isbn`, `location`, `picture`) VALUES (";
+$base =  "INSERT INTO `booklisting` (`title`, `author`, `isbn`, `location`, `picture`) VALUES (";
 $query_str = $base;
 
 $between = ",";
 
 
-// SET ID 
-// GET TABLE ID MAX
-$q = "SELECT MAX(id) FROM booklisting";
-$id = mysqli_query($conn,$q);
-echo $id;
-
-$query_str .= $id;
-
 // SET TITLE
 if(isset($_GET['title'])){
     $title =$_GET['title'];
-    $query_str .= $between;
 }
 else
     $title = null;
