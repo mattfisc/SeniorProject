@@ -60,8 +60,7 @@ function addBook(title,author,isbn,location,picture){
    * @returns string of success or failure
    */
   var text = getQueryString();
-  console.log(text);
-  console.log(typeof text);
+
   // XML REQUEST JSON TO ADD BOOK TO TABLE
   var xml_str = "addBook.php?".concat(text);
   //var xml_str = "test.php?".concat(text);
@@ -73,6 +72,7 @@ function addBook(title,author,isbn,location,picture){
           // CREATE ARRAY of BOOK OBJECT
           // fillBookList(this.responseText);
         var result_str = this.responseText;
+        console.log(result_str);
 
       }
   }
@@ -179,7 +179,15 @@ function getQueryString(){
           state = -4;
   }
 
+  // GET PICTURE AND VALIDATE
+  
+  // SAVE PICTURE INTO UPLOAD FOLDER
 
+  // SAVE NAME
+  var picture = "none.jpg";
+  
+  // ADD PICTURE TO QUERY STRING
+  text += '&picture='.concat(picture);
 
   // ERROR DISPLAY
   searchError(state);

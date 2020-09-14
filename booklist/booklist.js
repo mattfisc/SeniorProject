@@ -18,8 +18,6 @@ function searchforbook(){
             if(this.readyState == 4 && this.status == 200){
                 // CREATE ARRAY of BOOK OBJECT
                 fillBookList(this.responseText);
-               
-                
             }
         }
 

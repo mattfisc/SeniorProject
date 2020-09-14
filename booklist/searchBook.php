@@ -1,6 +1,5 @@
 <?php
 
-echo "hello";
 /** 
  * 
  * GET INPUT FROM REQUEST
