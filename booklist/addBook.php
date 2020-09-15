@@ -77,7 +77,6 @@ $query_str .= "'". $picture . "'";
 
 // END QUERY STRING
 $query_str .= ")";
-echo $query_str;
 
 
 

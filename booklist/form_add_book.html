@@ -15,6 +15,9 @@
     <div class='page'>
         <!--heading-->
         <div class='header'>
+            <div id="message"class="col-4">
+                <p ></p>
+            </div>
         
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark " id="mainNav">
                 <div class="container">
@@ -40,60 +43,28 @@
 
         <div class="content">
             
-            <div class="row p-1" id="m">
-                <?php
-                    //$fullUrl = "http://$SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-                    $url = "http://localhost:$_SERVER[REQUEST_URI]";
-
-                    $index =strpos($url, "message");
-                    $substr = substr($url,$index);
-                    // Message exists
-                    if(strcmp($substr,$url) != 0){
-                        // LOGIN IN SUCCESS
-                        if(strcmp($substr, "message=created") == 0){
-                            echo "<div id=messageImg></div>";
-                            echo "<p class='message'>Created Member Record!<p>";
-
-                        }
-                        // LOGIN FAILED
-                        else if(strcmp($substr, "message=fail") == 0){
-                            echo "<div id=errorImg></div>";
-                            echo "<p class='error'>Failed to login. Try to register first.<p>";
-                        
-                        }
-                        // LOGIN FAILED
-                        else if(strcmp($substr, "message=error") == 0){
-                            echo "<div id=errorImg></div>";
-                            echo "<p class='error'>Failed to login. Email or Password is incorrect!.<p>";
-
-                        }
-                        else{
-                            echo"nothing";
-                        }
-                    }
-                    // LOADING PAGE DEFAULT
-                    else{
-                        echo "<p>Login here!<p>";
-                        
-                    }
-                ?>
-            </div>
-
+            
             <!--FORM-->
             <div class="row pt-5 border-top" >
 
-            <div class="container" >
+                <div class="col-4" >
             
-            <h2>Add Book</h2>
-            <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
-            <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
-            <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
-            <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="City or University..">
-            <br>
-            <button onclick="addBook()" type="submit">Add Book</button>
-          </div>
-                
-        </div><!--END OF CONTENT-->
+                    <h2>Add Book</h2>
+                    <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
+                    <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
+                    <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
+                    <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="City or University..">
+                    <br>
+                    <button onclick="addBook()" type="submit">Add Book</button>
+                </div>
+            </div>
+            <!-- <div class="row p-1" >
+                <h2>Message Output</h2>
+                <p class="m-auto" id="message"></p>      
+            </div> -->
+        </div>
+       
+        <!--END OF CONTENT-->
         <!--footer-->
         <div class='footer'>
 

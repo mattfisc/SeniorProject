@@ -27,15 +27,10 @@ $num = mysqli_num_rows($check);
 
 // EMAIL TAKEN REGISTRATION ERROR
 if($num == 1){
-  header('location:registration_form.php?message=emailerror');// TRY AGAIN
+  echo "email already taken";
 
 }
 else{
-  
-  // CREATE NEXT ID NUMBER
-  $id = "SELECT MIN(id) FROM registration;";
-  echo $id;
-
 
 
   // QUERY STRING
@@ -44,11 +39,11 @@ else{
   // CREATE MEMBER TRUE
   if ($conn->query($createMember) === TRUE) {
     // SUCCEESS
-    header('location:login_form.php?message=created');
+    echo "created";
   } 
   // CREATE MEMBER FALSE
   else {
-    header('location:registration_form.php?message=fail');
+    echo "fail";
   
 
   }

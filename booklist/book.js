@@ -67,14 +67,12 @@ function addBook(title,author,isbn,location,picture){
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-      // NO ERRORS
-      if(this.readyState == 4 && this.status == 200){
-          // CREATE ARRAY of BOOK OBJECT
-          // fillBookList(this.responseText);
-        var result_str = this.responseText;
-        console.log(result_str);
-
-      }
+    // NO ERRORS
+    if(this.readyState == 4 && this.status == 200){
+      // CREATE ARRAY of BOOK OBJECT
+      var res = this.responseText;
+      window.alert(res);
+    }
   }
 
   xhr.open("GET",xml_str, true); 
