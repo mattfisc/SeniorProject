@@ -141,8 +141,8 @@ function getQueryString(){
 
   // GET TITLE AND VALIDATE
   if(document.getElementById("title_input").value.length != ""){
-      var word = document.getElementById("title_input").value.toLowerCase();
-      if(!/[^a-z ]/.test(word))// ERROR TITLE... LETTERS ONLY
+      var word = document.getElementById("title_input").value;
+      if(!/[^a-zA-Z ]/.test(word))// ERROR TITLE... LETTERS ONLY
           text += 'title='.concat(word);
       else
           state = -1;
@@ -150,8 +150,8 @@ function getQueryString(){
 
   // GET AUTHOR AND VALIDATE
   if(document.getElementById("author_input").value != ""){
-      var word = document.getElementById("author_input").value.toLowerCase();
-      if(!/[^a-z ]/.test(word))// ERROR AUTHOR.. LETTERS ONLY
+      var word = document.getElementById("author_input").value;
+      if(!/[^a-zA-Z ]/.test(word))// ERROR AUTHOR.. LETTERS ONLY
           text += '&author='.concat(word);
       else
           state = -2;
@@ -170,8 +170,8 @@ function getQueryString(){
 
   // GET LOCATION AND VALIDATE
   if(document.getElementById("location_input").value.length != ""){
-      var word = document.getElementById("location_input").value.toLowerCase();
-      if(!/[^a-z ]/.test(word))// ERRORS LOCATION.. LETTERS ONLY
+      var word = document.getElementById("location_input").value;
+      if(!/[^a-zA-Z ]/.test(word))// ERRORS LOCATION.. LETTERS ONLY
           text += '&location='.concat(word);
       else
           state = -4;

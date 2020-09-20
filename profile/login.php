@@ -2,8 +2,8 @@
 
 
 // LOGIN
-$email = $_POST['userEmail'];
-$password = $_POST['userPassword'];
+$name = $_POST['name'];
+$password = $_POST['password'];
 
 // CONNECT TO DATABASE
 //WEBPAGE NOTE: $mysqli = new mysqli("127.0.0.1", "username", "password", "database", 3306);
@@ -17,30 +17,32 @@ if ($conn->connect_error) {
 
 // TEST IF MEMBER EXISTS BY EMAIL
 // $test = "SELECT * FROM `fitnesssignup` WHERE Email = '$email' "; works
-$test = "SELECT Email, Pass FROM `fitnesssignup` WHERE Email = '$email'";
+$test = "SELECT name FROM `registration` WHERE name = '". $name ."'";
 //$test = "SELECT * FROM `booklisting` WHERE `title` LIKE 'matt' AND `author` LIKE 'fischer'";
 
 // TEST
-$check = $mysqli->query($test);
+$check = mysqli_query($conn,$test);
+$rows = mysqli_num_rows($check);
 
 // LOGIN IN MEMBER
-if($check->num_rows > 0){
+if($rows == 1){
     while($row = $check->fetch_assoc()){
-
+        
         // FIND CORRECT EMAIL WITH PASSWORD
-        if($row['Email']=== $email && $row['Pass']=== $password){
+        if($row['name'] == $name){
             // MEMBER EXISTS
-            header('location:login_form.php?message=success');
-            
+            $_SESSION["profile_name"] = $name;
+            header('location:member_only.php');
         }
         else{
-            header('location:login_form.php?message=error');
+            echo "error";
         }
     }
 }
 else{
     // MEMBER DOES NOT EXIST
-    header('location:login_form.php?message=fail');
+    header('location:login_form.php');
+    echo "Member does not exist ";
 }
 
 ?>
