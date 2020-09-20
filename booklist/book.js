@@ -3,7 +3,6 @@ class Book {
    * Class Book
    * Creates an object Book
    * 
-   * 
    * @param title string is the title of the book
    * @param author string is the author of the book
    * @param isbn int is the isbn of a book

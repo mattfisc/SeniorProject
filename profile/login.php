@@ -32,7 +32,7 @@ if($rows == 1){
         if($row['name'] == $name){
             // MEMBER EXISTS
             $_SESSION["profile_name"] = $name;
-            header('location:member_only.php');
+            header('location:member_only.html');
         }
         else{
             echo "error";
@@ -41,7 +41,7 @@ if($rows == 1){
 }
 else{
     // MEMBER DOES NOT EXIST
-    header('location:login_form.php');
+    header('location:login_form.html');
     echo "Member does not exist ";
 }
 

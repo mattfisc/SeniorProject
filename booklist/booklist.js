@@ -1,6 +1,6 @@
 
 
-var booklist = new Array();
+var booklist = [];
 
 
 
@@ -100,7 +100,7 @@ function fillBookList(str){
         const jsonObj = res[i];
 
         // CREATE BOOK LIST
-        const book = initializeBook(res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture);
+        const book = new Book(res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture);
         booklist.push(book);
         
     }
