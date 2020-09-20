@@ -196,4 +196,7 @@ function getQueryString(){
     return text;
 
 
+    
+
 }
+
