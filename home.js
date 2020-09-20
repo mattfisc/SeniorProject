@@ -8,12 +8,11 @@ window.onload = function(){
 
 class User_Member{
 
-    constructor(){
-        this.name = "Guest";
-    }
-
     constructor(name){
-        this.name = name;
+        if(name = null)
+            this.name = "Guest";
+        else
+            this.name = name;
     }
     // 
 
