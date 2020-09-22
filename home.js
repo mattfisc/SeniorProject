@@ -2,7 +2,7 @@ window.onload = function(){
 
     const profile = new User_Member();
     // SET NAME TO NAV BAR
-    var element = document.getElementById("pName").innerHTML = "Guest";
+    var element = document.getElementById("pName").innerText = "Guest";
 }
 
 
