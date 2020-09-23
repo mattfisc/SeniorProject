@@ -4,7 +4,7 @@ function register(){
     if(validate_name() == true && validate_email() == true && validate_password() == true){
         var name
   
-        var text = "name=".concat(document.getElementById("name").value);
+        var text = "name=".concat(document.getElementById("name").value).toLowerCase;
         text = text.concat("&email=",document.getElementById("email").value);
         text = text.concat("&password=",document.getElementById("password").value);
        
@@ -15,8 +15,8 @@ function register(){
                 if(this.readyState == 4 && this.status == 200){
                     // GET ELEMENT
                     // DISPLAY MESSAGE
-                    document.getElementById("message").innerHTML = this.responseText;
-                    
+                    //document.getElementById("message").innerHTML = this.responseText;
+                    console.log(this.responseText);
                     
                 }
         }

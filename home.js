@@ -1,20 +1,21 @@
-window.onload = function(){
 
+
+window.onload = function(){
+  
     const profile = new User_Member();
     // SET NAME TO NAV BAR
-    var element = document.getElementById("pName").innerText = "Guest";
+    document.getElementById("pName").innerText = profile.name;
 }
 
 
 class User_Member{
 
     constructor(name){
-        if(name = null)
+        if(name == null)
             this.name = "Guest";
         else
             this.name = name;
     }
-    // 
 
     // Getter profile
     getProfileName(){

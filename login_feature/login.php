@@ -41,8 +41,7 @@ if($rows == 1){
 }
 else{
     // MEMBER DOES NOT EXIST
-    header('location:login_form.html');
-    echo "Member does not exist ";
+    echo "not a member";
 }
 
 ?>

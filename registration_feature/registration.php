@@ -16,27 +16,21 @@ if ($conn->connect_error) {
 }
 
 // TEST IF MEMBER EXISTS BY EMAIL or name
-$test = "SELECT * FROM `registration` WHERE  email = '" . $email . "'OR name_profile = '" .$name. "'";
+//$test = "SELECT * FROM `registration` WHERE  email = '" . $email . "'OR name_profile = '" .$name. "'";
 //SELECT * FROM `registration` WHERE email = 'ashfisch@outlook.com' OR name_profile = 'Matthew Fischer'
-$name_test = "SELECT * FROM `registration` WHERE  name_profile = '" .$name. "'";
-$email_test = "SELECT * FROM `registration` WHERE  email = '" . $email . "'";
+$test = "SELECT * FROM `registration` WHERE  name_profile = '" .$name. "' OR email = '" . $email . "'";
+//$email_test = "SELECT * FROM `registration` WHERE  email = '" . $email . "'";
 
 // TEST
-$check1 = mysqli_query($conn,$name_test);
-$name_rows = mysqli_num_rows($check1);
+$check = mysqli_query($conn,$test);
+$num_rows = mysqli_num_rows($check);
 
-$check2 = mysqli_query($conn,$email_test);
-$email_rows = mysqli_num_rows($check2);
 
 // EMAIL TAKEN REGISTRATION ERROR
 // EMAIL TAKEN REGISTRATION ERROR
-if($name_rows >= 1){
+if($num_rows > 0){
     echo "Name already taken";
   
-  }
-else if($email_rows >= 1){
-  echo "Email already taken.";
-
 }
 else{
 

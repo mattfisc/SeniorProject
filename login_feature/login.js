@@ -10,7 +10,7 @@ function login(){
             if(this.readyState == 4 && this.status == 200){
                 // GET ELEMENT
                 // DISPLAY MESSAGE
-                document.getElementById("message").innerHTML = this.responseText;
+                login_results(this.responseText);
             }
     }
     xhr.open("POST","login.php"); 
@@ -18,5 +18,15 @@ function login(){
 
     xhr.send(text);
 
+
+}
+
+login_results(results_str){
+    if(results_str == "failed"){
+        window.alert("failed to login. try to register");
+    }
+    else{
+
+    }
 
 }
