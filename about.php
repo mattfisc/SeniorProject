@@ -14,33 +14,9 @@
     <div class='page'>
 
         <!--heading-->
-        <div class='header'>
-        
-            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark " id="mainNav">
-                <div class="container">
-                    <a class="navbar-brand js-scroll-trigger" href="#page-top">Book Swap</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        Menu
-                        <img src="img/menu.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger " href="home.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login_feature/login_form.html">Login</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger " href="registration_feature/registration_form.html">Register</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" href="about.html" tabindex="-1" aria-disabled="true">About</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <a href="member_page_feature/member_only.html">
-                            <img src="img/user.png" width="30" height="30" class="d-inline-block align-top" alt="" >
-                            <span id="pName"></span> 
-                        </a>
-                    </div>
-                </div>
-            </nav>
-
-        </div>
+        <?php
+        require "../includes/header.php"
+        ?>
 
         <!--FORM-->
             <div class="content border-top m-auto pt-5" >

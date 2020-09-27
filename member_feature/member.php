@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +14,12 @@
   <script src="../home.js"></script>
 
 </head>
+
+
 <body id="mainbody" style="background-color: #6b6b6b;">
   <div class='page'>
 
-    <!--heading-->
+    <!--HEADER AND NAV BAR-->
     <div class='header'>
     
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark " id="mainNav">
@@ -27,23 +31,32 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../home.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../login_feature/login_form.html">Login</a></li>
-              <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../registration_feature/registration_form.html">Register</a></li>
-              <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../home.php">Home</a></li>
+              <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../login_feature/login_form.php">Login</a></li>
+              <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../registration_feature/registration_form.php">Register</a></li>
+              <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../about.php">About</a></li>
             </ul>
           </div>
           <div>
-            <a href="../member_page_feature/member_only.html">
+            <a href="../member_page_feature/member_only.php">
               <img src="../img/user.png" width="30" height="30" class="d-inline-block align-top" alt="" >
-              <span id="pName"></span> 
-        </a>
+              <span id="yourName">
+              <?php
+
+                if(isset($_SESSION['profile_name']))
+                    echo $_SESSION['profile_name'];
+                else
+                    echo "Guest";
+
+              ?>
+              </span>  
+          </a>
           </div>
         </div>
       </nav>
+    </div><!--END OF NAV-->
 
-    </div>
-
+   
     <!--FORM-->
     <div class="content p-5 border-top">
       <div class="row">
@@ -60,14 +73,18 @@
       </div>
       <div id="logout">
         <h2>Log out</h2>
+        <form action="" method="post">
+          <button type="submit" name="logout-submit">Logout</button>
+        </form>
       </div>
     </div>
     <!--END OF CONTENT-->
       
-      <!--FOOTER-->
-      <div class='footer'>
 
-      </div>
+      <!--FOOTER-->
+      <?php
+        //require "../includes/footer.php";
+    ?>
   </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
