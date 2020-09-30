@@ -16,6 +16,7 @@ session_start();
 <body id="mainbody" style="background-color: #6b6b6b;">
     <div class='page'>
 
+    <!--HEADER-->
     <?php
         require "../includes/header.php";
     ?>
@@ -28,7 +29,7 @@ session_start();
             <!--FORM-->
             <div class="row border-top main-wrapper" >
 
-                <div class="row pt-3" id="login">
+                <div class="row pt-3 m-auto" id="login">
                     <div class="col-4 m-auto">
                         <h2 >Login</h2>
                         <div>

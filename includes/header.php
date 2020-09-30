@@ -18,17 +18,16 @@
                 </div>
                 <div>
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="../member_feature/member.php">
-                                <img src="../img/user.png" width="30" height="30" class="d-inline-block align-top" alt="" >            
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <?php
-                                if(isset($_SESSION['profile_name']))
-                                    echo $_SESSION['profile_name'];
+                                if(isset($_SESSION['userId'])){
+                                    echo "<a href='../member_feature/member.php'>
+                                    <img src='../img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userId']."            
+                                </a>";
+                                }
                                 else
-                                    echo "Guest";
+                                echo "<img src='../img/user.png' width='30' height='30' class='d-inline-block align-top'>Guest";
                                 ?>
                             </li>
                         <li class="nav-item ml-5">
