@@ -33,6 +33,7 @@ if(isset($_POST['login-submit'])){
             
             // SEARCH RESULTS
             if($row = mysqli_fetch_assoc($result)){
+<<<<<<< Updated upstream
                 // CHECK HASH PASSWORD 
                 
                 // pwdcheck is always false column creation the problem
@@ -41,6 +42,23 @@ if(isset($_POST['login-submit'])){
                     echo "success";
                 else
                     echo "failure";
+=======
+                // CHECK HASH PASSWORD
+                
+                // echo $row['idUsers'];
+                // echo $row['uidUsers'];
+                // echo $row['emailUsers'];
+                // echo $row['pwdUsers'];
+                // echo $password; 
+
+                // pwdcheck is always false column creation the problem
+                $pwdCheck = password_verify($password,$row['pwdUsers']);
+                // $pwdCheck is blank
+                if($pwdCheck == true)
+                    echo "success";
+                else
+                    echo "failure";// always running failure
+>>>>>>> Stashed changes
 
                 // ERROR PASSWORD
                 if($pwdCheck == false){
