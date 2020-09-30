@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +23,11 @@
         ?>
 
         <!--FORM-->
-            <div class="content border-top m-auto pt-5" >
+            <div class="content border-top m-auto pt-5 p-1" >
 
               <div class="col-4 m-auto">
                 <div class="row">
-                    <h2 class="text-center font-weight-bold text-light" style="text-shadow: 2px 2px black">Book List</h2>
+                    <h2 class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black">Book List</h2>
                 </div>
                 <p>This website was created for the ease of trading books inside of Universties.  
                       Books are being re-used every semester.  Would you like to get in contact with 

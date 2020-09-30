@@ -73,7 +73,7 @@ if(isset($_POST['signup-submit'])){
         // CHECK MATCH ALREADY IN TABLE
         else{
           // HASHED PWD
-          $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
+          $hashedPwd = password_hash($password1,PASSWORD_DEFAULT);
 
           mysqli_stmt_bind_param($stmt,'sss',$username,$email,$hashedPwd);
           mysqli_stmt_execute($stmt);

@@ -35,39 +35,11 @@ if(isset($_POST['login-submit'])){
             if($row = mysqli_fetch_assoc($result)){
 
                 // CHECK HASH PASSWORD 
-                
-                // pwdcheck is always false column creation the problem
                 $pwdCheck = password_verify($password,$row['pwdUsers']);
-
-
-
-                echo $password;
-                echo $row['pwdUsers'] == '$2y$10$ShgeOFInyq2w2/3FqmAVju5vPhadO6xJ57rlr5IIQLqXYL4U5fry.';
-                echo  password_verify($password,$row['pwdUsers']);
-                if($pwdCheck == true)
-                    echo "success";
-                else
-                    echo "failure";
-
-                // CHECK HASH PASSWORD
                 
-                // echo $row['idUsers'];
-                // echo $row['uidUsers'];
-                // echo $row['emailUsers'];
-                // echo $row['pwdUsers'];
-                // echo $password; 
-
-                // pwdcheck is always false column creation the problem
-                $pwdCheck = password_verify($password,$row['pwdUsers']);
-                // $pwdCheck is blank
-                if($pwdCheck == true)
-                    echo "success";
-                else
-                    echo "failure";// always running failure
-
                 // ERROR PASSWORD
                 if($pwdCheck == false){
-                    //header("Location: ../login_feature/login_form.php?error=wrongpwd");
+                    header("Location: ../login_feature/login_form.php?error=wrongpwd");
                     exit();
                 }
                 // SUCCESSFUL LOGIN

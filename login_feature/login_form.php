@@ -31,7 +31,7 @@ session_start();
 
                 <div class="row pt-3 m-auto" id="login">
                     <div class="col-4 m-auto">
-                        <h2 >Login</h2>
+                        <h2 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Login</h2>
                         <div>
                             <form action="../includes/login.inc.php" method="post">
                                 <input type="text" name="emailuid" id="emailuid" placeholder="Profile Name or Email" required>

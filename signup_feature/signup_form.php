@@ -30,7 +30,7 @@ session_start();
                 <div class="col-4 pt-3 wrapper-main" id="registration">  
                 <!--REGISTRATION-->
                     <div class="m-auto col-4 ">
-                        <h1>Register</h1>
+                        <h1 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Register</h1>
                         
                         <form action="../includes/signup.inc.php" method="post">
                             <input type="text" id="name" name="name" placeholder="Profile name" required>

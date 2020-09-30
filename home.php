@@ -43,9 +43,9 @@ session_start();
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                   <?php
-                      if(isset($_SESSION['userId'])){
+                      if(isset($_SESSION['userUid'])){
                         echo "<a href='member_feature/member.php'>
-                        <img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userId']."            
+                        <img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            
                         </a>";
                       }
                       else
@@ -69,7 +69,7 @@ session_start();
     <div class="container" style="padding-top: 75px;">
 
       <div class="row">
-        <h2 class="text-center font-weight-bold text-light" style="text-shadow: 2px 2px black">Book List</h2>
+        <h2 class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black">Book List</h2>
       </div>
       
       <div class="row">
@@ -78,7 +78,7 @@ session_start();
           <!--SEARCH BAR-->
           <div class="container" >
             
-            <p>Searching filters</p>  
+            <p class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Searching filters</p>  
             <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
             <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
             <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">

@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
 
 <!DOCTYPE html>
@@ -32,8 +34,8 @@
                 <div class="col-4 m-auto" >
                     <?php
 
-                        if(isset($_SESSION['userId'])){
-                           echo" <h2 class='text-center'>Add Book</h2>
+                        if(isset($_SESSION['userUid'])){
+                           echo" <h2 class='text-center font-weight-bold text-light m-auto p-1' style='text-shadow: 2px 2px black'>Add Book</h2>
                                 <form action='' method='post'>
                                     <input class='form-control shadow-lg bg-white rounded' id='title_input' type='text' placeholder='Title..'>
                                     <input class='form-control shadow-lg bg-white rounded' id='author_input' type='text' placeholder='Author..'>
@@ -41,7 +43,7 @@
                                     <input class='form-control shadow-lg bg-white rounded' id='location_input' type='text' placeholder='City or University..'>
                                     <br>
                                     <button name='addbook' type='add-book-submit'>Add Book</button>
-                                </form>"
+                                </form>";
                         }
 
                     ?>
@@ -51,7 +53,7 @@
                 </div>
             </div>
             <div class="row p-1" >
-                <h2 class="m-auto" id="message">Message Output</h2>
+                <h2 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Message Output</h2>
                   
             </div>
         </div>
