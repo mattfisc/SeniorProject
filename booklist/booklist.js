@@ -1,6 +1,6 @@
 
 
-var booklist = new Array();
+var booklist = [];
 
 
 
@@ -17,7 +17,7 @@ function searchforbook(){
             // NO ERRORS
             if(this.readyState == 4 && this.status == 200){
                 // CREATE ARRAY of BOOK OBJECT
-                document.getElementById("message").innerHTML = this.responseText;
+                fillBookList(this.responseText);
             }
         }
 
@@ -28,53 +28,6 @@ function searchforbook(){
 
 }
 
-
-
-
-
-
-
-function fillBookList1(str){
-    // EMPTY OLD TABLE
-    emptyList();
-
-    // PARSE STRING OF MULTIPLE JSON OBJECTS
-    var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
-
-    // GET ELEMENT
-    var table = document.getElementById("booklist");
-
-    // SEARCH JSONOBJECT ARRAY
-    for (let i = 0; i < res.length; i++) {
-        // CREATE TABLE ELEMENTS
-        var row = table.insertRow(i);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-
-        // SELECT JSON OBJECT
-        const jsonObj = res[i];
-
-        // LEFT IMAGE
-        var leftstr = "";
-        var img = document.createElement("img");
-        
-        // PICTURE FILE
-
-        leftstr = "upload/".concat(jsonObj.picture);  
-        img.src = leftstr; 
-        cell1.appendChild(img);
-
-        // BOOK LIST
-        var rightstr = "<ul>".concat(
-            "<li>Title:  ",jsonObj.title,"</li>",
-            "<li>Author:  ",jsonObj.author,"</li>",
-            "<li>Isbn:  ",jsonObj.isbn,"</li>",
-            "<li>Location:  ",jsonObj.location,"</li>",
-            "</ul>");
-        
-        cell2.innerHTML = rightstr;
-    }
-}
 
 function emptyList(){
     // EMPTY OBJECT LIST
@@ -100,7 +53,7 @@ function fillBookList(str){
         const jsonObj = res[i];
 
         // CREATE BOOK LIST
-        const book = initializeBook(res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture);
+        const book = new Book(res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture);
         booklist.push(book);
         
     }

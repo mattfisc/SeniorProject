@@ -1,39 +1,25 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textbook Swap</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+ 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <script src="registration.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body id="mainbody" style="background-color: #6b6b6b;">
     <div class='page'>
         <!--heading-->
-        <div class='header'>
-        
-            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark " id="mainNav">
-                <div class="container">
-                    <a class="navbar-brand js-scroll-trigger" href="#page-top">Book Swap</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        Menu
-                        <img src="../img/menu.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../home.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger " href="login_form.php">Login</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger disabled"  tabindex="-1" aria-disabled="true" href="registration_form.html">Register</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../about.html">About</a></li>
-                        </ul>
-                    </div>
-                    <div><a href="profile/profile.html"><img src="../img/user.png" width="30" height="30" class="d-inline-block align-top" alt=""></a></div>
-                </div>
-            </nav>
-
-        </div>
+        <?php
+        require "../includes/header.php"
+        ?>
 
         <div class="content m-5">
             
@@ -41,16 +27,19 @@
             <!--FORM-->
             <div class="row pt-5 border-top" >
 
-                <div class="col-4 pt-3" id="registration">  
+                <div class="col-4 pt-3 wrapper-main" id="registration">  
                 <!--REGISTRATION-->
                     <div class="m-auto col-4 ">
-                        <h1>Register</h1>
+                        <h1 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Register</h1>
                         
-                        <input type="text" id="name" name="name" placeholder="Profile name" required>
-                        <input type="text" id="email" name="email" placeholder="Email Address" required>
-                        <input type="password" id="password" name="pwd" placeholder="Password:" required>
-                        <br><!--SUBMIT BUTTON-->
-                        <button onclick="register()" type="submit">Submit</button>
+                        <form action="../includes/signup.inc.php" method="post">
+                            <input type="text" id="name" name="name" placeholder="Profile name" required>
+                            <input type="text" id="email" name="email" placeholder="Email Address" required>
+                            <input type="password" id="password1" name="password1" placeholder="Password:" required>
+                            <input type="password" id="password2" name="password2" placeholder="Repeat password:" required>
+                            <br><!--SUBMIT BUTTON-->
+                            <button type="submit" name="signup-submit">Signup</button>
+                        </form>
                     </div>
                 </div>
 
@@ -89,6 +78,7 @@
             <div class="row" >
                 <div class="col-4">
                     <div id="message" ></div>
+                    
                 </div>
             </div>
             <div>
@@ -101,9 +91,9 @@
 
         </div><!--END OF CONTENT-->
         <!--footer-->
-        <div class='footer'>
-
-        </div>
+        <?php
+        //require "../includes/footer.php";
+        ?>
     </div>
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

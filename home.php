@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +12,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="style.css"> -->
+  <script src="home.js"></script>
   <script src="booklist/book.js"></script>
   <script src="booklist/booklist.js"></script>
+
 </head>
 <body  id="mainbody" style="background-color: #6b6b6b;">
   <div class='page'>
@@ -26,13 +32,35 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" href="#" tabindex="-1" aria-disabled="true" href="home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile/login_form.html" >Login</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile/registration_form.html">Register</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" tabindex="-1" aria-disabled="true" href="home.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login_feature/login_form.php" >Login</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="signup_feature/signup_form.php">Register</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about_feature/about.php">About</a></li>
                 </ul>
             </div>
-            <div><a href="profile/profile.html"><img src="img/user.png" width="30" height="30" class="d-inline-block align-top" alt=""></a></div>
+            
+            <div>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <?php
+                      if(isset($_SESSION['userUid'])){
+                        echo "<a href='member_feature/member.php'>
+                        <img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            
+                        </a>";
+                      }
+                      else
+                        echo "<img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>Guest";
+                      ?>
+                </li>
+                            
+                <li class="nav-item ml-5">
+                  <form action="../includes/logout.inc.php" method="get">
+                      <button name="logout-submit" type="submit">Logout</button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+            
         </div>
       </nav>
     </div>
@@ -41,7 +69,7 @@
     <div class="container" style="padding-top: 75px;">
 
       <div class="row">
-        <h2 class="text-center font-weight-bold text-light" style="text-shadow: 2px 2px black">Book List</h2>
+        <h2 class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black">Book List</h2>
       </div>
       
       <div class="row">
@@ -50,7 +78,7 @@
           <!--SEARCH BAR-->
           <div class="container" >
             
-            <p>Searching filters</p>  
+            <p class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Searching filters</p>  
             <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
             <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
             <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
@@ -58,7 +86,7 @@
 
             <button onclick="searchforbook()" type="submit">Submit</button>
             <br><br><br>
-            <button><a href="booklist/form_add_book.html">Add Book</a></button>
+            
           </div>
       
         </div><!--END OF SEARCH-->
