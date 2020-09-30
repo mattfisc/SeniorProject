@@ -1,11 +1,11 @@
 <?php
 
-// CONNECT TO DATABASE
-require 'dbh.inc.php';
 
 
 if(isset($_POST['login-submit'])){
+    // CONNECT TO DATABASE
     require 'dbh.inc.php';
+
 
     // USERNAME OR EMAIL
     $emailuid = $_POST['emailuid'];
@@ -37,13 +37,14 @@ if(isset($_POST['login-submit'])){
                 
                 // pwdcheck is always false column creation the problem
                 $pwdCheck = password_verify($password,$row['pwdUsers']);
-                echo $password;
-                echo $row['pwdUsers'];
-                echo $pwdCheck;
+                if($pwdCheck == true)
+                    echo "success";
+                else
+                    echo "failure";
 
                 // ERROR PASSWORD
                 if($pwdCheck == false){
-                    header("Location: ../login_feature/login_form.php?error=wrongpwd");
+                    //header("Location: ../login_feature/login_form.php?error=wrongpwd");
                     exit();
                 }
                 // SUCCESSFUL LOGIN

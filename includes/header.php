@@ -31,7 +31,7 @@
                                     echo "Guest";
                                 ?>
                             </li>
-                        <li class="nav-item">
+                        <li class="nav-item ml-5">
                             <form action="../includes/logout.inc.php" method="get">
                                 <button name="logout-submit" type="submit">Logout</button>
                             </form>
