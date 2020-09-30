@@ -61,12 +61,15 @@ EXTRA FEATURES TO BE ADDED
 -   DISPLAY RESULTS
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 -   LOGIN PROFILE
 -   LOGIN DISPLAY
 -   LOGIN MEMBER PAGE ACCESS ONLY TO MEMBER
 
 =======
 <<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 
 =======
 # IM HERE!!!!
@@ -74,6 +77,9 @@ EXTRA FEATURES TO BE ADDED
 -   LOGIN DISPLAY
 -   LOGIN MEMBER PAGE ACCESS ONLY TO MEMBER
 -   PASSWORD STRENGTH CHECKLENGTH AND ETC
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 # Important!
@@ -87,11 +93,14 @@ IF PROJECT TAKES LESS TIME THE FOLLOWING FEATURES WILL BE IMPLEMENTED
 OTHER FEATURES:
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ## PHASE 3: MEMBER PAGE ACCESS BY MEMBERS ONLY
 
 
 =======
 <<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 ## PHASE 3:  CHAT FEATURE
 ---------------------------------
@@ -129,9 +138,12 @@ EXTRA Features:
 -	WEB SCRAP FREE PDF for links
 -	WEB SCRAP FOR TOP THREE STORES AND PRICES
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 -   All words after validation lowercase and uppcase first letter before adding to table
 =======
 <<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 
 =======
 -   All words after validation lowercase and uppcase first letter before adding to table
@@ -139,6 +151,9 @@ EXTRA Features:
 -   Email request to reset password. displayed at login form and after email already used error
 -   profile names can't contain profainities
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 

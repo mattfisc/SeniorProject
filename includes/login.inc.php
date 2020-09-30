@@ -34,6 +34,7 @@ if(isset($_POST['login-submit'])){
             // SEARCH RESULTS
             if($row = mysqli_fetch_assoc($result)){
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 // CHECK HASH PASSWORD 
                 
                 // pwdcheck is always false column creation the problem
@@ -43,6 +44,8 @@ if(isset($_POST['login-submit'])){
                 else
                     echo "failure";
 =======
+=======
+>>>>>>> Stashed changes
                 // CHECK HASH PASSWORD
                 
                 // echo $row['idUsers'];
@@ -58,6 +61,9 @@ if(isset($_POST['login-submit'])){
                     echo "success";
                 else
                     echo "failure";// always running failure
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
                 // ERROR PASSWORD
