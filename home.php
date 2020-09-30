@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,18 +32,34 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" tabindex="-1" aria-disabled="true" href="home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login_feature/login_form.html" >Login</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="registration_feature/registration_form.html">Register</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" tabindex="-1" aria-disabled="true" href="home.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login_feature/login_form.php" >Login</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="signup_feature/signup_form.php">Register</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about.php">About</a></li>
                 </ul>
             </div>
             
             <div>
-              <a href="member_page_feature/member_only.html">
-                    <img src="img/user.png" width="30" height="30" class="d-inline-block align-top" alt="" >
-                    <span id="pName"></span> 
-              </a>
+            <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="../member_feature/member.php">
+                                <img src="img/user.png" width="30" height="30" class="d-inline-block align-top " alt="" >            
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <?php
+                                if(isset($_SESSION['profile_name']))
+                                    echo $_SESSION['profile_name'];
+                                else
+                                    echo "Guest";
+                                ?>
+                            </li>
+                        <li class="nav-item ml-5">
+                            <form action="../includes/logout.inc.php" method="get">
+                                <button name="logout-submit" type="submit">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
             </div>
             
         </div>

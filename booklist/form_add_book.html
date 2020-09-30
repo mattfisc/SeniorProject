@@ -7,7 +7,7 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="../home.js"></script>
+    
     <script src="book.js"></script>
     <script src="booklist.js"></script>
 
@@ -38,7 +38,9 @@
                     <div>
                         <a href="../member_page_feature/member_only.html">
                             <img src="../img/user.png" width="30" height="30" class="d-inline-block align-top" alt="" >
-                            <span id="pName"></span> 
+                            <span id="yourName">
+                      
+                            </span> 
                       </a>
                     </div>
                 </div>
@@ -56,12 +58,15 @@
                 <div class="col-4" >
             
                     <h2>Add Book</h2>
-                    <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
-                    <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
-                    <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
-                    <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="City or University..">
-                    <br>
-                    <button onclick="addBook()" type="submit">Add Book</button>
+                    <form action="" method="post">
+                        <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
+                        <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
+                        <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
+                        <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="City or University..">
+                        <br>
+                        <button name="addbook" type="add-book-submit">Add Book</button>
+                    </form>
+                    
                 </div>
             </div>
             <div class="row p-1" >
