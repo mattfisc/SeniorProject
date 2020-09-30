@@ -8,7 +8,7 @@ if(isset($_POST['login-submit'])){
     require 'dbh.inc.php';
 
     // USERNAME OR EMAIL
-    $emailuid = $_POST['username'];
+    $emailuid = $_POST['emailuid'];
     $password = $_POST['password'];
 
     // ERROR EMPTY FIELDS
@@ -36,14 +36,16 @@ if(isset($_POST['login-submit'])){
                 // CHECK HASH PASSWORD 
                 
                 // pwdcheck is always false column creation the problem
-                $pwdCheck= password_verify($password,$row['pwdUsers']);
+                $pwdCheck = password_verify($password,$row['pwdUsers']);
+                echo $password;
+                echo $row['pwdUsers'];
+                echo $pwdCheck;
 
                 // ERROR PASSWORD
                 if($pwdCheck == false){
                     header("Location: ../login_feature/login_form.php?error=wrongpwd");
                     exit();
                 }
-
                 // SUCCESSFUL LOGIN
                 else if($pwdCheck == true){
                     session_start();
@@ -70,6 +72,7 @@ if(isset($_POST['login-submit'])){
     }
 
 }
+// PAGE NOT ACCESSED BY PROPER FORM
 else{
     header("Location: ../login_feature/login_form.php?error=wrongway");
     exit();

@@ -40,19 +40,26 @@ session_start();
             </div>
             
             <div>
-              <a href="login_feature/member_only.html">
-                    <img src="img/user.png" width="30" height="30" class="d-inline-block align-top" alt="" >
-                    <span id="yourName">
-                      <?php
-
-                        if(isset($_SESSION['profile_name']))
-                            echo $_SESSION['profile_name'];
-                        else
-                            echo "Guest";
-
-                        ?>
-                    </span> 
-              </a>
+            <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="../member_feature/member.php">
+                                <img src="img/user.png" width="30" height="30" class="d-inline-block align-top " alt="" >            
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <?php
+                                if(isset($_SESSION['profile_name']))
+                                    echo $_SESSION['profile_name'];
+                                else
+                                    echo "Guest";
+                                ?>
+                            </li>
+                        <li class="nav-item ml-5">
+                            <form action="../includes/logout.inc.php" method="get">
+                                <button name="logout-submit" type="submit">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
             </div>
             
         </div>
