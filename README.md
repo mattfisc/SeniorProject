@@ -1,18 +1,15 @@
 # TEXTBOOK SWAP
 
 
-#### PURPOSE
 
 # WEBSITE FOR SELLING USED BOOKS BY UNIVERSITY
-
+PURPOSE
 Creating a textbook database where sellers and buyers can easily buy/sell the textbooks they have.    The sellers will have the ability to add and remove posts.  The buyer will be able to search the listing for the book by filter, university, name, isbn.  The search is available for all.  Contacting and buying requires a website profile for contact and messaging user interfaces.  
 
 # Task 2:   
-
 The goal is to create a database of book listings by university.  Being able to plan to sell by the end of the semester.  Semesters have a known end.  You can add a book and availability date with the posting.  This can allow planning, trading books.
 
 # Task 3:   
-
 A book listing will be available for the everyone to see.  Sellers will create a profile and have the ability to add or remove their book from the listing.  The buyer will be able to search the book listing before creating a profile.  The buyer can see pictures, condition, title and university location, but no seller information until the buyer creates a profile.  Their will be a messaging feature from profile to profile.  An optional stage is to web scrape store prices of the books search. 
 
 User Interfaces will have a static navigation bar for easy access to profile on the top of the webpage. The search bar will be on the side of the list.  The list of items will only display a page of items at a time with an easy scroll bar.  The list will be responsive, simple, and in one column with a simple display of the picture and title, ibn, picture and university location.  The Profile page will have a home page of all sellers’ listings and messages from potential buyers.
