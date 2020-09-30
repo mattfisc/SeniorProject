@@ -54,58 +54,44 @@ EXTRA FEATURES TO BE ADDED
 
 
 ## PHASE 2: PROFILE FEATURE
-
 -	PROFILE FEATURE 
 -   USER MYSQL TABLE
 -   ADD PROFILE BAR
 -   DISPLAY RESULTS
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 -   LOGIN PROFILE
 -   LOGIN DISPLAY
 -   LOGIN MEMBER PAGE ACCESS ONLY TO MEMBER
 
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 
-=======
 # IM HERE!!!!
 -   LOGIN PROFILE
 -   LOGIN DISPLAY
 -   LOGIN MEMBER PAGE ACCESS ONLY TO MEMBER
 -   PASSWORD STRENGTH CHECKLENGTH AND ETC
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 
 # Important!
 -   ##### USERID AND EMAIL NEED TO BE UNIQUE
->>>>>>> Stashed changes
 -   IMPLEMENT UNIT TESTING
-
 -	ESTIMATED 40 HOURS
 
 IF PROJECT TAKES LESS TIME THE FOLLOWING FEATURES WILL BE IMPLEMENTED
 OTHER FEATURES:
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 ## PHASE 3: MEMBER PAGE ACCESS BY MEMBERS ONLY
+-   MEMBER PAGE
+-   ACCESS TO LOGOUT
+-   EDIT ACCOUNT
+-   MY ADS
+-   MESSAGE BOARD DISPLAY
 
 
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 ## PHASE 3:  CHAT FEATURE
----------------------------------
--   UPLOAD IMAGE FEATURE
-=======
+-   MESSAGE BOARD
+-   ONLOAD RETIEVE MESSAGES
+
+
 ## PHASE 3: MEMBER PAGE ACCESS BY MEMBERS ONLY
 -   MEMBER ONLY PAGE
 -   ADD BOOK FEATURE
@@ -114,20 +100,17 @@ OTHER FEATURES:
 
 -   ESTIMATED 20 HOURS
 
->>>>>>> Stashed changes
-## PHASE 4:  CHAT FEATURE
 
+## PHASE 4:  CHAT FEATURE
 -	MESSAGE TABLE
 -	MESSAGE BY USER ID
 -   ONLOAD SEARCH TABLE FOR ANY MESSAGES
 
 
 ## PHASE 5:  APP COST
-
 - FUTURE PLANNING
 
 ## PHASE 6:  PAYMENT AND MAILING BOOK FEATURE
-
 - FUTURE PLANNING
 
 
@@ -137,24 +120,14 @@ EXTRA Features:
 -   UPLOAD IMAGE FEATURE
 -	WEB SCRAP FREE PDF for links
 -	WEB SCRAP FOR TOP THREE STORES AND PRICES
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
--   All words after validation lowercase and uppcase first letter before adding to table
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 
-=======
+-   All words after validation lowercase and uppcase first letter before adding to table
+
+
 -   All words after validation lowercase and uppcase first letter before adding to table
 -   registration form while input is selected only those requirements are shown
 -   Email request to reset password. displayed at login form and after email already used error
 -   profile names can't contain profainities
->>>>>>> Stashed changes
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 
 ##### BOOK OBJECT ATTRIBUTES
