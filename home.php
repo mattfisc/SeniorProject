@@ -44,12 +44,12 @@ session_start();
                 <li class="nav-item">
                   <?php
                       if(isset($_SESSION['userId'])){
-                          echo "<a href='member_feature/member.php'>
-                          <img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userId']."            
-                      </a>";
+                        echo "<a href='member_feature/member.php'>
+                        <img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userId']."            
+                        </a>";
                       }
                       else
-                      echo "<img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>Guest";
+                        echo "<img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>Guest";
                       ?>
                 </li>
                             
