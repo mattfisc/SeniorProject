@@ -38,6 +38,12 @@ if(isset($_POST['login-submit'])){
                 
                 // pwdcheck is always false column creation the problem
                 $pwdCheck = password_verify($password,$row['pwdUsers']);
+
+
+
+                echo $password;
+                echo $row['pwdUsers'] == '$2y$10$ShgeOFInyq2w2/3FqmAVju5vPhadO6xJ57rlr5IIQLqXYL4U5fry.';
+                echo  password_verify($password,$row['pwdUsers']);
                 if($pwdCheck == true)
                     echo "success";
                 else

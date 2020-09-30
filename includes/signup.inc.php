@@ -41,7 +41,7 @@ if(isset($_POST['signup-submit'])){
 
   // RUN SQL
   else{
-    $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
+    $sql = 'SELECT uidUsers FROM users WHERE uidUsers=?';
     $stmt = mysqli_stmt_init($conn);
 
     // CHECK CONNECTION
@@ -51,7 +51,7 @@ if(isset($_POST['signup-submit'])){
     }
     // CHECK MATCH ALREADY IN TABLE
     else{
-      mysqli_stmt_bind_param($stmt,"ss",$username);
+      mysqli_stmt_bind_param($stmt,'ss',$username);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_store_result($stmt);
       $resultCheck = mysqli_stmt_num_rows($stmt);
@@ -62,7 +62,7 @@ if(isset($_POST['signup-submit'])){
         exit();
       }
       else{
-        $sql = "INSERT INTO users (uidUsers,emailUsers,pwdUsers) VALUES (?,?,?)";
+        $sql = 'INSERT INTO users (uidUsers,emailUsers,pwdUsers) VALUES (?,?,?)';
         $stmt = mysqli_stmt_init($conn);
 
         // CHECK CONNECTION
@@ -75,7 +75,7 @@ if(isset($_POST['signup-submit'])){
           // HASHED PWD
           $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
 
-          mysqli_stmt_bind_param($stmt,"sss",$username,$email,$hashedPwd);
+          mysqli_stmt_bind_param($stmt,'sss',$username,$email,$hashedPwd);
           mysqli_stmt_execute($stmt);
           header("Location: ../login_feature/login_form.php?signup=success");
           exit();
