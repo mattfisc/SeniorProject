@@ -19,23 +19,31 @@
                 <div>
                     <ul class="navbar-nav ml-auto">
 
-                        <li class="nav-item">
+                        
                             <?php
                                 if(isset($_SESSION['userUid'])){
-                                    echo "<a href='../member_feature/member.php'>
-                                    <img src='../img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            
-                                    </a>";
+                                    echo "<li class='nav-item'>
+                                            <a href='../member_feature/member.php'>
+                                                <img src='../img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            
+                                            </a>
+                                        </li>
+
+                                        <li class='nav-item ml-5'>
+                                            <form action='../includes/logout.inc.php' method='get'>
+                                                <button name='logout-submit' type='submit'>Logout</button>
+                                            </form>
+                                        </li>
+                                    ";
                                     
                                 }
-                                else
-                                    echo "<img src='../img/user.png' width='30' height='30' class='d-inline-block align-top'>Guest";
+                                else{
+                                    echo "<li class='nav-item'>
+                                            <img src='../img/user.png' width='30' height='30' class='d-inline-block align-top'>Guest
+                                        </li>";
+                                }
                                 ?>
-                            </li>
-                        <li class="nav-item ml-5">
-                            <form action="../includes/logout.inc.php" method="get">
-                                <button name="logout-submit" type="submit">Logout</button>
-                            </form>
-                        </li>
+                            
+                        
                     </ul>
                     
                 </div>

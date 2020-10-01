@@ -38,7 +38,6 @@ if(isset($_POST['signup-submit'])){
     header("Location: ../signup_feature/signup_form.php?error=passwordcheck&uid=".$username."&email=".$email);
     exit();
   }
-
   // RUN SQL
   else{
     $sql = 'SELECT uidUsers FROM users WHERE uidUsers=?';
@@ -47,11 +46,11 @@ if(isset($_POST['signup-submit'])){
     // CHECK CONNECTION
     if(!mysqli_stmt_prepare($stmt,$sql)){
       header("Location: ../signup_feature/signup_form.php?error=sqlerror");
-    exit();
+      exit();
     }
     // CHECK MATCH ALREADY IN TABLE
     else{
-      mysqli_stmt_bind_param($stmt,'ss',$username);
+      mysqli_stmt_bind_param($stmt,'s',$username);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_store_result($stmt);
       $resultCheck = mysqli_stmt_num_rows($stmt);

@@ -32,21 +32,23 @@ session_start();
             <div class="row pt-5 m-auto border-top" >
 
                 <div class="col-4 m-auto" >
-                    <?php
-
-                        if(isset($_SESSION['userUid'])){
-                           echo" <h2 class='text-center font-weight-bold text-light m-auto p-1' style='text-shadow: 2px 2px black'>Add Book</h2>
-                                <form action='' method='post'>
-                                    <input class='form-control shadow-lg bg-white rounded' id='title_input' type='text' placeholder='Title..'>
-                                    <input class='form-control shadow-lg bg-white rounded' id='author_input' type='text' placeholder='Author..'>
-                                    <input class='form-control shadow-lg bg-white rounded' id='isbn_input' type='text' placeholder='ISBN..'>
-                                    <input class='form-control shadow-lg bg-white rounded' id='location_input' type='text' placeholder='City or University..'>
+                    
+<!-- 
+                         if(isset($_SESSION['userUid'])){
+                            echo"  -->
+                           <h2 class='text-center font-weight-bold text-light m-auto p-1' style='text-shadow: 2px 2px black'>Add Book</h2>
+                                <form action='includes/addbook.inc.php' method='post'>
+                                    <input class='form-control shadow-lg bg-white rounded' id='title_input' name='title_input' type='text' placeholder='Title..'>
+                                    <input class='form-control shadow-lg bg-white rounded' id='author_input' name='author_input' type='text' placeholder='Author..'>
+                                    <input class='form-control shadow-lg bg-white rounded' id='isbn_input' name='isbn_input' type='text' placeholder='ISBN..'>
+                                    <input class='form-control shadow-lg bg-white rounded' id='location_input' name='location_input' type='text' placeholder='City or University..'>
                                     <br>
-                                    <button name='addbook' type='add-book-submit'>Add Book</button>
-                                </form>";
-                        }
+                                    <button name='addbook-submit' type='submit'>Add Book</button>
+                                </form>
+                                 <!-- ";
+                         } -->
 
-                    ?>
+                  
 
                     
                     

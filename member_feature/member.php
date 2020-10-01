@@ -26,12 +26,10 @@ session_start();
    
     <!--FORM-->
     <div class="content p-5 border-top m-auto">
-      <div class="row">
-        <h2 class="text-center font-weight-bold text-light" style="text-shadow: 2px 2px black">Book List</h2>
-      </div>
       <div id="addbook">
-        <h2>Add Books</h2>
+        <h2>Your Book Ads</h2>
         <button><a href="../booklist/form_add_book.php">Add Book</a></button>
+        <button><a href="../booklist/deleteBook.php">Delete Book</a></button>
       </div>
       <div id="message">
         <h2>Messages Here</h2>

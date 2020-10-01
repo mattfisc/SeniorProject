@@ -83,10 +83,16 @@ $query_str .= ")";
 // QUERY DATABASE
 //$result = $conn->query($query_str);
 
-if(mysqli_query($conn, $query_str))
+if(mysqli_query($conn, $query_str)){
     echo "Success! Book added";
-else
+    exit();
+}
+    
+else{
     echo "Failure to add book";
+    exit();
+}
+    
 
 
 // CLOSE CONNECTION
