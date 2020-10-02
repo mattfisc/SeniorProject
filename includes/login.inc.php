@@ -45,7 +45,7 @@ if(isset($_POST['login-submit'])){
                 // SUCCESSFUL LOGIN
                 else if($pwdCheck == true){
                     session_start();
-                    $_SESSION['userId'] = $row['idUsers'];
+                    $_SESSION['idUsers'] = $row['idUsers'];
                     $_SESSION['userUid'] = $row['uidUsers'];
 
                     header("Location: ../member_feature/member.php?login=success");

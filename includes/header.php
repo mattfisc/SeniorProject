@@ -21,7 +21,7 @@
 
                         
                         <?php
-                            if(isset($_SESSION['userUid'])){
+                            if(isset($_SESSION['idUsers'])){
                                 echo "<li class='nav-item'>
                                         <a href='../member_feature/member.php'>
                                             <img src='../img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            

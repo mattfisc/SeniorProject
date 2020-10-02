@@ -12,7 +12,7 @@ session_start();
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="style.css"> -->
-  <script src="home.js"></script>
+  <!-- <script src="home.js"></script> -->
   <script src="booklist/book.js"></script>
   <script src="booklist/booklist.js"></script>
 
@@ -42,7 +42,7 @@ session_start();
             <div>
               <ul class="navbar-nav ml-auto">
                 <?php
-                  if(isset($_SESSION['userUid'])){
+                  if(isset($_SESSION['idUsers'])){
                       echo "<li class='nav-item'>
                               <a href='member_feature/member.php'>
                                   <img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            

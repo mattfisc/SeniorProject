@@ -11,7 +11,7 @@ session_start();
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <script src="member.js"></script>
 </head>
 
 
@@ -26,26 +26,34 @@ session_start();
    
     <!--FORM-->
     <div class="content p-5 border-top m-auto">
-      <div id="addbook">
-        <h2>Your Book Ads</h2>
-        <button><a href="../booklist/form_add_book.php">Add Book</a></button>
-        <button><a href="../booklist/deleteBook.php">Delete Book</a></button>
+
+      <div class="row">
+
+        <!-- COL ONE -->
+        <div class="col-4">
+
+          <div id="yourbooks">
+            <h2>Your Book Ads</h2>
+            <button type="submit" onclick="requestYourAds();" >Click to see your Ads</button>
+            <button><a href="../booklist/form_add_book.php">Add Book</a></button>
+          </div>
+
+          <div id="message">
+            <h2>Messages Here</h2>
+          </div>
+
+          <div id="edit">
+            <h2>Edit Profile</h2>
+          </div>
+        </div>
+
+        <!-- COL TWO -->
+        <div class="col-4" id="display">
+          <h1>Display</h1>
+        </div>      
       </div>
-      <div id="message">
-        <h2>Messages Here</h2>
-      </div>
-      <div id="edit">
-        <h2>Edit Profile</h2>
-      </div>
-      <div id="myAds">
-        <h2>My Ads</h2>
-      </div>
-      <div id="logout">
-        <h2>Log out</h2>
-        <form action="" method="post">
-          <button type="submit" name="logout-submit">Logout</button>
-        </form>
-      </div>
+      
+      
     </div>
 
 

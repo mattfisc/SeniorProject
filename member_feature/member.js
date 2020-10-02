@@ -1,39 +1,32 @@
-
-
 var booklist = [];
 
 
-
-function searchforbook(){
-    var text = getQueryString();
+function requestYourAds(){
+    console.log("button push");
     
-    // SEARCH WITH INPUT
-    if(text != ""){
-        var xml_str = "booklist/includes/searchBook.php?".concat(text);
-
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            // NO ERRORS
-            if(this.readyState == 4 && this.status == 200){
-                // CREATE ARRAY of BOOK OBJECT
-                fillBookList(this.responseText);
-            }
+    var xml_str = "requestYourAds.php";
+    
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            // CREATE ARRAY of BOOK OBJECT
+            //fillBookList(this.responseText);
+            fillBookList(this.responseText);
         }
-
-        xhr.open("GET",xml_str, true); 
-        xhr.send();
     }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
     
-
 }
-
 
 function emptyList(){
     // EMPTY OBJECT LIST
     booklist = new Array();
 
     // EMPTY TABLE IN HTML
-    var table = document.getElementById("booklist");
+    var table = document.getElementById("display");
     table.innerHTML = "";
 }
 
@@ -80,11 +73,12 @@ function displayList(){
         cell1.appendChild(img);
 
         // RIGHT CELL BOOK LIST ATTRIBUTES
-        var rightstr = "<ul>".concat(
-            "<li>Title:  ",booklist[i].title,"</li>",
-            "<li>Author:  ",booklist[i].author,"</li>",
-            "<li>Isbn:  ",booklist[i].isbn,"</li>",
-            "<li>Location:  ",booklist[i].location,"</li>",
+        var rightstr = 
+            "<ul>".concat(
+                "<li>Title:  ",booklist[i].title,"</li>",
+                "<li>Author:  ",booklist[i].author,"</li>",
+                "<li>Isbn:  ",booklist[i].isbn,"</li>",
+                "<li>Location:  ",booklist[i].location,"</li>",
             "</ul>");
         
         cell2.innerHTML = rightstr;
