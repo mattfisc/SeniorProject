@@ -13,6 +13,7 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="member.js"></script>
   <script src="../booklist/book.js"></script>
+  <script src="member.js"></script>
 </head>
 
 
@@ -41,6 +42,7 @@ session_start();
 
           <div class="pb-3" id="message">
             <h2>Messages Here</h2>
+            <button type="submit" onclick="requestMessages();" >Your Messages</button>
           </div>
 
           <div class="pb-3" id="edit">

@@ -89,5 +89,34 @@ function displayList(){
         
         cell2.innerHTML = rightstr;
         
+        // ADD DELETE BUTTON
+        var btn = document.createElement("button");
+        btn.innerHTML = "Message Owner";
+  
+        //EVENT ON DELETE BUTTON
+        btn.onclick = function(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                // NO ERRORS
+                if(this.readyState == 4 && this.status == 200){
+                    // CREATE ARRAY of BOOK OBJECT
+                    var str = this.responseText;
+
+                    console.log(str);
+
+                }
+            }
+        var reciever = booklist[i].idUsers;
+        console.log(reciever);
+ 
+        var str = "message_feature/create_message.php?";
+        str = str.concat("reciever=",reciever);
+
+
+        xhr.open("GET",str, true); 
+        xhr.send();
+        }
+
+        cell2.appendChild(btn);
     }
 }

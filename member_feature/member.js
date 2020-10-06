@@ -107,3 +107,25 @@ function displayList(){
 
     }
 }
+
+// function requestMessages(){
+//     var xml_str = "requestMessages.php";
+
+//     var xhr = new XMLHttpRequest();
+//     xhr.onreadystatechange = function() {
+//         // NO ERRORS
+//         if(this.readyState == 4 && this.status == 200){
+//             // CREATE ARRAY of BOOK OBJECT
+//             var str = this.responseText;
+
+//             fillBookList(str);
+//         }
+//     }
+
+//     xhr.open("GET",xml_str, true); 
+//     xhr.send();
+// }
+
+// function createMessage(){
+//     console.log("hello this created a message");
+// }

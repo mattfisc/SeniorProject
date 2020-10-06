@@ -2,11 +2,24 @@
 session_start();
 
 require '../booklist/includes/db.book.inc.php';
+
+
+
+$reciever = $_GET['reciever'];
+// GET USERID
+$sender = $_SESSION['idUsers'];
+
+
+
+
+//---------------------------  im here -----------
+
+
 $sql = 'SELECT * FROM booklisting WHERE idUsers = ?';
 $stmt = mysqli_stmt_init($conn);
 
-// GET USERID
-$user = $_SESSION['idUsers'];
+
+
 
 // QUERY DATABASE ERROR
 if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -27,10 +40,4 @@ else{
         echo "0 results";
     }
 }
-
-
-
-
-
-
 
