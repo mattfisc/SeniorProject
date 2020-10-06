@@ -1,9 +1,7 @@
-var booklist = [];
+var your_booklist = [];
 
 
 function requestYourAds(){
-    console.log("button push");
-    
     var xml_str = "requestYourAds.php";
     
     var xhr = new XMLHttpRequest();
@@ -11,8 +9,10 @@ function requestYourAds(){
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
             // CREATE ARRAY of BOOK OBJECT
+            var str = this.responseText;
+            console.log(str);
+            console.log(typeof str);
             //fillBookList(this.responseText);
-            fillBookList(this.responseText);
         }
     }
 
