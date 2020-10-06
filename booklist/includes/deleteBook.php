@@ -1,5 +1,4 @@
 <?php
-echo "delete book";
 /** 
  * 
  * GET INPUT FROM REQUEST

@@ -40,9 +40,8 @@ function fillBookList(str){
     for (let i = 0; i < res.length; i++) {
         // SELECT JSON OBJECT
         const jsonObj = res[i];
-
         // CREATE BOOK LIST
-        const book = new Book(res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture);
+        const book = new Book(res[i].id,res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture,res[i].idUsers);
         your_booklist.push(book);
         
     }
@@ -87,27 +86,24 @@ function displayList(){
         del.innerHTML = "Delete Ad";
   
         // EVENT ON DELETE BUTTON
-        //del.onclick = deleteBook();
+        del.onclick = function(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                // NO ERRORS
+                if(this.readyState == 4 && this.status == 200){
+                    // CREATE ARRAY of BOOK OBJECT
+                    var str = this.responseText;
+
+                    console.log(str);
+
+                }
+            }
+
+        xhr.open("GET","../booklist/includes/deleteBook.php", true); 
+        xhr.send();
+        }
 
         cell2.appendChild(del);
 
     }
-}
-
-// DELETE BOOK
-function deleteBook(){
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        // NO ERRORS
-        if(this.readyState == 4 && this.status == 200){
-            // CREATE ARRAY of BOOK OBJECT
-            var str = this.responseText;
-
-            console.log(str);
-            fillBookList(str);
-        }
-    }
-
-    xhr.open("GET","../booklist/includes/deleteBook.php", true); 
-    xhr.send();
 }

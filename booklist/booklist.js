@@ -52,7 +52,7 @@ function fillBookList(str){
         const jsonObj = res[i];
 
         // CREATE BOOK LIST
-        const book = new Book(res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture);
+        const book = new Book(res[i].id,res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture,res[i].idUsers);
         booklist.push(book);
         
     }
