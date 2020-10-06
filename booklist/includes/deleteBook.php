@@ -1,5 +1,5 @@
 <?php
-
+echo "delete book";
 /** 
  * 
  * GET INPUT FROM REQUEST
@@ -28,10 +28,10 @@ $query_str = "DELETE FROM booklisting WHERE id =" .$id;
 // QUERY DATABASE
 //$result = $conn->query($query_str);
 
-if(mysqli_query($conn, $query_str))
-    echo "Success! Book deleted";
-else
-    echo "Failure to delete book";
+// if(mysqli_query($conn, $query_str))
+//     echo "Success! Book deleted";
+// else
+//     echo "Failure to delete book";
 
 
 // CLOSE CONNECTION
