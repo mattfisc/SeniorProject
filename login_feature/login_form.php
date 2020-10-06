@@ -56,7 +56,7 @@ session_start();
 
         <!--FOOTER-->
         <?php
-        //require "../includes/footer.php";
+            require "../includes/footer.php";
         ?>
     </div>
 

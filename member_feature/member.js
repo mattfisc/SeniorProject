@@ -3,16 +3,16 @@ var your_booklist = [];
 
 function requestYourAds(){
     var xml_str = "requestYourAds.php";
-    
+    console.log();
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
             // CREATE ARRAY of BOOK OBJECT
             var str = this.responseText;
-            console.log(str);
+
             console.log(typeof str);
-            //fillBookList(this.responseText);
+            fillBookList(str);
         }
     }
 
@@ -55,7 +55,7 @@ function fillBookList(str){
 
 function displayList(){
     // GET TABLE ELEMENT
-    var table = document.getElementById("booklist");
+    var table = document.getElementById("display");
 
     for(let i = 0; i < booklist.length; i++) {
         // CREATE TABLE ELEMENTS

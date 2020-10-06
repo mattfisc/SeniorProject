@@ -68,9 +68,9 @@ session_start();
     <!--END OF CONTENT-->
       
 
-      <!--FOOTER-->
-      <?php
-        //require "../includes/footer.php";
+    <!--FOOTER-->
+    <?php
+      require "../includes/footer.php";
     ?>
   </div>
 
