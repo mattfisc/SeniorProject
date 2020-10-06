@@ -32,25 +32,28 @@ session_start();
         <!-- COL ONE -->
         <div class="col-4">
 
-          <div id="yourbooks">
-            <h2>Your Book Ads</h2>
-            <button type="submit" onclick="requestYourAds();" >Click to see your Ads</button>
+          <div class="pb-3" id="yourbooks">
+            <h2 class=" font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Your Book Ads</h2>
+            <button type="submit" onclick="requestYourAds();" >Your Ads</button>
             <button><a href="../booklist/form_add_book.php">Add Book</a></button>
           </div>
 
-          <div id="message">
+          <div class="pb-3" id="message">
             <h2>Messages Here</h2>
           </div>
 
-          <div id="edit">
+          <div class="pb-3" id="edit">
             <h2>Edit Profile</h2>
           </div>
         </div>
 
         <!-- COL TWO -->
-        <div class="col-4" id="display">
-          <h1>Display</h1>
-        </div>      
+        <div class="col-4">
+          <h1 class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Display</h1>
+          <div id="display">
+            
+          </div> 
+        </div>     
       </div>
       
       

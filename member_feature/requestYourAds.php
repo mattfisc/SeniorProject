@@ -20,8 +20,9 @@ else{
         while($row = $result->fetch_assoc()) {
             echo json_encode($row);
         }
+    }
     else {
-    } 
+
         echo "0 results";
 
     }
