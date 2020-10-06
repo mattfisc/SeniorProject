@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-require 'includes/db.book.inc.php';
-
+require '../booklist/includes/db.book.inc.php';
 $sql = 'SELECT * FROM booklisting WHERE idUsers=?';
 $stmt = mysqli_stmt_init($conn);
 
@@ -13,21 +12,36 @@ if(!mysqli_stmt_prepare($stmt, $sql)){
 }
 // GET RESULTS
 else{
-    mysqli_stmt_bind_param($stmt,"i",$_SESSION['idUsers']);
-    mysqli_stmt_execute($stmt);
-    $result= mysqli_stmt_get_result($stmt);
-    echo $result;
+    // QUERY DATABASE
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo json_encode($row);
+        }
+    else {
+    } 
+        echo "0 results";
+
+    }
+// CLOSE CONNECTION
+
+    // mysqli_stmt_bind_param($stmt,"i",$_SESSION['idUsers']);
+    // mysqli_stmt_execute($stmt);
+    // $result= mysqli_stmt_get_result($stmt);
+    
     // SEARCH RESULTS
      
-    // //output data of each row
+    // output data of each row
     // while($row = $result->fetch_assoc()) {
-    //     echo json_encode($row);
-
     // }
-    // header("Location: member.php?success=yourlist");
-    // exit();
+    //     echo json_encode($row);
+    //header("Location: member.php?success=yourlist");
+    exit();
+    $conn->close();
     
 }
-
+exit();
 
 

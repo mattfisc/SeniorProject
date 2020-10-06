@@ -33,6 +33,32 @@ session_start();
                     <div class="col-4 m-auto">
                         <h2 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Login</h2>
                         <div>
+                            <?php
+                            
+                            // ERROR MESSAGE
+                            if(isset($_GET['error'])){
+                                if($_GET['error'] == "invalidemailuid")
+                                    echo "<p class='loginerror'>Error email or username already taken</p>";
+                                else if($_GET['error'] == "sqlerror")
+                                    echo "<p class='loginerror'>Error sql error.</p>";
+                                else if($_GET['error'] == "invalidemail"){
+                                    echo "<p class='loginerror'>Error email wrong.</p>";
+                                }
+                                else if($_GET['error'] == "wrongway"){
+                                    echo "<p class='loginerror'>Dont access the page that way.</p>";
+                                }
+                                else if($_GET['error'] == "wrongpwd")
+                                    echo "<p class='loginerror'>Error password does not match.</p>";
+                                else if($_GET['error'] == "nouser")
+                                    echo "<p class='loginerror'>Error You are not registered.</p>";    
+
+                            }
+                            else if(isset($_GET['success'])){
+                                echo "<p class='loginsuccess'>Successful Registration</p>";
+                                echo "<p class='loginsuccess'>You are signed up</p>";
+                            }
+
+                            ?>
                             <form action="../includes/login.inc.php" method="post">
                                 <input type="text" name="emailuid" id="emailuid" placeholder="Profile Name or Email" required>
                                 <input type="password" name="password" id="password" placeholder="Password" required>

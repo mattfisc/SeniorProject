@@ -31,7 +31,26 @@ session_start();
                 <!--REGISTRATION-->
                     <div class="m-auto col-4 ">
                         <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Register</h1>
+                        <?php
                         
+                        // ERROR MESSAGE
+                        if(isset($_GET['error'])){
+                            if($_GET['error'] == "emptyfields")
+                                echo "<p class='signuperror'>Error empty field found. Please fill out all fields.</p>";
+                            else if($_GET['error'] == "invalidemailuid")
+                                echo "<p class='signuperror'>Error invalid email or username.</p>";
+                            else if($_GET['error'] == "invalidemail"){
+                                echo "<p class='signuperror'>Error email already taken.</p>";
+                            }
+                            else if($_GET['error'] == "invalidUserId")
+                                echo "<p class='signuperror'>Error username already taken.</p>";
+                            else if($_GET['error'] == "passwordcheck")
+                                echo "<p class='signuperror'>Error repeat password not equal.</p>";    
+
+                        }
+                        
+
+                        ?>
                         <form action="../includes/signup.inc.php" method="post">
                             <input type="text" id="name" name="name" placeholder="Profile name" required>
                             <input type="text" id="email" name="email" placeholder="Email Address" required>

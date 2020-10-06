@@ -21,15 +21,15 @@ if(isset($_POST['signup-submit'])){
     header("Location: ../signup_feature/signup_form.php?error=invalidemailuid");
     exit();
   }
-  // INVALID EMAIL
+  // EMAIL TAKEN
   else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
     header("Location: ../signup_feature/signup_form.php?error=invalidemail&uid=".$username);
     exit();
   }
 
-  // INVALID EMAIL
+  // USERNAME TAKEN
   else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-    header("Location: ../signup_feature/signup_form.php?error=invalidemail&uid=".$email);
+    header("Location: ../signup_feature/signup_form.php?error=invalidUserId&uid=".$email);
     exit();
   }
 
@@ -76,7 +76,7 @@ if(isset($_POST['signup-submit'])){
 
           mysqli_stmt_bind_param($stmt,'sss',$username,$email,$hashedPwd);
           mysqli_stmt_execute($stmt);
-          header("Location: ../login_feature/login_form.php?signup=success");
+          header("Location: ../login_feature/login_form.php?success=signup");
           exit();
         }
       }
