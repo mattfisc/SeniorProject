@@ -11,29 +11,36 @@ if(isset($_POST['submit-message'])){
     $reciever = $_POST['reciever'];
     $sender = $_SESSION['idUsers'];
     $message = $_POST['message'];
+    $bookId = $_POST['bookId'];
 
-    echo $reciever;
-
-    $sql = 'INSERT INTO booklisting (receiverId,senderId,message) VALUES recieverId=? senderId=? message=?)';
-    $stmt = mysqli_stmt_init($conn);
-
-    $sql = 'INSERT INTO booklisting (receiverId,senderId,text) VALUES idUsers (?,?,?)';
-    $stmt = mysqli_stmt_init($conn);
-    
-    // CHECK CONNECTION
-    if(!mysqli_stmt_prepare($stmt,$sql)){
-        header("Location: ../../home.php?error=sqlerror");
+    // ERROR EMPTY FIELD
+    if(empty($reciever) || empty($sender) || empty($message) || empty($bookId)){
+        header("Location: ../home.php?error=emptyfield");
         exit();
+        
     }
-      // CHECK MATCH ALREADY IN TABLE
     else{
-        // HASHED PWD
-        $hashedPwd = password_hash($password1,PASSWORD_DEFAULT);
+        
 
-        mysqli_stmt_bind_param($stmt,'iis',$recieverId,$senderId,$message);
-        mysqli_stmt_execute($stmt);
-        header("Location: ../login_feature/login_form.php?success=signup");
-        exit();
+        // INSERT SQL CHECK BEFORE INSERT
+        $sql = 'INSERT INTO messages (recieverId,senderId,message_text,bookId) VALUES (?,?,?,?)';
+        $stmt = mysqli_stmt_init($conn);
+
+        // CHECK CONNECTION
+        if(!mysqli_stmt_prepare($stmt,$sql)){
+            header("Location: ../home.php?error=sqlerror");
+            exit();
+        }
+        else{
+            $sql = 'INSERT INTO messages (recieverId,senderId,message_text,bookId) VALUES (?,?,?,?)';
+            $stmt = mysqli_stmt_init($conn);
+            
+        
+            mysqli_stmt_bind_param($stmt,'iisi',$reciever,$sender,$message);
+            mysqli_stmt_execute($stmt);
+            header("Location: ../home.php?success=messagesent");
+            exit();
+        }
     }
 }
 // ERROR REACHED WRONG PATH
@@ -41,34 +48,3 @@ else{
     header("Location: ../home.php?error=wrongpath");
       exit();
 }
-
-
-
-//---------------------------  im here -----------
-
-
-
-
-
-
-
-// // QUERY DATABASE ERROR
-// if(!mysqli_stmt_prepare($stmt, $sql)){
-//     header("Location: member.php?error=sqlerror");
-//     exit();
-// }
-// else{
-//     mysqli_stmt_bind_param($stmt,"i",$user);
-//     mysqli_stmt_execute($stmt);
-//     $result= mysqli_stmt_get_result($stmt);
-
-//     // SEARCH RESULTS
-//     if($row = mysqli_fetch_assoc($result)){
-//         echo json_encode($row);
-//     }
-//     // ERROR NO SEARCH RESULTS
-//     else{
-//         echo "0 results";
-//     }
-// }
-

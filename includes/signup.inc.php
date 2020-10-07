@@ -12,10 +12,10 @@ if(isset($_POST['signup-submit'])){
 
 
   // INVALID EMPTY FIELDS
-  // if( empty($username) || empty($email) || empty($password1) || empty($password2) ){
-  //   header("Location: ../signup_feature/signup_form.php?emptyfields&uid= ". $username ."&email=". $email);
-  //   exit();
-  // }
+  if( empty($username) || empty($email) || empty($password1) || empty($password2) ){
+    header("Location: ../signup_feature/signup_form.php?emptyfields&uid= ". $username ."&email=". $email);
+    exit();
+  }
   // INVALID email and password
   if(!filter_var($email,FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
     header("Location: ../signup_feature/signup_form.php?error=invalidemailuid");
@@ -38,7 +38,7 @@ if(isset($_POST['signup-submit'])){
     header("Location: ../signup_feature/signup_form.php?error=passwordcheck&uid=".$username."&email=".$email);
     exit();
   }
-  // RUN SQL
+  // RUN SQL IS USER ID ALREADY USED
   else{
     $sql = 'SELECT uidUsers FROM users WHERE uidUsers=?';
     $stmt = mysqli_stmt_init($conn);
@@ -60,6 +60,7 @@ if(isset($_POST['signup-submit'])){
         header("Location: ../signup_feature/signup_form.php?error=usertaken&email=".$email);
         exit();
       }
+      // RUN SQL FOR PREP INSERT
       else{
         $sql = 'INSERT INTO users (uidUsers,emailUsers,pwdUsers) VALUES (?,?,?)';
         $stmt = mysqli_stmt_init($conn);

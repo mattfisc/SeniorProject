@@ -116,12 +116,19 @@ function displayList(){
             message.name = "message";
             form.appendChild(message);
 
-            // SEND RECIEVER
+            // SEND RECIEVER ID
             var r = document.createElement('input');
             r.type = 'hidden';
             r.setAttribute("name", "reciever");
             r.value = booklist[i].idUsers;
             form.appendChild(r);
+
+             // SEND BOOK ID
+             var bookId = document.createElement('input');
+             bookId.type = 'hidden';
+             bookId.setAttribute("name", "bookId");
+             bookId.value = booklist[i].id;
+             form.appendChild(bookId);
 
             var btnsubmit = document.createElement("button"); 
             btnsubmit.innerHTML = "submit message";
