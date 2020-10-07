@@ -39,7 +39,7 @@ session_start();
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about_feature/about.php">About</a></li>
                 </ul>
             </div>
-            
+            <input type="text">
             <div>
               <ul class="navbar-nav ml-auto">
                 <?php
@@ -93,6 +93,7 @@ session_start();
             <button onclick="searchforbook()" type="submit">Submit</button>
             <br><br><br>
             
+            <div id="message"></div>
           </div>
       
         </div><!--END OF SEARCH-->

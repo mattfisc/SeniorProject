@@ -95,27 +95,64 @@ function displayList(){
   
         //EVENT ON DELETE BUTTON
         btn.onclick = function(){
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                // NO ERRORS
-                if(this.readyState == 4 && this.status == 200){
-                    // CREATE ARRAY of BOOK OBJECT
-                    var str = this.responseText;
 
-                    console.log(str);
+            //  GET DIV ELEMENT
+            var message_div = document.getElementById("message");
 
-                }
-            }
-        var reciever = booklist[i].idUsers;
-        console.log(reciever);
+            // CREATE FORM
+            var form = document.createElement("form");
+
+            // TITLE
+            var title =document.createElement('p');
+            title.innerHTML = "Send Message to Book Owner";
+            message_div.appendChild(title);
+
+            message_div.appendChild(form);
+
+            form.method = "POST";
+            form.action = "message_feature/create_message.php";
+
+            var message = document.createElement("input");  
+            message.name = "message";
+            form.appendChild(message);
+
+            // SEND RECIEVER
+            var r = document.createElement('input');
+            r.type = 'hidden';
+            r.setAttribute("name", "reciever");
+            r.value = booklist[i].idUsers;
+            form.appendChild(r);
+
+            var btnsubmit = document.createElement("button"); 
+            btnsubmit.innerHTML = "submit message";
+            btnsubmit.name = "submit-message";
+            form.appendChild(btnsubmit);
+            // form.submit();
+            
+          };
+        
+        // function(){
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.onreadystatechange = function() {
+        //         // NO ERRORS
+        //         if(this.readyState == 4 && this.status == 200){
+        //             // CREATE ARRAY of BOOK OBJECT
+        //             var str = this.responseText;
+
+        //             console.log(str);
+
+        //         }
+        //     }
+        // var reciever = booklist[i].idUsers;
+        // console.log(reciever);
  
-        var str = "message_feature/create_message.php?";
-        str = str.concat("reciever=",reciever);
+        // var str = "message_feature/create_message.php?";
+        // str = str.concat("reciever=",reciever);
 
 
-        xhr.open("GET",str, true); 
-        xhr.send();
-        }
+        // xhr.open("GET",str, true); 
+        // xhr.send();
+        // };
 
         cell2.appendChild(btn);
     }
