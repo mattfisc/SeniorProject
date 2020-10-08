@@ -30,7 +30,7 @@ session_start();
             <div class="row border-top main-wrapper" >
 
                 <div class="row pt-3 m-auto" id="login">
-                    <div class="col-4 m-auto">
+                    <div class="col-8 m-auto">
                         <h2 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Login</h2>
                         <div>
                             <?php
@@ -54,8 +54,8 @@ session_start();
 
                             }
                             else if(isset($_GET['success'])){
-                                echo "<p class='loginsuccess'>Successful Registration</p>";
-                                echo "<p class='loginsuccess'>You are signed up</p>";
+                                echo "<p class='loginsuccess'>Successful Registration!</p>";
+                                echo "<p class='loginsuccess'>You are signed up!</p>";
                             }
 
                             ?>

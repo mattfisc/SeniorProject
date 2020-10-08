@@ -53,8 +53,25 @@ session_start();
         <!-- COL TWO -->
         <div class="col-8">
           <h1 class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Display</h1>
+          
+          <!-- DISPLAY ERRORS -->
+          <div>
+            <?php
+              if(isset($_GET['success'])){
+                if($_GET['success'] == "login")
+                  echo "<p class='success'>Successful Login!!</p>";
+              }
+              else if(isset($_GET['error'])){
+                
+              }
+            ?>
+          </div>
+          
+          <!-- YOUR ADS -->
           <table id="display"></table> 
+          
         </div>     
+        
       </div>
       
       

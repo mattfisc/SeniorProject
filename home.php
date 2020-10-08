@@ -92,17 +92,37 @@ session_start();
 
             <button onclick="searchforbook()" type="submit">Submit</button>
             <br><br><br>
-            
+            <!-- MESSAGE USER INPUT-->
             <div id="message"></div>
+            <!-- DISPLAY MESSAGES-->
+            <div>
+              <?php
+                // SUCCESS MESSAGES
+                if(isset($_GET['success'])){
+                  if( $_GET['success'] == 'messagesent' ){
+                    echo "<p class='messageSuccess'>Message sent successfully!</p>";
+                  }
+                }
+                // ERROR MESSAGES
+                if(isset($_GET['error'])){
+                  if( $_GET['error'] == 'notloggedin' ){
+                    echo "<p class='messageError'>Not Allowed. Register First!</p>";
+                  }
+                }
+              ?>
+            </div>
           </div>
       
         </div><!--END OF SEARCH-->
 
         <!--BOOK LISTING-->
         <div class="col-m-8" >
+          
           <table id="booklist" class="table table-bordered table-striped bg-light">
             
           </table>
+
+          
         </div>
       </div><!--Row End-->
 
