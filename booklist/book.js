@@ -3,6 +3,7 @@ class Book {
    * Class Book
    * Creates an object Book
    * 
+   * @param id int unique number
    * @param title string is the title of the book
    * @param author string is the author of the book
    * @param isbn int is the isbn of a book
@@ -10,11 +11,12 @@ class Book {
    * @param picture string is the name of the picture
    */
 
-    constructor(title, author,isbn,location,picture) {
+    constructor(id, title, author,isbn,location,picture,idUsers) {
     /**
      * Class Book
      * Creates an object Book
      * 
+     * @param id
      * @param title string is the title of the book
      * @param author string is the author of the book
      * @param isbn int is the isbn of a book
@@ -22,24 +24,26 @@ class Book {
      * @param picture string is the name of the picture
      * @returns book object
      */
+      this.id = id;
       this.title = title;
       this.author = author;
       this.isbn = isbn;
       this.location = location;
       this.picture = picture;
+      this.idUsers = idUsers;
     }
 
 
 
 }// END BOOK CLASS
 
-function initializeBook(title, author,isbn,location,picture){
-  return new Book(title, author,isbn,location,picture);
+function initializeBook(id,title, author,isbn,location,picture,idUsers){
+  return new Book(id,title, author,isbn,location,picture,idUsers);
 }
 
 
 // ADD A BOOK
-function addBook(title,author,isbn,location,picture){
+function addBook(id,title,author,isbn,location,picture,idUsers){
   /**
    * addBook Function 
    * This function will take the parameters and add it to the database 'booklist'

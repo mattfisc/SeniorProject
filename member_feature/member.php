@@ -11,7 +11,9 @@ session_start();
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <script src="member.js"></script>
+  <script src="../booklist/book.js"></script>
+  <script src="member.js"></script>
 </head>
 
 
@@ -26,26 +28,53 @@ session_start();
    
     <!--FORM-->
     <div class="content p-5 border-top m-auto">
-      <div id="addbook">
-        <h2>Your Book Ads</h2>
-        <button><a href="../booklist/form_add_book.php">Add Book</a></button>
-        <button><a href="../booklist/deleteBook.php">Delete Book</a></button>
+
+      <div class="row">
+
+        <!-- COL ONE -->
+        <div class="col-4">
+
+          <div class="pb-3" id="yourbooks">
+            <h2 class=" font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Your Book Ads</h2>
+            <button type="submit" onclick="requestYourAds();" >Your Ads</button>
+            <button><a href="../booklist/form_add_book.php">Add Book</a></button>
+          </div>
+
+          <div class="pb-3" id="message">
+            <h2>Messages Here</h2>
+            <button type="submit" onclick="requestMessages();" >Your Messages</button>
+          </div>
+
+          <div class="pb-3" id="edit">
+            <h2>Edit Profile</h2>
+          </div>
+        </div>
+
+        <!-- COL TWO -->
+        <div class="col-8">
+          <h1 class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Display</h1>
+          
+          <!-- DISPLAY ERRORS -->
+          <div>
+            <?php
+              if(isset($_GET['success'])){
+                if($_GET['success'] == "login")
+                  echo "<p class='success'>Successful Login!!</p>";
+              }
+              else if(isset($_GET['error'])){
+                
+              }
+            ?>
+          </div>
+          
+          <!-- YOUR ADS -->
+          <table id="display"></table> 
+          
+        </div>     
+        
       </div>
-      <div id="message">
-        <h2>Messages Here</h2>
-      </div>
-      <div id="edit">
-        <h2>Edit Profile</h2>
-      </div>
-      <div id="myAds">
-        <h2>My Ads</h2>
-      </div>
-      <div id="logout">
-        <h2>Log out</h2>
-        <form action="" method="post">
-          <button type="submit" name="logout-submit">Logout</button>
-        </form>
-      </div>
+      
+      
     </div>
 
 
@@ -60,9 +89,9 @@ session_start();
     <!--END OF CONTENT-->
       
 
-      <!--FOOTER-->
-      <?php
-        //require "../includes/footer.php";
+    <!--FOOTER-->
+    <?php
+      require "../includes/footer.php";
     ?>
   </div>
 

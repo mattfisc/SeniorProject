@@ -18,7 +18,7 @@ session_start();
     <div class='page'>
         <!--heading-->
         <?php
-        require "../includes/header.php"
+            require "../includes/header.php"
         ?>
 
         <div class="content m-5">
@@ -30,8 +30,27 @@ session_start();
                 <div class="col-4 pt-3 wrapper-main" id="registration">  
                 <!--REGISTRATION-->
                     <div class="m-auto col-4 ">
-                        <h1 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Register</h1>
+                        <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Register</h1>
+                        <?php
                         
+                        // ERROR MESSAGE
+                        if(isset($_GET['error'])){
+                            if($_GET['error'] == "emptyfields")
+                                echo "<p class='signuperror'>Error empty field found. Please fill out all fields.</p>";
+                            else if($_GET['error'] == "invalidemailuid")
+                                echo "<p class='signuperror'>Error invalid email or username.</p>";
+                            else if($_GET['error'] == "invalidemail"){
+                                echo "<p class='signuperror'>Error email already taken.</p>";
+                            }
+                            else if($_GET['error'] == "invalidUserId")
+                                echo "<p class='signuperror'>Error username already taken.</p>";
+                            else if($_GET['error'] == "passwordcheck")
+                                echo "<p class='signuperror'>Error repeat password not equal.</p>";    
+
+                        }
+                        
+
+                        ?>
                         <form action="../includes/signup.inc.php" method="post">
                             <input type="text" id="name" name="name" placeholder="Profile name" required>
                             <input type="text" id="email" name="email" placeholder="Email Address" required>
@@ -45,7 +64,7 @@ session_start();
 
                 <!--Requirements-->
                 <div class="col-4">
-                    <h1>Requirements</h1>
+                    <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Requirements</h1>
                     <div>
                         <div class="row">
                             <h3 class="col-4">Profile Name</h3>
@@ -90,9 +109,9 @@ session_start();
             
 
         </div><!--END OF CONTENT-->
-        <!--footer-->
+        <!--FOOTER-->
         <?php
-        //require "../includes/footer.php";
+            require "../includes/footer.php";
         ?>
     </div>
 

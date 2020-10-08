@@ -12,24 +12,24 @@ if(isset($_POST['signup-submit'])){
 
 
   // INVALID EMPTY FIELDS
-  // if( empty($username) || empty($email) || empty($password1) || empty($password2) ){
-  //   header("Location: ../signup_feature/signup_form.php?emptyfields&uid= ". $username ."&email=". $email);
-  //   exit();
-  // }
+  if( empty($username) || empty($email) || empty($password1) || empty($password2) ){
+    header("Location: ../signup_feature/signup_form.php?emptyfields&uid= ". $username ."&email=". $email);
+    exit();
+  }
   // INVALID email and password
   if(!filter_var($email,FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
     header("Location: ../signup_feature/signup_form.php?error=invalidemailuid");
     exit();
   }
-  // INVALID EMAIL
+  // EMAIL TAKEN
   else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
     header("Location: ../signup_feature/signup_form.php?error=invalidemail&uid=".$username);
     exit();
   }
 
-  // INVALID EMAIL
+  // USERNAME TAKEN
   else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-    header("Location: ../signup_feature/signup_form.php?error=invalidemail&uid=".$email);
+    header("Location: ../signup_feature/signup_form.php?error=invalidUserId&uid=".$email);
     exit();
   }
 
@@ -38,7 +38,7 @@ if(isset($_POST['signup-submit'])){
     header("Location: ../signup_feature/signup_form.php?error=passwordcheck&uid=".$username."&email=".$email);
     exit();
   }
-  // RUN SQL
+  // RUN SQL IS USER ID ALREADY USED
   else{
     $sql = 'SELECT uidUsers FROM users WHERE uidUsers=?';
     $stmt = mysqli_stmt_init($conn);
@@ -60,6 +60,7 @@ if(isset($_POST['signup-submit'])){
         header("Location: ../signup_feature/signup_form.php?error=usertaken&email=".$email);
         exit();
       }
+      // RUN SQL FOR PREP INSERT
       else{
         $sql = 'INSERT INTO users (uidUsers,emailUsers,pwdUsers) VALUES (?,?,?)';
         $stmt = mysqli_stmt_init($conn);
@@ -76,7 +77,7 @@ if(isset($_POST['signup-submit'])){
 
           mysqli_stmt_bind_param($stmt,'sss',$username,$email,$hashedPwd);
           mysqli_stmt_execute($stmt);
-          header("Location: ../login_feature/login_form.php?signup=success");
+          header("Location: ../login_feature/login_form.php?success=signup");
           exit();
         }
       }

@@ -58,13 +58,13 @@ session_start();
                 <h2 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Message Output</h2>
                   
             </div>
-        </div>
+        </div> <!--END OF CONTENT-->
        
-        <!--END OF CONTENT-->
+       
         <!--footer-->
-        <div class='footer'>
-
-        </div>
+        <?php
+            require "../includes/footer.php";
+        ?>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
