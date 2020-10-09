@@ -15,9 +15,10 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../signup_feature/signup_form.php">Register</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../about_feature/about.php">About</a></li>
                     </ul>
+                    
                 </div>
                 <div>
-                    <ul class="navbar-nav ml-auto">
+                    <ul class=" navbar-nav ml-auto ">
 
                         
                         <?php
@@ -28,7 +29,7 @@
                                         </a>
                                     </li>
 
-                                    <li class='nav-item ml-5'>
+                                    <li class='nav-item'>
                                         <form action='../includes/logout.inc.php' method='get'>
                                             <button name='logout-submit' type='submit'>Logout</button>
                                         </form>

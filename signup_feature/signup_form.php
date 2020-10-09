@@ -14,22 +14,22 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body id="mainbody" style="background-color: #6b6b6b;">
+<body class= " p-5" id="mainbody" style="background-color: #6b6b6b;">
     <div class='page'>
         <!--heading-->
         <?php
             require "../includes/header.php"
         ?>
 
-        <div class="content m-5">
+        <div class="content">
             
             
             <!--FORM-->
             <div class="row pt-5 border-top" >
 
-                <div class="col-4 pt-3 wrapper-main" id="registration">  
+                <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 wrapper-main" id="registration">  
                 <!--REGISTRATION-->
-                    <div class="m-auto col-4 ">
+                    <div class="m-auto col-2">
                         <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Register</h1>
                         <?php
                         
@@ -63,20 +63,20 @@ session_start();
                 </div>
 
                 <!--Requirements-->
-                <div class="col-4">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-8">
                     <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Requirements</h1>
-                    <div>
+                    <div >
                         <div class="row">
-                            <h3 class="col-4">Profile Name</h3>
-                            <ul class="col-4">
+                            <h3 class="col-xs-12 col-sm-8 col-md-4 col-xl-4">Profile Name</h3>
+                            <ul class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
                                 <li>Letters and Numbers only</li>
                                 <li>No Spaces</li>
                             </ul>
                         </div>
                         
                         <div class="row">
-                            <h3 class="col-4">Password:</h3>
-                            <ul class="col-4">
+                            <h3 class="col-xs-12 col-sm-8 col-md-4 col-xl-4">Password:</h3>
+                            <ul class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
                                 <li>Password length must be greater than 8</li>
                                 <li>Must have at least one Uppercase Letter</li>
                                 <li>Must have at least one Lowercase Letter</li>
@@ -95,7 +95,7 @@ session_start();
 
             <!--MESSAGE RETURNED-->
             <div class="row" >
-                <div class="col-4">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8">
                     <div id="message" ></div>
                     
                 </div>
@@ -115,9 +115,10 @@ session_start();
         ?>
     </div>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 </body>
 </html>
