@@ -48,7 +48,7 @@ if(isset($_POST['signup-submit'])){
       header("Location: ../signup_feature/signup_form.php?error=sqlerror");
       exit();
     }
-    // CHECK MATCH ALREADY IN TABLE
+    // CHECK 
     else{
       mysqli_stmt_bind_param($stmt,'s',$username);
       mysqli_stmt_execute($stmt);
