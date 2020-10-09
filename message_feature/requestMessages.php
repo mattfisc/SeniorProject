@@ -2,7 +2,8 @@
 session_start();
 
 require '../booklist/includes/db.book.inc.php';
-$sql = 'SELECT * FROM booklisting WHERE idUsers = ?';
+
+$sql = 'SELECT * FROM messages WHERE idUsers = ?';
 $stmt = mysqli_stmt_init($conn);
 
 // GET USERID
@@ -27,4 +28,5 @@ else{
         echo "0 results";
     }
 }
+
 

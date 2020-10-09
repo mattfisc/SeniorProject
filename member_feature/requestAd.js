@@ -71,13 +71,13 @@ function displayList(){
         
         // RIGHT CELL BOOK LIST ATTRIBUTES
         var rightstr = 
-            "<ul>".concat(
-                "<li>Title:  ",your_booklist[i].title,"</li>",
-                "<li>Author:  ",your_booklist[i].author,"</li>",
-                "<li>Isbn:  ",your_booklist[i].isbn,"</li>",
-                "<li>Location:  ",your_booklist[i].location,"</li>",
-                
-            "</ul>" );
+                "<ul>".concat(
+                    "<li>Title:  ",your_booklist[i].title,"</li>",
+                    "<li>Author:  ",your_booklist[i].author,"</li>",
+                    "<li>Isbn:  ",your_booklist[i].isbn,"</li>",
+                    "<li>Location:  ",your_booklist[i].location,"</li>",
+                "</ul>"
+            );
                 
         cell2.innerHTML = rightstr;
 
@@ -107,25 +107,3 @@ function displayList(){
 
     }
 }
-
-// function requestMessages(){
-//     var xml_str = "requestMessages.php";
-
-//     var xhr = new XMLHttpRequest();
-//     xhr.onreadystatechange = function() {
-//         // NO ERRORS
-//         if(this.readyState == 4 && this.status == 200){
-//             // CREATE ARRAY of BOOK OBJECT
-//             var str = this.responseText;
-
-//             fillBookList(str);
-//         }
-//     }
-
-//     xhr.open("GET",xml_str, true); 
-//     xhr.send();
-// }
-
-// function createMessage(){
-//     console.log("hello this created a message");
-// }
