@@ -42,18 +42,13 @@ if(isset($_GET['location'])){
     $location = $_GET['location'];
     if(strcmp($query_str, $base) !== 0)
     $query_str .= $operator;
-$query_str .= " `location` LIKE '". $location . "'";
+    $query_str .= " `location` LIKE '". $location . "'";
 }
 
 
 // CONNECT TO DATABASE
 //WEBPAGE NOTE: $mysqli = new mysqli("127.0.0.1", "username", "password", "database", 3306);
-$conn = new mysqli("localhost", "root", "", "cs450");
-
-// CHECK CONNECTION
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require "../includes/db.book.inc.php";
 
 // TEST QUERY STRINGS
 //$test = "SELECT * FROM `booklisting` WHERE `title` LIKE '$title'";
