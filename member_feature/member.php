@@ -50,7 +50,7 @@ session_start();
         </div>
 
         <!-- COL TWO -->
-        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
           <!-- <h1 class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Display</h1> -->
           
           <!-- DISPLAY ERRORS -->

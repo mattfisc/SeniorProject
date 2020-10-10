@@ -93,9 +93,6 @@ function displayList(){
                 if(this.readyState == 4 && this.status == 200){
                     // CREATE ARRAY of BOOK OBJECT
                     var str = this.responseText;
-
-                    console.log(str);
-
                 }
             }
 

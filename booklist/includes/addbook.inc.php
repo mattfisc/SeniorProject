@@ -19,9 +19,9 @@ if(isset($_POST['addbook-submit'])){
     }
     else{
         if(is_null($picture))
-            $sql ='INSERT INTO booklisting (title,author,isbn,book_location,userId) VALUES (?,?,?,?,?)';
+            $sql ='INSERT INTO booklisting (title,author,isbn,book_location,idUsers) VALUES (?,?,?,?,?)';
         else
-            $sql = 'INSERT INTO booklisting (title,author,isbn,picture,book_location,userId) VALUES (?,?,?,?,?,?)';
+            $sql = 'INSERT INTO booklisting (title,author,isbn,picture,book_location,idUsers) VALUES (?,?,?,?,?,?)';
         
         $stmt = mysqli_stmt_init($conn);
     
