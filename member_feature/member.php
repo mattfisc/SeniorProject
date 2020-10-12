@@ -44,7 +44,7 @@ session_start();
 
           <div class="pb-3" id="message">
             <h2 class=" font-weight-bold text-light m-auto pb-3" style="text-shadow: 2px 2px black">Conversation List</h2>
-              <button type="submit" onclick="get_conversations();" >Conversations</button>
+              <button type="submit" onclick="displayConversations();" >Conversations</button>
               <p id="conversationList"></p>
           </div>
 
@@ -71,7 +71,7 @@ session_start();
           
           <!-- YOUR ADS -->
           <div id="output">
-            <table id="display"f>
+            <table id="display">
 
             </table>
           </div> 

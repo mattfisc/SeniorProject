@@ -1,5 +1,5 @@
 
-//-----------------------------CONVERSATION------------------------
+//SESSION ID
 var userId;
 // CONVERSATION LISTS
 var conversations_list = [];
@@ -9,16 +9,45 @@ var conversations_list = [];
  */
 class Conversation{
 
-    constructor(user,bookId){
-        this.user = user;
+    constructor(user1,user2,bookId){
+        this.user1 = user1;
+        this.user2 = user2;
         this.bookId = bookId;
         
-        var message_list = [];
+        // ARRAY OF MESSAGE OBJECTS
+        this.message_list = [];
+    }
+
+    to_string(){
+        var str = "";
+        for (let i = 0; i < message_list.length; i++) {
+            const el = array[i];
+            str += "message: ".concat(el.senderId,el.recieverId,el.message_text,el.timestamp,"\n");
+            
+        }
+        return str;
     }
     
 }
 
-function get_conversations(){
+// FIND CONVERSATION
+function findConversation(user1,user2,bookId){
+    for (let index = 0; index < conversations_list.length; index++) {
+        const element = conversations_list[index];
+        // USER1 IS IN CONVERSATION
+        if(element.user1 == user1 || element.user1 == user2){
+            // USER2 IS IN CONVERSATION
+            if(element.user2 == user1 || element.user2 == user2){
+                if(element.bookId == bookId){
+                    return element;
+                }
+            }
+        }
+    }
+    return null;
+}
+
+window.onload = function get_conversations(){
     var xml_str = "../message_feature/requestConversations.php";
 
     var xhr = new XMLHttpRequest();
@@ -41,62 +70,107 @@ function set_buyer_list(str){
     // EMPTY OLD SEARCH LIST
     emptyList();
 
-    
-    
     // PARSE JSON
     var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
-    
     var array = res[0];
-
 
     // GET YOUR USERNAME
     userId = array[0];
 
 
-    for (let a = 1; a < array.length; a++) {
-        const elem = JSON.parse(array[a]);
+    for (let i = 1; i < array.length; i++) {
+        // GET ONE MESSAGE
+        const elem = JSON.parse(array[i]);
    
+        // CREATE MESSAGE OBJECT
         const message = new Message(elem.recieverId, elem.senderId, elem.message_text,
             elem.timestamp, elem.bookId, elem.id);
 
+        const conv = findConversation(message.recieverId,message.senderId,message.bookId);
+        if(conv == null){
+            // CREATE NEW CONVERSATION
+            const conversation = new Conversation(message.recieverId,message.senderId,message.bookId);
+            // ADD MESSAGE TO MESSAGE ARRAY
+            conversation.message_list.push(message);
 
-
-    
-        const conversation = new Conversation(message.senderId,message.bookId);
-        
-        // here --------------------------------
-        
+            // ADD TO LIST GLOBAL LIST
+            conversations_list.push(conversation);
+            
+        }
+        else{
+            // ADD MESSAGE TO ALREADY CREATED CONVERSATION
+            conv.message_list.push(message);
+        }       
         
     }
     
-    
-    //DISPLAY
-    displayList();
 }
 
-function displayList(){
+function displayMessages(){
+    // DISPLAY CONVERSATIONS
+    var div = document.getElementById("output");
 
-    var el = document.getElementById("conversationList");
-    for (let index = 0; index < your_conversations.length; index++) {
-        var aTag = document.createElement('a');
+    for (let index = 0; index < conversations_list.length; index++) {
+
+        const list = conversations_list[index].message_list;
+
+        for (let i = 0; i < list.length; i++) {
+
+            var bookId = document.createElement('p');
+            var senderId = document.createElement('h3');
+            //var reciever = document.createElement('h3');
+            var text_message = document.createElement('p');
+            var time_stamp = document.createElement('p');
+
+            const m = list[i];
+
+            bookId.innerHTML = m.bookId;
+            senderId.innerHTML = m.senderId;
+            //reciever.innerHTML = m.recieverId;
+            text_message.innerHTML = m.message;
+            time_stamp.innerHTML = m.time_stamp;
+            
+
+            //COL ONE
+
+            // GET BOOK
+            div.appendChild(bookId);
 
 
-        var linkText = document.createTextNode("your_conversations[index]");
-        aTag.innerHTML(linkText);
-        aTag.title = "my title text";
-        aTag.href = "messageboard.php";
+            // COL TWO
 
-        el.appendChild(aTag);
-        console.log(your_conversations[index]);
+            div.appendChild(senderId);  
+            //div.appendChild(reciever);  
+            div.appendChild(text_message);  
+            div.appendChild(time_stamp); 
+            
+        }
+        
+
+
         
     }
 }
 
 function emptyList(){
     // EMPTY OBJECT LIST
-    your_conversations = new Array();
+    conversations_list = [];
 
     // EMPTY TABLE IN HTML
-    var el = document.getElementById("conversationList");
+    var el = document.getElementById("display");
     el.innerHTML = "";
+}
+
+function displayConversations(){
+    var div = document.getElementById('output');
+
+    var list = document.createElement('ul');
+    
+    for (let index = 0; index < conversations_list.length; index++) {
+        const element = conversations_list[index];
+
+        
+        
+    }
+
 }

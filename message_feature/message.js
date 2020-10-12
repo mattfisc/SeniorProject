@@ -1,13 +1,13 @@
 class Message {
   
-    constructor(recieverId,senderId,message,time_stamp,bookId,messageId){
+    constructor(recieverId,senderId,time_stamp,text_message,bookId,messageId){
 
         //id
         this.recieverId = recieverId;
         this.senderId = senderId;
 
         // array
-        this.message = message;
+        this.text_message = text_message;
 
         // timestamp
         this.time_stamp = time_stamp;
