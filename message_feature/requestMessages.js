@@ -1,5 +1,11 @@
-var your_booklist = [];
 
+
+
+var profileMessageList = [];
+
+function get_profile_list(){
+
+}
 
 function requestMessages(){
     var xml_str = "requestMessages.php";

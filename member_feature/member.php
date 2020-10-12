@@ -11,8 +11,11 @@ session_start();
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="../message_feature/message.js"></script>
+  <script src="../message_feature/conversation.js"></script>
   <script src="requestAd.js"></script>
   <script src="../booklist/book.js"></script>
+
 </head>
 
 
@@ -40,8 +43,9 @@ session_start();
           </div>
 
           <div class="pb-3" id="message">
-            <h2 class=" font-weight-bold text-light m-auto pb-3" style="text-shadow: 2px 2px black">Books of Interest</h2>
-              <button type="submit" onclick="requestMessages();" >Books you Messaged</button>
+            <h2 class=" font-weight-bold text-light m-auto pb-3" style="text-shadow: 2px 2px black">Conversation List</h2>
+              <button type="submit" onclick="get_conversations();" >Conversations</button>
+              <p id="conversationList"></p>
           </div>
 
           <div class="pb-3" id="edit">
@@ -51,8 +55,7 @@ session_start();
 
         <!-- COL TWO -->
         <div class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
-          <!-- <h1 class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Display</h1> -->
-          
+
           <!-- DISPLAY ERRORS -->
           <div>
             <?php
@@ -67,15 +70,18 @@ session_start();
           </div>
           
           <!-- YOUR ADS -->
-          <table id="display"></table> 
-          
+          <div id="output">
+            <table id="display"f>
+
+            </table>
+          </div> 
+              
         </div>     
         
       </div>
       
       
     </div>
-
 
 
     <!-- MEMBER ONLY -->
