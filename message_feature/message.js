@@ -1,6 +1,6 @@
 class Message {
   
-    constructor(recieverId,senderId,time_stamp,text_message,bookId,messageId){
+    constructor(recieverId,senderId,text_message,time_stamp,bookId,messageId){
 
         //id
         this.recieverId = recieverId;

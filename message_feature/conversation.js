@@ -101,42 +101,97 @@ function displayMessages(conversation_obj){
     // DISPLAY CONVERSATIONS
     var div = document.getElementById("output");
 
+    // CLEAR
+    div.innerHTML = "";
+
+    // NEW ROW
+    var row = document.createElement('div');
 
 
-    var bookId = document.createElement('p');
-    var senderId = document.createElement('h3');
-    //var reciever = document.createElement('h3');
-    var text_message = document.createElement('p');
-    var time_stamp = document.createElement('p');
+    // GET IMAGE
+    var img = document.createElement('img');
+    var pic_loc = conversation_obj.picture;
+    var str =  "../upload/".concat( pic_loc );
+    img.src = str;
+    row.appendChild(img);
+    div.appendChild(row);
 
-    const obj = conversation_obj.message_list;
+    // SECOND ROW
+    var row1 = document.createElement('div');
 
-    bookId.innerHTML = obj.bookId;
-    senderId.innerHTML = obj.senderId;
-    //reciever.innerHTML = obj.recieverId;
-    text_message.innerHTML = obj.message;
-    time_stamp.innerHTML = obj.time_stamp;
+    // LEFT COL
+    var leftcol = document.createElement('div');
+    leftcol.className = "col-xs-12 col-sm-8 col-md-4 col-xl-4";
+
+    // RIGHT COL
+    var rightcol = document.createElement("div");
+    rightcol.className = "col-xs-12 col-sm-8 col-md-4 col-xl-4 text-right text-light";
+
+    // CREATE TITLE
+    var sender = document.createElement('h3');
+    var reciever = document.createElement('h3');
+
+    // RIGHT SIDE USERID IS SENDER
+    if(conversation_obj.user1 == userId){
+        sender.innerHTML = "YOU";
+        reciever.innerHTML = "BOOK OWNER";
+        leftcol.appendChild(reciever);
+        rightcol.appendChild(sender);
+    }
+    else{
+        sender.innerHTML = "BOOK OWNER";
+        reciever.innerHTML = "YOU";
+        leftcol.appendChild(sender);
+        rightcol.appendChild(reciever);
+    }
+    
+    
     
 
-    //COL ONE
+    // ADD TITLES
+    row1.appendChild(leftcol);
+    row1.appendChild(rightcol);
+    div.appendChild(row1);
 
-    // GET BOOK
-    div.appendChild(bookId);
+    // CREATE IMAGE
+   
 
+    // GET MESSAGE LIST FROM CONVERSATION
+    const m_list = conversation_obj.message_list;
 
-    // COL TWO
-
-    div.appendChild(senderId);  
-    //div.appendChild(reciever);  
-    div.appendChild(text_message);  
-    div.appendChild(time_stamp); 
+    for (let i = 0; i < m_list.length; i++) {
+        // CREATE HTML ELEMENTS
+        var row3 = document.createElement('div');
+        row3.className = "col-xs-12 col-sm-12 col-md-4 col-xl-4";
     
-    
+
+        // if you are sender right align
+        if(m_list[i].senderId == userId){
+            row3.className = "col-xs-12 col-sm-12 col-md-8 col-xl-8 bg-info text-right text-light";
+        }
+        else{
+            row3.className = "col-xs-12 col-sm-12 col-md-8 col-xl-8  bg-secondary";
+        }
+
+        var text = document.createElement('h3');
+        var date = document.createElement('p');
+
+   
+        // SET TO ROW
+        text.innerHTML = m_list[i].text_message;
+        date.innerHTML = m_list[i].time_stamp;
         
 
+        //COL ONE
+        // GET BOOK
+        row3.appendChild(text);   
+        row3.appendChild(date);  
+        // ADD ROW
+        div.appendChild(row3);   
 
-        
+    }
     
+
 }
 
 function clear(){
@@ -193,10 +248,13 @@ function displayConversations(){
 
         // RIGHT COL
         // CONVERSATION INFORMATION
-        var button = document.createElement('button');
-        button.innerHTML = "CLICK CHAT";
-        rightcol.appendChild(button);
-        //button.onclick = displayMessages();
+        var btn = document.createElement('button');
+        btn.innerHTML = "CLICK CHAT";
+        btn.onclick = function(){
+            displayMessages(element);
+        };
+        rightcol.appendChild(btn);
+        
         
         row.appendChild(rightcol);
         div.appendChild(row);

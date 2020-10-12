@@ -55,7 +55,7 @@ session_start();
         </div>
 
         <!-- COL TWO -->
-        <div class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8">
 
           <!-- DISPLAY ERRORS -->
           <div>
