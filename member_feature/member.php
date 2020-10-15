@@ -20,7 +20,7 @@ session_start();
 </head>
 
 
-<body class="p-3" id="mainbody" style="background-color: #6b6b6b;">
+<body class="p-3" id="mainbody" style="background-color: #6b6b6b; padding-top: 75px;">
   <div class='page'>
 
     <!--HEADER AND NAV BAR-->

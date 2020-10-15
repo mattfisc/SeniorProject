@@ -9,12 +9,12 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textbook Swap</title>
- 
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body class= " p-5" id="mainbody" style="background-color: #6b6b6b;">
+<body class= " p-5" id="mainbody" style="background-color: #6b6b6b; padding-top: 75px;" >
     <div class='page'>
         <!--heading-->
         <?php
@@ -25,7 +25,7 @@ session_start();
             
             
             <!--FORM-->
-            <div class="row pt-5 border-top" >
+            <div class="row pt-5" >
 
                 <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 wrapper-main" id="registration">  
                 <!--REGISTRATION-->
@@ -36,16 +36,16 @@ session_start();
                         // ERROR MESSAGE
                         if(isset($_GET['error'])){
                             if($_GET['error'] == "emptyfields")
-                                echo "<p class='signuperror'>Error empty field found. Please fill out all fields.</p>";
+                                echo "<p class='error'>Error empty field found. Please fill out all fields.</p>";
                             else if($_GET['error'] == "invalidemailuid")
-                                echo "<p class='signuperror'>Error invalid email or username.</p>";
+                                echo "<p class='error'>Error invalid email or username.</p>";
                             else if($_GET['error'] == "invalidemail"){
-                                echo "<p class='signuperror'>Error email already taken.</p>";
+                                echo "<p class='error'>Error email already taken.</p>";
                             }
                             else if($_GET['error'] == "invalidUserId")
-                                echo "<p class='signuperror'>Error username already taken.</p>";
+                                echo "<p class='error'>Error username already taken.</p>";
                             else if($_GET['error'] == "passwordcheck")
-                                echo "<p class='signuperror'>Error repeat password not equal.</p>";    
+                                echo "<p class='error'>Error repeat password not equal.</p>";    
 
                         }
                         

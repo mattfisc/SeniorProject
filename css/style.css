@@ -20,3 +20,19 @@
   padding-top: 75px;
 }
 
+.error {
+  text-shadow: 1px 1px white;
+  color : red;
+}
+
+.success {
+  text-shadow: 1px 1px white;
+  color : blue;
+}
+
+/* .successorfailure {
+  width: 200px;
+
+  border: solid black 3px;
+
+} */

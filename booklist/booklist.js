@@ -89,11 +89,11 @@ function displayList(){
         
         cell2.innerHTML = rightstr;
         
-        // ADD DELETE BUTTON
+        // ADD MESSAGE BUTTON
         var btn = document.createElement("button");
         btn.innerHTML = "Message Owner";
   
-        //EVENT ON DELETE BUTTON
+        //EVENT ON MESSAGE BUTTON
         btn.onclick = function(){
 
             //  GET DIV ELEMENT

@@ -17,7 +17,7 @@ session_start();
     <script src="booklist.js"></script>
 
 </head>
-<body id="mainbody" style="background-color: #6b6b6b;">
+<body id="mainbody" style="background-color: #6b6b6b; padding-top: 75px;">
     <div class='page'>
         <!--heading-->
         <?php
@@ -25,33 +25,26 @@ session_start();
         ?>
 
 
-        <div class="content col-xs-12 col-sm-12 col-md-4 col-xl-4">
+        <div class="content col-xs-4 col-sm-4 col-md-4 col-xl-4 m-auto">
             
             
             <!--FORM-->
-            <div class="row pt-5 m-auto border-top" >
+            <div class="row pt-5 m-auto " >
 
-                <div class=" m-auto" >
+                <div class=" " >
                     
-<!-- 
-                         if(isset($_SESSION['userUid'])){
-                            echo"  -->
-                           <h2 class='text-center font-weight-bold text-light m-auto p-1' style='text-shadow: 2px 2px black'>Add Book</h2>
-                                <form action='includes/addbook.inc.php' method='post'>
-                                    <input class='form-control shadow-lg bg-white rounded' id='title_input' name='title_input' type='text' placeholder='Title..'>
-                                    <input class='form-control shadow-lg bg-white rounded' id='author_input' name='author_input' type='text' placeholder='Author..'>
-                                    <input class='form-control shadow-lg bg-white rounded' id='isbn_input' name='isbn_input' type='text' placeholder='ISBN..'>
-                                    <input class='form-control shadow-lg bg-white rounded' id='location_input' name='location_input' type='text' placeholder='City or University..'>
-                                    <br>
-                                    <button name='addbook-submit' type='submit'>Add Book</button>
-                                </form>
-                                 <!-- ";
-                         } -->
 
-                  
+                    <h2 class='text-center font-weight-bold text-light p-1 ' style='text-shadow: 2px 2px black'>Add Book</h2>
 
-                    
-                    
+                    <form action='includes/addbook.inc.php' method='post'>
+                        <input class='form-control shadow-lg bg-white rounded' id='title_input' name='title_input' type='text' placeholder='Title..'>
+                        <input class='form-control shadow-lg bg-white rounded' id='author_input' name='author_input' type='text' placeholder='Author..'>
+                        <input class='form-control shadow-lg bg-white rounded' id='isbn_input' name='isbn_input' type='text' placeholder='ISBN..'>
+                        <input class='form-control shadow-lg bg-white rounded' id='location_input' name='location_input' type='text' placeholder='City or University..'>
+                        <br>
+                        <button name='addbook-submit' type='submit'>Add Book</button>
+                    </form>
+ 
                 </div>
             </div>
             <div class="row p-1" >

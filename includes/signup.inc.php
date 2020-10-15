@@ -45,7 +45,7 @@ if(isset($_POST['signup-submit'])){
 
     // CHECK CONNECTION
     if(!mysqli_stmt_prepare($stmt,$sql)){
-      header("Location: ../signup_feature/signup_form.php?error=sqlerror");
+      header("Location: ../signup_feature/signup_form.php?error=usersqlerror");
       exit();
     }
     // CHECK 

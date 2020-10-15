@@ -14,7 +14,7 @@ session_start();
   
 
 </head>
-<body id="mainbody" style="background-color: #6b6b6b;">
+<body id="mainbody" style="padding-top: 75px;  background-color: #6b6b6b;">
     <div class='page'>
 
         <!--heading-->
@@ -23,7 +23,7 @@ session_start();
         ?>
 
         <!--FORM-->
-            <div class="content border-top m-auto pt-5 p-1" >
+            <div class="content m-auto pt-5 p-1" >
 
               <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 m-auto">
                 <div class="row">

@@ -100,7 +100,7 @@ function set_buyer_list(str){
 function displayMessages(conversation_obj){
     // DISPLAY CONVERSATIONS
     var div = document.getElementById("output");
-
+    div.className = "";
     // CLEAR
     div.innerHTML = "";
 
@@ -125,7 +125,7 @@ function displayMessages(conversation_obj){
 
     // RIGHT COL
     var rightcol = document.createElement("div");
-    rightcol.className = "col-xs-12 col-sm-8 col-md-4 col-xl-4 text-right text-light";
+    rightcol.className = "col-xs-12 col-sm-8 col-md-4 col-xl-4 text-right text-light ";
 
     // CREATE TITLE
     var sender = document.createElement('h3');
@@ -153,8 +153,6 @@ function displayMessages(conversation_obj){
     row1.appendChild(rightcol);
     div.appendChild(row1);
 
-    // CREATE IMAGE
-   
 
     // GET MESSAGE LIST FROM CONVERSATION
     const m_list = conversation_obj.message_list;
@@ -190,7 +188,49 @@ function displayMessages(conversation_obj){
         div.appendChild(row3);   
 
     }
-    
+
+    // MESSAGE DIV----------------------------
+    var div_form = document.createElement('div');
+    div_form.className = "text-center";
+    div_form.setAttribute("id", "focus");
+
+    // CREATE MESSAGE FORM
+    var form = document.createElement("form");
+
+    form.method = "POST";
+    form.action = "../message_feature/create_message.php";
+
+    var message = document.createElement("input");  
+    message.name = "message";
+    form.appendChild(message);
+
+    // SEND RECIEVER ID
+    var r = document.createElement('input');
+    r.type = 'hidden';
+    r.setAttribute("name", "reciever");
+    if(conversation_obj.user1 == userId)
+        r.value = conversation_obj.user2;
+    else
+        r.value = conversation_obj.user1;
+    form.appendChild(r);
+
+    // SEND BOOK ID
+    var bookId = document.createElement('input');
+    bookId.type = 'hidden';
+    bookId.setAttribute("name", "bookId");
+    bookId.value = conversation_obj.bookId;
+    form.appendChild(bookId);
+
+    // ADD SUBMIT BUTTON
+    var btnsubmit = document.createElement("button"); 
+    btnsubmit.innerHTML = "submit message";
+    btnsubmit.name = "submit-message";
+    form.appendChild(btnsubmit);
+
+    // ADD TO FORM
+    div_form.appendChild(form);
+    div.appendChild(div_form);
+
 
 }
 
@@ -249,16 +289,24 @@ function displayConversations(){
         // RIGHT COL
         // CONVERSATION INFORMATION
         var btn = document.createElement('button');
-        btn.innerHTML = "CLICK CHAT";
+        var a = document.createElement('a');
+        a.href = "member.php#focus";
+        a.innerHTML = "CLICK CHAT";
+        btn.appendChild(a);
         btn.onclick = function(){
             displayMessages(element);
+            
         };
         rightcol.appendChild(btn);
         
         
         row.appendChild(rightcol);
         div.appendChild(row);
+
     }
+
+    
+    
 
 }
 
