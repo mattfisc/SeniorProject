@@ -14,8 +14,8 @@ session_start();
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
-<body id="mainbody" style="background-color: #6b6b6b;">
-    <div class='page p-3'>
+<body id="mainbody">
+    <div class='page'>
 
     <!--HEADER-->
     <?php
@@ -23,18 +23,15 @@ session_start();
     ?>
 
 
-        <div class="content p-5">
-            
-            
-
+        <div class="content">
             <!--FORM-->
             <div class="row main-wrapper" >
 
-                <div class="row pt-3 m-auto" id="login">
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto">
-                        <h2 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Login</h2>
-                        <div class="col-2 p-5">
-                            <div class="successorfailure col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto">
+                <div class="row  m-auto" id="login">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-xl-12 m-auto">
+                        <h2 class=" col-12 text-center font-weight-bold text-light m-auto p-3" style="text-shadow: 2px 2px black">Login</h2>
+                        <div class="col-2 m-auto">
+                            <div class="successorfailure  text-center">
                                 <?php
                                 
                                 // ERROR MESSAGE

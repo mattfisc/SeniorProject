@@ -18,7 +18,7 @@ session_start();
   <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body  id="mainbody" style="background-color: #6b6b6b;">
+<body  id="mainbody">
   <div class='page p-3'>
 
     <!--heading-->

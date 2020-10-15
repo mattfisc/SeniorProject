@@ -14,7 +14,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body class= " p-5" id="mainbody" style="background-color: #6b6b6b; padding-top: 75px;" >
+<body id="mainbody">
     <div class='page'>
         <!--heading-->
         <?php
@@ -67,16 +67,16 @@ session_start();
                     <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Requirements</h1>
                     <div >
                         <div class="row">
-                            <h3 class="col-xs-12 col-sm-8 col-md-4 col-xl-4">Profile Name</h3>
-                            <ul class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
+                            <h3 class="text-center col-xs-12 col-sm-8 col-md-4 col-xl-4">Profile Name</h3>
+                            <ul class="m-2 col-xs-12 col-sm-8 col-md-4 col-xl-4">
                                 <li>Letters and Numbers only</li>
                                 <li>No Spaces</li>
                             </ul>
                         </div>
                         
                         <div class="row">
-                            <h3 class="col-xs-12 col-sm-8 col-md-4 col-xl-4">Password:</h3>
-                            <ul class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
+                            <h3 class="text-center col-xs-12 col-sm-8 col-md-4 col-xl-4">Password:</h3>
+                            <ul class="m-2 col-xs-12 col-sm-8 col-md-4 col-xl-4">
                                 <li>Password length must be greater than 8</li>
                                 <li>Must have at least one Uppercase Letter</li>
                                 <li>Must have at least one Lowercase Letter</li>
