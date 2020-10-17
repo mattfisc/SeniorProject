@@ -28,12 +28,11 @@ session_start();
             <div class="row main-wrapper" >
 
                 <div class="row  m-auto" id="login">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-xl-12 m-auto">
-                        <h2 class=" col-12 text-center font-weight-bold text-light m-auto p-3" style="text-shadow: 2px 2px black">Login</h2>
-                        <div class="col-2 m-auto">
-                            <div class="successorfailure  text-center">
-                                <?php
-                                
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8">
+                        
+                        <div class="successorfailure  text-center">
+                            <?php
+                                    
                                 // ERROR MESSAGE
                                 if(isset($_GET['error'])){
                                     if($_GET['error'] == "invalidemailuid")
@@ -57,8 +56,14 @@ session_start();
                                     echo "<p class='success'>You are signed up!</p>";
                                 }
 
-                                ?>
-                            </div>
+                            ?>
+                        </div>
+
+                        <div class="col-2 m-auto">
+
+                            <h1 class=" text-center font-weight-bold text-light p-3" style="text-shadow: 2px 2px black">Login</h1>
+                            
+                            
                             <form action="../includes/login.inc.php" method="post">
                                 <input type="text" name="emailuid" id="emailuid" placeholder="Profile Name or Email" required>
                                 <input type="password" name="password" id="password" placeholder="Password" required>

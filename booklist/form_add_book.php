@@ -25,7 +25,7 @@ session_start();
         ?>
 
 
-        <div class="content col-xs-4 col-sm-4 col-md-4 col-xl-4 m-auto">
+        <div class="content col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto">
             
             
             <!--FORM-->

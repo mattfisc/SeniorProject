@@ -42,13 +42,14 @@
                 <!--FORM-->
                 <div class="row m-auto " >
                     <div class=" m-auto" >
-                        <h2 class='text-center font-weight-bold text-light m-auto p-3' style='text-shadow: 2px 2px black'>Upload Photos</h2>
-                        <form action='includes/upload_photo.php' method='post' enctype='multipart/form-data'>
-                            <input  id='file' name='file' type='file'>
+                        <h2 class='text-center font-weight-bold text-light m-auto p-3' style='text-shadow: 2px 2px black'>Book Description</h2>
+                        <form action='includes/upload_description.php' method='post' enctype='multipart/form-data'>
+                            <textarea name="description" id="description" cols="30" rows="10"></textarea>
                             <br>
-                            <button name='submit' type='submit'>Upload</button>
-                            <button name='' type=''><a href="form_book_description.php">Skip</a></button>
+                            <button name='submit-description' type='submit'>Submit</button>
+                            
                         </form>
+                        <button name='' type=''><a href="form_add_book.php">Skip</a></button>
     
                     </div>
                 </div>

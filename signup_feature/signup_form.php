@@ -27,11 +27,9 @@ session_start();
             <!--FORM-->
             <div class="row pt-5" >
 
-                <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 wrapper-main" id="registration">  
-                <!--REGISTRATION-->
-                    <div class="m-auto col-2">
-                        <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Register</h1>
-                        <?php
+                <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 " id="registration">  
+
+                    <?php
                         
                         // ERROR MESSAGE
                         if(isset($_GET['error'])){
@@ -50,7 +48,13 @@ session_start();
                         }
                         
 
-                        ?>
+                    ?>
+
+
+                <!--REGISTRATION-->
+                    <div class="m-auto col-2">
+                        <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Register</h1>
+                        
                         <form action="../includes/signup.inc.php" method="post">
                             <input type="text" id="name" name="name" placeholder="Profile name" required>
                             <input type="text" id="email" name="email" placeholder="Email Address" required>
@@ -73,7 +77,7 @@ session_start();
                                 <li>No Spaces</li>
                             </ul>
                         </div>
-                        
+
                         <div class="row">
                             <h3 class="text-center col-xs-12 col-sm-8 col-md-4 col-xl-4">Password:</h3>
                             <ul class="m-2 col-xs-12 col-sm-8 col-md-4 col-xl-4">
