@@ -1,15 +1,16 @@
 #mainbody {
-  background-image: url("img/anastase-maragos.jpg");
+  background-image: url("../img/anastase-maragos.jpg");
   background-color: #525151; /* Used if the image is unavailable */
-  height: 500px; /* You must set a specified height */
+
   background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
+  background-repeat: repeat-y; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
-  color: white;
+  color: black;
 }
 
 * {
   box-sizing: border-box;
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -28,6 +29,15 @@
 .success {
   text-shadow: 1px 1px white;
   color : blue;
+}
+
+#readable {
+  background-color: rgba(250, 248, 248, 0.624);
+}
+
+#img {
+  width: 200px;
+  height: 200px;
 }
 
 /* .successorfailure {

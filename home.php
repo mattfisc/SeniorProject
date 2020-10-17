@@ -121,7 +121,7 @@ session_start();
         <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8" >
          
           
-          <table id="booklist" class="table table-bordered table-striped bg-light">
+          <table  id="booklist" class="table table-bordered table-striped bg-light">
             
           </table>
 

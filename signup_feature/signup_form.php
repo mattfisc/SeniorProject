@@ -67,7 +67,7 @@ session_start();
                 </div>
 
                 <!--Requirements-->
-                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-8">
+                <div id="readable" class="col-xs-12 col-sm-12 col-md-12 col-xl-8">
                     <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Requirements</h1>
                     <div >
                         <div class="row">

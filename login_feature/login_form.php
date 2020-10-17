@@ -59,7 +59,7 @@ session_start();
                             ?>
                         </div>
 
-                        <div class="col-2 m-auto">
+                        <div  class="col-2 m-auto">
 
                             <h1 class=" text-center font-weight-bold text-light p-3" style="text-shadow: 2px 2px black">Login</h1>
                             

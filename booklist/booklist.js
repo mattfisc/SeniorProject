@@ -52,7 +52,7 @@ function fillBookList(str){
         const jsonObj = res[i];
 
         // CREATE BOOK LIST
-        const book = new Book(res[i].id,res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture,res[i].idUsers);
+        const book = new Book(res[i].id,res[i].title,res[i].author,res[i].isbn,res[i].location,res[i].picture,res[i].idUsers,res[i].description);
         booklist.push(book);
         
     }
@@ -68,6 +68,7 @@ function displayList(){
         // CREATE TABLE ELEMENTS
         var row = table.insertRow(i);
         var cell1 = row.insertCell(0);
+        
         var cell2 = row.insertCell(1);
 
         // LEFT CELL
@@ -77,90 +78,53 @@ function displayList(){
         // PICTURE FILE
         leftstr = "upload/".concat(booklist[i].picture);  
         img.src = leftstr; 
-        cell1.appendChild(img);
+        img.id = "img";
 
+
+        cell1.appendChild(img);
         // RIGHT CELL BOOK LIST ATTRIBUTES
         var rightstr = "<ul>".concat(
             "<li>Title:  ",booklist[i].title,"</li>",
             "<li>Author:  ",booklist[i].author,"</li>",
             "<li>Isbn:  ",booklist[i].isbn,"</li>",
             "<li>Location:  ",booklist[i].location,"</li>",
+            "<li>Description:  ",booklist[i].description,"</li>",
             "</ul>");
         
         cell2.innerHTML = rightstr;
         
         // ADD MESSAGE BUTTON
         var btn = document.createElement("button");
-        btn.innerHTML = "Message Owner";
+        btn.innerHTML = "Details";
   
         //EVENT ON MESSAGE BUTTON
         btn.onclick = function(){
-
-            //  GET DIV ELEMENT
-            var message_div = document.getElementById("message");
-
-            // CREATE FORM
-            var form = document.createElement("form");
-
-            // TITLE
-            var title =document.createElement('p');
-            title.innerHTML = "Send Message to Book Owner";
-            message_div.appendChild(title);
-
-            message_div.appendChild(form);
-
-            form.method = "POST";
-            form.action = "message_feature/create_message.php";
-
-            var message = document.createElement("input");  
-            message.name = "message";
-            form.appendChild(message);
-
-            // SEND RECIEVER ID
-            var r = document.createElement('input');
-            r.type = 'hidden';
-            r.setAttribute("name", "reciever");
-            r.value = booklist[i].idUsers;
-            form.appendChild(r);
-
-             // SEND BOOK ID
-             var bookId = document.createElement('input');
-             bookId.type = 'hidden';
-             bookId.setAttribute("name", "bookId");
-             bookId.value = booklist[i].id;
-             form.appendChild(bookId);
-
-            var btnsubmit = document.createElement("button"); 
-            btnsubmit.innerHTML = "submit message";
-            btnsubmit.name = "submit-message";
-            form.appendChild(btnsubmit);
-            // form.submit();
-            
-          };
-        
-        // function(){
-        //     var xhr = new XMLHttpRequest();
-        //     xhr.onreadystatechange = function() {
-        //         // NO ERRORS
-        //         if(this.readyState == 4 && this.status == 200){
-        //             // CREATE ARRAY of BOOK OBJECT
-        //             var str = this.responseText;
-
-        //             console.log(str);
-
-        //         }
-        //     }
-        // var reciever = booklist[i].idUsers;
-        // console.log(reciever);
- 
-        // var str = "message_feature/create_message.php?";
-        // str = str.concat("reciever=",reciever);
-
-
-        // xhr.open("GET",str, true); 
-        // xhr.send();
-        // };
-
-        cell2.appendChild(btn);
+            popupCenter({url: 'booklist/form_add_book.php', title: 'xtf', w: 900, h: 500});  
+        }
+           
     }
+}
+
+const popupCenter = ({url, title, w, h}) => {
+    // Fixes dual-screen position                             Most browsers      Firefox
+    const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
+    const dualScreenTop = window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
+
+    const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    const systemZoom = width / window.screen.availWidth;
+    const left = (width - w) / 2 / systemZoom + dualScreenLeft
+    const top = (height - h) / 2 / systemZoom + dualScreenTop
+    const newWindow = window.open(url, title, 
+      `
+      scrollbars=yes,
+      width=${w / systemZoom}, 
+      height=${h / systemZoom}, 
+      top=${top}, 
+      left=${left}
+      `
+    )
+
+    if (window.focus) newWindow.focus();
 }
