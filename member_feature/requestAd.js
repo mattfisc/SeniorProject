@@ -67,6 +67,7 @@ function displayList(){
         // PICTURE FILE
         leftstr = "../upload/".concat(your_booklist[i].picture);  
         img.src = leftstr; 
+        img.id = 'img';
         cell1.appendChild(img);
         
         // RIGHT CELL BOOK LIST ATTRIBUTES

@@ -113,6 +113,7 @@ function displayMessages(conversation_obj){
     var pic_loc = conversation_obj.picture;
     var str =  "../upload/".concat( pic_loc );
     img.src = str;
+    img.id = 'img';
     row.appendChild(img);
     div.appendChild(row);
 
@@ -281,6 +282,7 @@ function displayConversations(){
         var pic_loc = element.picture;
         var str =  "../upload/".concat( pic_loc );
         img.src = str;
+        img.id = 'img';
         // LEFT COL
         leftcol.appendChild(img);
         row.appendChild(leftcol);

@@ -3,7 +3,6 @@
 var booklist = [];
 
 
-
 function searchforbook(){
     var text = getQueryString();
     
@@ -80,6 +79,7 @@ function displayList(){
         img.src = leftstr; 
         img.id = "img";
 
+   
 
         cell1.appendChild(img);
         // RIGHT CELL BOOK LIST ATTRIBUTES
@@ -88,9 +88,14 @@ function displayList(){
             "<li>Author:  ",booklist[i].author,"</li>",
             "<li>Isbn:  ",booklist[i].isbn,"</li>",
             "<li>Location:  ",booklist[i].location,"</li>",
-            "<li>Description:  ",booklist[i].description,"</li>",
-            "</ul>");
+            );
         
+        if(booklist[i].description == null)
+            rightstr = rightstr.concat("<ul>");
+        else
+            rightstr = rightstr.concat("<li>Description:  ",booklist[i].description,"</li>",
+            "</ul>");
+
         cell2.innerHTML = rightstr;
         
         // ADD MESSAGE BUTTON
@@ -99,9 +104,18 @@ function displayList(){
   
         //EVENT ON MESSAGE BUTTON
         btn.onclick = function(){
-            popupCenter({url: 'booklist/form_add_book.php', title: 'xtf', w: 900, h: 500});  
+            localStorage["id"] = (booklist[i].id);
+            localStorage["title"] = (booklist[i].title);
+            localStorage["author"] = (booklist[i].author);
+            localStorage["isbn"] = (booklist[i].isbn);
+            localStorage["location"] = (booklist[i].location);
+            localStorage["picture"] = (booklist[i].picture);
+            localStorage["idUsers"] = (booklist[i].idUsers);
+            localStorage["description"] = (booklist[i].description);
+
+            popupCenter({url: 'booklist/oneBook.php', title: 'xtf', w: 900, h: 500});  
         }
-           
+        cell2.appendChild(btn);         
     }
 }
 
@@ -128,3 +142,4 @@ const popupCenter = ({url, title, w, h}) => {
 
     if (window.focus) newWindow.focus();
 }
+
