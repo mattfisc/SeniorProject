@@ -40,13 +40,22 @@ session_start();
 
                     <!-- MESSAGE BOOK OWNER -->
                     <div>
-                        <h5 class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black">Message Owner</h5>
-                        <form action="../message_feature/create_message.php" method="post">
-                            <input type="text" name="message" >
-                            <input type="hidden" name="reciever" id="reciever">
-                            <input type="hidden" name="bookId" id="bookId">
-                            <button type="submit" name="submit-message">Submit</button>
-                        </form>
+                        <?php
+                            if(isset($_SESSION['idUsers'])){
+                                echo 
+                                '<h5 class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black">Message Owner</h5>
+                                <form action="../message_feature/create_message.php" method="post">
+                                    <input type="text" name="message" >
+                                    <input type="hidden" name="reciever" id="reciever">
+                                    <input type="hidden" name="bookId" id="bookId">
+                                    <button type="submit" name="submit-message">Submit</button>
+                                </form>';
+                            }
+                            else{
+                                echo "<p class='p-3' id='readable'>Register to message the Owner!</p>";
+                            }
+
+                        ?>
                     </div>
                     
                 </div>

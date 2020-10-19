@@ -101,7 +101,8 @@ function displayList(){
         // ADD MESSAGE BUTTON
         var btn = document.createElement("button");
         btn.innerHTML = "Details";
-  
+        btn.className += "form-control shadow-lg bg-white rounded";
+
         //EVENT ON MESSAGE BUTTON
         btn.onclick = function(){
             localStorage["id"] = (booklist[i].id);

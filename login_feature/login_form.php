@@ -69,7 +69,7 @@ session_start();
                             <input class="form-control shadow-lg bg-white rounded" type="password" name="password" id="password" placeholder="Password" required>
                             <br><!--SUBMIT BUTTON -->
                             <button class="form-control shadow-lg bg-dark text-light rounded" type="submit" name="login-submit">Login</button>
-                            <br>
+                            <br><br>
                         </form>
                         <h4 class=" text-center font-weight-bold text-light p-3" style="text-shadow: 2px 2px black">Not Registered</h4>
                         <a class="form-control shadow-lg bg-dark text-light rounded text-center" href="../signup_feature/signup_form.php">Registration Form</a>

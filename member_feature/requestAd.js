@@ -85,6 +85,7 @@ function displayList(){
         // ADD DELETE BUTTON
         var del = document.createElement("button");
         del.innerHTML = "Delete Ad";
+        // del.className = "bg-dark";
   
         // EVENT ON DELETE BUTTON
         del.onclick = function(){

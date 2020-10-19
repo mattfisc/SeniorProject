@@ -61,6 +61,7 @@ session_start();
                             <input class="form-control shadow-lg bg-white rounded" type="password" id="password1" name="password1" placeholder="Password:" required>
                             <input class="form-control shadow-lg bg-white rounded" type="password" id="password2" name="password2" placeholder="Repeat password:" required>
                             <!--SUBMIT BUTTON-->
+                            <br>
                             <button class="form-control shadow-lg bg-dark text-light rounded" type="submit" name="signup-submit">Signup</button>
                         </form>
                     </div>

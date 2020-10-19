@@ -33,7 +33,7 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" tabindex="-1" aria-disabled="true" href="home.php">Home</a></li>
+                    <li class="nav-item"><a class="text-light nav-link js-scroll-trigger disabled" tabindex="-1" aria-disabled="true" href="home.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login_feature/login_form.php" >Login</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="signup_feature/signup_form.php">Register</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about_feature/about.php">About</a></li>
@@ -45,14 +45,14 @@ session_start();
                 <?php
                   if(isset($_SESSION['idUsers'])){
                       echo "<li class='nav-item'>
-                              <a href='member_feature/member.php'>
+                              <a class='text-light pr-2' href='member_feature/member.php'>
                                   <img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            
                               </a>
                           </li>
 
                           <li class='nav-item'>
                               <form action='includes/logout.inc.php' method='get'>
-                                  <button name='logout-submit' type='submit'>Logout</button>
+                                  <button class='bg-light text-dark rounded' name='logout-submit' type='submit'>Logout</button>
                               </form>
                           </li>
                       ";
@@ -108,8 +108,8 @@ session_start();
               <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
               <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
               <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="University..">
-
-              <button  onclick="searchforbook()" type="submit">Submit</button>
+              <br>
+              <button class="form-control shadow-lg bg-dark text-light rounded" onclick="searchforbook()" type="submit">Submit</button>
             
             
             <br><br><br>
