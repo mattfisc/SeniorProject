@@ -80,7 +80,7 @@ session_start();
       
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-4 col-xl-4 " id="sticky-sidebar">
-        <div class="row m-4">
+        <div class="row ">
           <!-- DISPLAY SUCCESS OR ERROR MESSAGES-->
          <div>
             <?php
@@ -102,13 +102,16 @@ session_start();
           <!--SEARCH BAR-->
           <div class="container" >
             
-            <p class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Searching filters</p>  
-            <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
-            <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
-            <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
-            <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="University..">
+            <p class="text-center font-weight-bold text-light m-auto " style="text-shadow: 2px 2px black">Searching filters</p>  
+            
+              <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
+              <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
+              <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
+              <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="University..">
 
-            <button onclick="searchforbook()" type="submit">Submit</button>
+              <button  onclick="searchforbook()" type="submit">Submit</button>
+            
+            
             <br><br><br>
            
             

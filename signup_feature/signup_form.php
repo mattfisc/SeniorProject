@@ -25,7 +25,7 @@ session_start();
             
             
             <!--FORM-->
-            <div class="row pt-5" >
+            <div class="row" >
 
                 <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 " id="registration">  
 
@@ -52,22 +52,22 @@ session_start();
 
 
                 <!--REGISTRATION-->
-                    <div class="m-auto col-2">
+                    <div >
                         <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Register</h1>
                         
                         <form action="../includes/signup.inc.php" method="post">
-                            <input type="text" id="name" name="name" placeholder="Profile name" required>
-                            <input type="text" id="email" name="email" placeholder="Email Address" required>
-                            <input type="password" id="password1" name="password1" placeholder="Password:" required>
-                            <input type="password" id="password2" name="password2" placeholder="Repeat password:" required>
-                            <br><!--SUBMIT BUTTON-->
-                            <button type="submit" name="signup-submit">Signup</button>
+                            <input class="form-control shadow-lg bg-white rounded" type="text" id="name" name="name" placeholder="Profile name" required>
+                            <input class="form-control shadow-lg bg-white rounded" type="text" id="email" name="email" placeholder="Email Address" required>
+                            <input class="form-control shadow-lg bg-white rounded" type="password" id="password1" name="password1" placeholder="Password:" required>
+                            <input class="form-control shadow-lg bg-white rounded" type="password" id="password2" name="password2" placeholder="Repeat password:" required>
+                            <!--SUBMIT BUTTON-->
+                            <button class="form-control shadow-lg bg-dark text-light rounded" type="submit" name="signup-submit">Signup</button>
                         </form>
                     </div>
                 </div>
 
                 <!--Requirements-->
-                <div id="readable" class="col-xs-12 col-sm-12 col-md-12 col-xl-8">
+                <div id="readable" class="col-xs-12 col-sm-12 col-md-8 col-xl-4 m-auto">
                     <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Requirements</h1>
                     <div >
                         <div class="row">
@@ -80,7 +80,7 @@ session_start();
 
                         <div class="row">
                             <h3 class="text-center col-xs-12 col-sm-8 col-md-4 col-xl-4">Password:</h3>
-                            <ul class="m-2 col-xs-12 col-sm-8 col-md-4 col-xl-4">
+                            <ul class=" col-xs-12 col-sm-8 col-md-4 col-xl-4 ">
                                 <li>Password length must be greater than 8</li>
                                 <li>Must have at least one Uppercase Letter</li>
                                 <li>Must have at least one Lowercase Letter</li>

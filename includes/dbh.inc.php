@@ -1,7 +1,6 @@
 <?php
 
 // CONNECT TO DATABASE
-//$mysqli = new mysqli("localhost","mattfisc","runlift100%","cs222");
 //localhost: $conn = new mysqli("localhost", "root", "", "cs450");
 
 $servername = "localhost";
