@@ -91,7 +91,7 @@ function displayList(){
             );
         
         if(booklist[i].description == null)
-            rightstr = rightstr.concat("<ul>");
+            rightstr = rightstr.concat("</ul>");
         else
             rightstr = rightstr.concat("<li>Description:  ",booklist[i].description,"</li>",
             "</ul>");
@@ -114,7 +114,9 @@ function displayList(){
             localStorage["idUsers"] = (booklist[i].idUsers);
             localStorage["description"] = (booklist[i].description);
 
-            popupCenter({url: 'booklist/oneBook.php', title: 'xtf', w: 900, h: 500});  
+
+            window.location.href = "booklist/oneBook.php";
+            //popupCenter({url: 'booklist/oneBook.php', title: 'xtf', w: 900, h: 500});  
         }
         cell2.appendChild(btn);         
     }

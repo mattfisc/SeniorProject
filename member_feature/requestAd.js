@@ -52,7 +52,7 @@ function fillBookList(str){
 function displayList(){
     // GET TABLE ELEMENT
     var table = document.getElementById("display");
-
+    table.id = "readable";
     for(let i = 0; i < your_booklist.length; i++) {
         // CREATE TABLE ELEMENTS
         var row = table.insertRow(i);
@@ -89,6 +89,7 @@ function displayList(){
   
         // EVENT ON DELETE BUTTON
         del.onclick = function(){
+            localStorage["id"] = (your_booklist[i].id);
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 // NO ERRORS
@@ -98,8 +99,8 @@ function displayList(){
                 }
             }
 
-        xhr.open("GET","../booklist/includes/deleteBook.php?bookid=".concat(your_booklist.id), true); 
-        xhr.send();
+            xhr.open("GET","../booklist/includes/deleteBook.php", true); 
+            xhr.send();
         }
 
         cell2.appendChild(del);

@@ -52,6 +52,7 @@ session_start();
 
           <div class="pb-3" id="edit">
             <h2 class=" font-weight-bold text-light m-auto " style="text-shadow: 2px 2px black">Edit Profile</h2>
+            <button type="submit" onclick="deleteAccount();" >Delete Account</button>
           </div>
         </div>
 
@@ -64,9 +65,12 @@ session_start();
               if(isset($_GET['success'])){
                 if($_GET['success'] == "login")
                   echo "<p class='success'>Successful Login!!</p>";
+                else if($_GET['success'] == "sent")
+                  echo "<p class='success'>Message sent Successfully!!</p>";
               }
               else if(isset($_GET['error'])){
-                
+                if($_GET['error'] == "err")
+                  echo "<p class='error'>Error!!</p>";
               }
             ?>
           </div>
