@@ -8,7 +8,9 @@
  * RETURN JSON BOOKS LIST
 */
 
-
+$bookid = $_GET['bookid'];
+echo $bookid();
+exit();
 // CONNECT TO DATABASE
 //WEBPAGE NOTE: $mysqli = new mysqli("127.0.0.1", "username", "password", "database", 3306);
 $conn = new mysqli("localhost", "root", "", "cs450");

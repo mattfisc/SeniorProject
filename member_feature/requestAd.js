@@ -98,7 +98,7 @@ function displayList(){
                 }
             }
 
-        xhr.open("GET","../booklist/includes/deleteBook.php", true); 
+        xhr.open("GET","../booklist/includes/deleteBook.php?bookid=".concat(your_booklist.id), true); 
         xhr.send();
         }
 
