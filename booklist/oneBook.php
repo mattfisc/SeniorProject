@@ -44,7 +44,7 @@ session_start();
                             if(isset($_SESSION['idUsers'])){
                                 echo 
                                 '<h5 class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black">Message Owner</h5>
-                                <form action="../message_feature/create_message.php" method="post">
+                                <form action="../message_feature/create_message.inc.php" method="post">
                                     <input type="text" name="message" >
                                     <input type="hidden" name="reciever" id="reciever">
                                     <input type="hidden" name="bookId" id="bookId">

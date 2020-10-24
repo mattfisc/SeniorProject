@@ -1,6 +1,7 @@
 
 //SESSION ID
 var userId;
+
 // CONVERSATION LISTS
 var conversations_list = [];
 
@@ -10,6 +11,7 @@ var conversations_list = [];
 class Conversation{
 
     constructor(user1,user2,bookId){
+        this.otherId = "";
         this.user1 = user1;
         this.user2 = user2;
         this.bookId = bookId;
@@ -41,14 +43,14 @@ function findConversation(user1,user2,bookId){
 }
 
 window.onload = function get_conversations(){
-    var xml_str = "../message_feature/requestConversations.php";
+    var xml_str = "../message_feature/request_conversations.inc.php";
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
             // CREATE ARRAY of BOOK OBJECT
-            set_buyer_list(this.response);
+            set_list(this.response);
             
         }
     }
@@ -59,9 +61,9 @@ window.onload = function get_conversations(){
 
 
 
-function set_buyer_list(str){
+function set_list(str){
     // EMPTY OLD SEARCH LIST
-    emptyList();
+    conversations_list = [];
 
     // PARSE JSON
     var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
@@ -98,9 +100,12 @@ function set_buyer_list(str){
 }
 
 function displayMessages(conversation_obj){
+    // CLEAR
+    clear();
+
     // DISPLAY CONVERSATIONS
     var div = document.getElementById("output");
-    div.className = "";
+   
     // CLEAR
     div.innerHTML = "";
 
@@ -135,20 +140,17 @@ function displayMessages(conversation_obj){
     // RIGHT SIDE USERID IS SENDER
     if(conversation_obj.user1 == userId){
         sender.innerHTML = "YOU";
-        reciever.innerHTML = "BOOK OWNER";
+        reciever.innerHTML = "".concat(conversation_obj.otherId);
         leftcol.appendChild(reciever);
         rightcol.appendChild(sender);
     }
     else{
-        sender.innerHTML = "BOOK OWNER";
+        sender.innerHTML = "".concat(conversation_obj.otherId);
         reciever.innerHTML = "YOU";
         leftcol.appendChild(sender);
         rightcol.appendChild(reciever);
     }
     
-    
-    
-
     // ADD TITLES
     row1.appendChild(leftcol);
     row1.appendChild(rightcol);
@@ -199,7 +201,7 @@ function displayMessages(conversation_obj){
     var form = document.createElement("form");
 
     form.method = "POST";
-    form.action = "../message_feature/create_message.php";
+    form.action = "../message_feature/create_message.inc.php";
 
     var message = document.createElement("input");  
     message.name = "message";
@@ -236,56 +238,42 @@ function displayMessages(conversation_obj){
 }
 
 function clear(){
-    // EMPTY OBJECT LIST
-    conversations_list = [];
 
     // EMPTY TABLE IN HTML
-    var el = document.getElementById("output");
-    el.innerHTML = "";
+    var table = document.getElementById("myTable");
+    table.innerHTML = "";
+
+    // EMPTY TABLE IN HTML
+    var title = document.getElementById("title");
+    title.innerHTML = "";
 }
 
 function displayConversations(){
-
-
-
-    var div = document.getElementById('output');
     // CLEAR
-    div.innerHTML = "";
+    clear();
 
-
-    
+    var table = document.getElementById('myTable');
     
     for (let index = 0; index < conversations_list.length; index++) {
         const element = conversations_list[index];
 
-
-        // DIV DETAILS
-        var row = document.createElement('div');
-        row.className = "conversation text-center";
-        row.className = "row";
-
-        // CREATE DIV AND CLASS SIZE BOOTSTRAP
-
-        // LEFT COL
-        var leftcol = document.createElement('div');
-        leftcol.className = "col-xs-12 col-sm-12 col-md-4 col-xl-4";
-        leftcol.style = "text-shadow: 2px 2px black";
-
-        // RIGHT COL
-        var rightcol = document.createElement('div');
-        rightcol.className = "col-xs-12 col-sm-12 col-md-4 col-xl-4";
-        rightcol.style = "text-shadow: 2px 2px black";
+        // CREATE TABLE ELEMENTS
+        var row = table.insertRow(index);
+        var cell1 = row.insertCell(0);
         
+        var cell2 = row.insertCell(1);
 
+        // LEFT CELL
         // CREATE IMAGE
         var img = document.createElement('img');
         var pic_loc = element.picture;
         var str =  "../upload/".concat( pic_loc );
         img.src = str;
         img.id = 'img';
-        // LEFT COL
-        leftcol.appendChild(img);
-        row.appendChild(leftcol);
+
+        // ADD LEFT COL
+        cell1.appendChild(img);
+        row.appendChild(cell1);
         
 
         // RIGHT COL
@@ -293,28 +281,54 @@ function displayConversations(){
         var btn = document.createElement('button');
         var a = document.createElement('a');
         a.href = "member.php#focus";
-        a.innerHTML = "CLICK CHAT";
+        a.innerHTML = "CLICK CHAT ";
         btn.appendChild(a);
         btn.onclick = function(){
             displayMessages(element);
             
         };
-        rightcol.appendChild(btn);
-        
-        
-        row.appendChild(rightcol);
-        div.appendChild(row);
+
+        // GET CONVERSATION WITH USERID
+        var getName = "";
+
+        if(element.user1 == userId)
+            getName = "".concat( element.user2 );
+        else
+            getName = "".concat( element.user1 );
+        console.log(getName);
+
+        element.otherId = getUserNameById(getName);
+        getName = element.otherId;
+        console.log(element.otherId);
+
+        var node = document.createTextNode(getName);
+        cell2.appendChild(btn);
+        cell2.appendChild(node);
+        // ADD RIGHT COL
+        row.appendChild(cell2);
+        table.appendChild(row);
 
     }
+}
 
-    
-    
+function getUserNameById(id){
+    var xml_str = "../message_feature/get_name.inc.php?userId=".concat(id);
 
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            otherId = (this.responseText);
+        }
+    }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
 }
 
 
 function get_picure(obj){
-    var xml_str = "../message_feature/get_picture.php?bookId=".concat(obj.bookId);
+    var xml_str = "../message_feature/get_picture.inc.php?bookId=".concat(obj.bookId);
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {

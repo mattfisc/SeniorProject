@@ -2,7 +2,7 @@ var your_booklist = [];
 
 
 function requestYourAds(){
-    var xml_str = "requestYourAds.php";
+    var xml_str = "requestYourAds.inc.php";
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -20,18 +20,20 @@ function requestYourAds(){
     
 }
 
-function emptyList(){
-    // EMPTY OBJECT LIST
-    your_booklist = new Array();
+function clear(){
+    // EMPTY TABLE IN HTML
+    var table = document.getElementById("myTable");
+    table.innerHTML = "";
 
     // EMPTY TABLE IN HTML
-    var table = document.getElementById("display");
-    table.innerHTML = "";
+    var title = document.getElementById("title");
+    title.innerHTML = "";
+
 }
 
 function fillBookList(str){
     // EMPTY OLD SEARCH LIST
-    emptyList();
+    your_booklist = new Array();
 
     // PARSE STRING OF MULTIPLE JSON OBJECTS
     var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
@@ -50,9 +52,13 @@ function fillBookList(str){
 
 
 function displayList(){
+    clear();
+
     // GET TABLE ELEMENT
-    var table = document.getElementById("display");
-    table.id = "readable";
+    var table = document.getElementById("myTable");
+
+    document.getElementById('title').innerHTML = "Your Book Ads";
+
     for(let i = 0; i < your_booklist.length; i++) {
         // CREATE TABLE ELEMENTS
         var row = table.insertRow(i);

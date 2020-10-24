@@ -57,7 +57,7 @@ session_start();
         </div>
 
         <!-- COL TWO -->
-        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-xl-8">
 
           <!-- DISPLAY ERRORS -->
           <div>
@@ -75,29 +75,19 @@ session_start();
             ?>
           </div>
           
-          <!-- YOUR ADS -->
-          <div id="output">
-            <table id="display">
+          <!-- DISPLAY -->
+          <h1 id='title' class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black"></h1>
 
-            </table>
-          </div> 
-              
+          <table id="myTable" class="table table-bordered table-striped bg-light"></table>
+      
+          <div id="output"></div>
+        
         </div>     
         
       </div>
       
       
-    </div>
-
-
-    <!-- MEMBER ONLY -->
-    <?php
-      if(isset($_SESSION['userId'])){
-
-      }
-
-    ?>
-    <!--END OF CONTENT-->
+    </div><!--END OF CONTENT-->
       
 
     <!--FOOTER-->
