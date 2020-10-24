@@ -11,9 +11,12 @@ var conversations_list = [];
 class Conversation{
 
     constructor(user1,user2,bookId){
-        this.otherId = "";
+
         this.user1 = user1;
+        this.user1Name = "";
         this.user2 = user2;
+        this.user2Name = "";
+
         this.bookId = bookId;
         this.picture = "";
         // ARRAY OF MESSAGE OBJECTS
@@ -95,8 +98,9 @@ function set_list(str){
         else{
             // ADD MESSAGE TO ALREADY CREATED CONVERSATION
             conv.message_list.push(message);
-        }       
+        }      
     }
+  
 }
 
 function displayMessages(conversation_obj){
@@ -140,12 +144,12 @@ function displayMessages(conversation_obj){
     // RIGHT SIDE USERID IS SENDER
     if(conversation_obj.user1 == userId){
         sender.innerHTML = "YOU";
-        reciever.innerHTML = "".concat(conversation_obj.otherId);
+        reciever.innerHTML = "".concat(conversation_obj.user2Name);
         leftcol.appendChild(reciever);
         rightcol.appendChild(sender);
     }
     else{
-        sender.innerHTML = "".concat(conversation_obj.otherId);
+        sender.innerHTML = "".concat(conversation_obj.user1Name);
         reciever.innerHTML = "YOU";
         leftcol.appendChild(sender);
         rightcol.appendChild(reciever);
@@ -192,7 +196,7 @@ function displayMessages(conversation_obj){
 
     }
 
-    // MESSAGE DIV----------------------------
+    // SEND MESSAGE DIV----------------------------
     var div_form = document.createElement('div');
     div_form.className = "text-center";
     div_form.setAttribute("id", "focus");
@@ -289,21 +293,11 @@ function displayConversations(){
         };
 
         // GET CONVERSATION WITH USERID
-        var getName = "";
+        getUserNameById(element);
 
-        if(element.user1 == userId)
-            getName = "".concat( element.user2 );
-        else
-            getName = "".concat( element.user1 );
-        console.log(getName);
-
-        element.otherId = getUserNameById(getName);
-        getName = element.otherId;
-        console.log(element.otherId);
-
-        var node = document.createTextNode(getName);
+        //var node = document.createTextNode("BOOK OWNER");
         cell2.appendChild(btn);
-        cell2.appendChild(node);
+        //cell2.appendChild(node);
         // ADD RIGHT COL
         row.appendChild(cell2);
         table.appendChild(row);
@@ -311,14 +305,29 @@ function displayConversations(){
     }
 }
 
-function getUserNameById(id){
-    var xml_str = "../message_feature/get_name.inc.php?userId=".concat(id);
+function getUserNameById(element){
+    // REQUEST USER1
+    var xml_str = "../message_feature/get_name.inc.php?userId=".concat(element.user1);
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
-            otherId = (this.responseText);
+            element.user1Name =  (this.responseText);
+        }
+    }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
+
+    // REQUEST USER2
+    var xml_str = "../message_feature/get_name.inc.php?userId=".concat(element.user2);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            element.user2Name = (this.responseText);
         }
     }
 
