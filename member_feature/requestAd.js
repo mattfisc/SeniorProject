@@ -10,14 +10,15 @@ function requestYourAds(){
         if(this.readyState == 4 && this.status == 200){
             // CREATE ARRAY of BOOK OBJECT
             var str = this.responseText;
-
-            fillBookList(str);
+            if(str == 0)
+                document.getElementById('title').innerHTML = "You do not have any Ads.  Create an Ad!";
+            else
+                fillBookList(str);
         }
     }
 
     xhr.open("GET",xml_str, true); 
     xhr.send();
-    
 }
 
 function clear(){
@@ -88,28 +89,52 @@ function displayList(){
                 
         cell2.innerHTML = rightstr;
 
-        // ADD DELETE BUTTON
-        var del = document.createElement("button");
-        del.innerHTML = "Delete Ad";
-        // del.className = "bg-dark";
+
+
+        // ADD EDIT BUTTON
+        var btn = document.createElement("button");
+        btn.innerHTML = "Edit Book Ad";
+        btn.className = "bg-dark text-light";
   
         // EVENT ON DELETE BUTTON
-        del.onclick = function(){
+        btn.onclick = function(){
             localStorage["id"] = (your_booklist[i].id);
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 // NO ERRORS
                 if(this.readyState == 4 && this.status == 200){
                     // CREATE ARRAY of BOOK OBJECT
-                    var str = this.responseText;
+                    console.log(this.responseText);
                 }
             }
 
-            xhr.open("GET","../booklist/includes/deleteBook.php", true); 
+            xhr.open("GET","../booklist/includes/editBook.php", true); 
+            xhr.send();
+        }
+
+        cell2.appendChild(btn);
+
+        // ADD DELETE BUTTON
+        var del = document.createElement("button");
+        del.innerHTML = "Delete Book Ad";
+        del.className = "bg-dark text-light";
+  
+        // EVENT ON DELETE BUTTON
+        del.onclick = function(){
+            
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                // NO ERRORS
+                if(this.readyState == 4 && this.status == 200){
+                    // CREATE ARRAY of BOOK OBJECT
+                    console.log(this.responseText);
+                }
+            }
+
+            xhr.open("GET","../booklist/includes/deleteBook.php?bookId=".concat(your_booklist[i].id), true); 
             xhr.send();
         }
 
         cell2.appendChild(del);
-
     }
 }

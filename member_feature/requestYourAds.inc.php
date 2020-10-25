@@ -25,7 +25,7 @@ else{
             echo json_encode($row);
         }
     } else {
-        echo "0 results";
+        echo 0;
     }
 }
 
