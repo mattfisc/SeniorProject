@@ -15,6 +15,7 @@ class Conversation{
         this.user2 = user2;
         this.bookId = bookId;
         this.picture = "";
+        this.booktitle = "";
         // ARRAY OF MESSAGE OBJECTS
         this.message_list = [];
     }
@@ -93,6 +94,8 @@ function set_buyer_list(str){
 
             // BOOK IS NULL CHECK
             is_book_null(conversation);
+            if(conversation.bookId != 0)
+                get_book_title(conversation);
         }
         else{
             // ADD MESSAGE TO ALREADY CREATED CONVERSATION
@@ -391,10 +394,7 @@ function delete_conversation(convList){
         mess_list.push(element.messageId);
     }
 
-
-
     var json = JSON.stringify(mess_list);
-
 
     var xml_str = "../message_feature/delete_conversation.inc.php?".concat("data=",json);
     var xhr = new XMLHttpRequest();
@@ -402,6 +402,21 @@ function delete_conversation(convList){
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
             console.log(this.responseText);
+        }
+    }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
+}
+
+function get_book_title(conversation){
+    var xml_str = "../message_feature/get_book_by_bookId.inc.php?bookId=".concat(conversation.bookId);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            conversation.booktitle = (this.responseText);
         }
     }
 

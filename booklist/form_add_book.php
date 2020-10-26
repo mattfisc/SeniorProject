@@ -27,7 +27,27 @@ session_start();
 
         <div class="content col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto">
             
-            
+            <!-- DISPLAY ERRORS -->
+          <div>
+            <?php
+              if(isset($_GET['success'])){
+                if($_GET['success'] == "login")
+                  echo "<p class='success'>Successful Login!!</p>";
+                else if($_GET['success'] == "sent")
+                  echo "<p class='success'>Message sent Successfully!!</p>";
+                else if($_GET['success'] == "bookadded")
+                  echo "<p class='success'>Book Added!!</p>";
+                else if($_GET['success'] == "bookdeleted")
+                  echo "<p class='success'>Book Deleted</p>";
+              }
+              else if(isset($_GET['error'])){
+                if($_GET['error'] == "emptyfields")
+                  echo "<p class='error'>Error empty fields</p>";
+              }
+            ?>
+          </div>
+
+
             <!--FORM-->
             <div class="row m-auto " >
 
