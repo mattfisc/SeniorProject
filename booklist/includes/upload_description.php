@@ -29,7 +29,7 @@ if(isset($_POST['submit-description'])){
         if ($status === false) {
             trigger_error($stmt->error, E_USER_ERROR);
         }
-        header("Location: ../form_add_book.php?success=descriptionadded");
+        header("Location: ../member.php?success=bookadded");
         exit();
     }
     

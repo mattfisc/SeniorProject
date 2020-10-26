@@ -2,6 +2,7 @@ var your_booklist = [];
 
 
 function requestYourAds(){
+    clear();
     var xml_str = "requestYourAds.inc.php";
 
     var xhr = new XMLHttpRequest();
@@ -22,19 +23,20 @@ function requestYourAds(){
 }
 
 function clear(){
+    // EMPTY TITLE
+    var title = document.getElementById("title");
+    title.innerHTML = "";
     // EMPTY TABLE IN HTML
     var table = document.getElementById("myTable");
     table.innerHTML = "";
-
-    // EMPTY TABLE IN HTML
-    var title = document.getElementById("title");
-    title.innerHTML = "";
-
+    // EMPTY DIV
+    var div = document.getElementById("output");
+    div.innerHTML = "";
 }
 
 function fillBookList(str){
     // EMPTY OLD SEARCH LIST
-    your_booklist = new Array();
+    your_booklist = [];
 
     // PARSE STRING OF MULTIPLE JSON OBJECTS
     var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
@@ -48,12 +50,13 @@ function fillBookList(str){
         your_booklist.push(book);
         
     }
+    var div = document.getElementById("output");
     displayList();
 }
 
 
 function displayList(){
-    clear();
+
 
     // GET TABLE ELEMENT
     var table = document.getElementById("myTable");
@@ -88,8 +91,6 @@ function displayList(){
             );
                 
         cell2.innerHTML = rightstr;
-
-
 
         // ADD EDIT BUTTON
         var btn = document.createElement("button");

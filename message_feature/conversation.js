@@ -1,7 +1,6 @@
 
 //SESSION ID
 var userId;
-
 // CONVERSATION LISTS
 var conversations_list = [];
 
@@ -13,18 +12,12 @@ class Conversation{
     constructor(user1,user2,bookId){
 
         this.user1 = user1;
-        this.user1Name = "";
         this.user2 = user2;
-        this.user2Name = "";
-
         this.bookId = bookId;
         this.picture = "";
         // ARRAY OF MESSAGE OBJECTS
         this.message_list = [];
     }
-
-    
-    
 }
 
 
@@ -53,7 +46,7 @@ window.onload = function get_conversations(){
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
             // CREATE ARRAY of BOOK OBJECT
-            set_list(this.response);
+            set_buyer_list(this.response);
             
         }
     }
@@ -64,8 +57,8 @@ window.onload = function get_conversations(){
 
 
 
-function set_list(str){
-    // EMPTY OLD SEARCH LIST
+function set_buyer_list(str){
+    // CLEAR
     conversations_list = [];
 
     // PARSE JSON
@@ -83,33 +76,36 @@ function set_list(str){
         // CREATE MESSAGE OBJECT
         const message = new Message(elem.recieverId, elem.senderId, elem.message_text,
             elem.timestamp, elem.bookId, elem.id);
+        
+        
 
         const conv = findConversation(message.recieverId,message.senderId,message.bookId);
         if(conv == null){
             // CREATE NEW CONVERSATION
             const conversation = new Conversation(message.recieverId,message.senderId,message.bookId);
+
             // ADD MESSAGE TO MESSAGE ARRAY
             conversation.message_list.push(message);
             get_picure(conversation);
+
             // ADD TO LIST GLOBAL LIST
             conversations_list.push(conversation);
-            
+
+            // BOOK IS NULL CHECK
+            is_book_null(conversation);
         }
         else{
             // ADD MESSAGE TO ALREADY CREATED CONVERSATION
             conv.message_list.push(message);
-        }      
+        }       
     }
-  
 }
 
 function displayMessages(conversation_obj){
-    // CLEAR
     clear();
-
     // DISPLAY CONVERSATIONS
     var div = document.getElementById("output");
-   
+    div.className = "";
     // CLEAR
     div.innerHTML = "";
 
@@ -122,7 +118,8 @@ function displayMessages(conversation_obj){
     var pic_loc = conversation_obj.picture;
     var str =  "../upload/".concat( pic_loc );
     img.src = str;
-    img.id = 'img';
+    img.id = "img";
+
     row.appendChild(img);
     div.appendChild(row);
 
@@ -144,17 +141,20 @@ function displayMessages(conversation_obj){
     // RIGHT SIDE USERID IS SENDER
     if(conversation_obj.user1 == userId){
         sender.innerHTML = "YOU";
-        reciever.innerHTML = "".concat(conversation_obj.user2Name);
+        reciever.innerHTML = "BOOK OWNER";
         leftcol.appendChild(reciever);
         rightcol.appendChild(sender);
     }
     else{
-        sender.innerHTML = "".concat(conversation_obj.user1Name);
+        sender.innerHTML = "BOOK OWNER";
         reciever.innerHTML = "YOU";
         leftcol.appendChild(sender);
         rightcol.appendChild(reciever);
     }
     
+    
+    
+
     // ADD TITLES
     row1.appendChild(leftcol);
     row1.appendChild(rightcol);
@@ -196,7 +196,7 @@ function displayMessages(conversation_obj){
 
     }
 
-    // SEND MESSAGE DIV----------------------------
+    // MESSAGE DIV----------------------------
     var div_form = document.createElement('div');
     div_form.className = "text-center";
     div_form.setAttribute("id", "focus");
@@ -205,7 +205,7 @@ function displayMessages(conversation_obj){
     var form = document.createElement("form");
 
     form.method = "POST";
-    form.action = "../message_feature/create_message.inc.php";
+    form.action = "../message_feature/create_message.php";
 
     var message = document.createElement("input");  
     message.name = "message";
@@ -242,42 +242,55 @@ function displayMessages(conversation_obj){
 }
 
 function clear(){
-
+    // EMPTY TITLE
+    var title = document.getElementById("title");
+    title.innerHTML = "";
     // EMPTY TABLE IN HTML
     var table = document.getElementById("myTable");
     table.innerHTML = "";
-
-    // EMPTY TABLE IN HTML
-    var title = document.getElementById("title");
-    title.innerHTML = "";
+    // EMPTY DIV
+    var div = document.getElementById("output");
+    div.innerHTML = "";
 }
 
 function displayConversations(){
     // CLEAR
     clear();
 
-    var table = document.getElementById('myTable');
-    
+    var div = document.getElementById('output');
+
     for (let index = 0; index < conversations_list.length; index++) {
         const element = conversations_list[index];
 
-        // CREATE TABLE ELEMENTS
-        var row = table.insertRow(index);
-        var cell1 = row.insertCell(0);
         
-        var cell2 = row.insertCell(1);
+        // DIV DETAILS
+        var row = document.createElement('div');
+        row.className = "conversation text-center";
+        row.className = "row";
 
-        // LEFT CELL
+        // CREATE DIV AND CLASS SIZE BOOTSTRAP
+
+        // LEFT COL
+        var leftcol = document.createElement('div');
+        leftcol.className = "col-xs-12 col-sm-12 col-md-8 col-xl-4";
+        leftcol.style = "text-shadow: 2px 2px black";
+
+        // RIGHT COL
+        var rightcol = document.createElement('div');
+        rightcol.className = "col-xs-12 col-sm-12 col-md-4 col-xl-2";
+        rightcol.style = "text-shadow: 2px 2px black";
+        
+
         // CREATE IMAGE
         var img = document.createElement('img');
         var pic_loc = element.picture;
         var str =  "../upload/".concat( pic_loc );
         img.src = str;
-        img.id = 'img';
+        img.id = "img";
 
-        // ADD LEFT COL
-        cell1.appendChild(img);
-        row.appendChild(cell1);
+        // LEFT COL
+        leftcol.appendChild(img);
+        row.appendChild(leftcol);
         
 
         // RIGHT COL
@@ -285,54 +298,38 @@ function displayConversations(){
         var btn = document.createElement('button');
         var a = document.createElement('a');
         a.href = "member.php#focus";
-        a.innerHTML = "CLICK CHAT ";
+        a.innerHTML = "CLICK CHAT";
+       
         btn.appendChild(a);
-        btn.onclick = function(){
-            displayMessages(element);
-            
-        };
-
-        // GET CONVERSATION WITH USERID
-        getUserNameById(element);
-
-        //var node = document.createTextNode("BOOK OWNER");
-        cell2.appendChild(btn);
-        //cell2.appendChild(node);
-        // ADD RIGHT COL
-        row.appendChild(cell2);
-        table.appendChild(row);
-
-    }
-}
-
-function getUserNameById(element){
-    // REQUEST USER1
-    var xml_str = "../message_feature/get_name.inc.php?userId=".concat(element.user1);
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        // NO ERRORS
-        if(this.readyState == 4 && this.status == 200){
-            element.user1Name =  (this.responseText);
+       
+        // BOOK IS NULL
+        if(element.bookId == 0){
+            a.innerHTML = "Book is Deleted";
         }
-    }
-
-    xhr.open("GET",xml_str, true); 
-    xhr.send();
-
-    // REQUEST USER2
-    var xml_str = "../message_feature/get_name.inc.php?userId=".concat(element.user2);
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        // NO ERRORS
-        if(this.readyState == 4 && this.status == 200){
-            element.user2Name = (this.responseText);
+        else{
+            btn.onclick = function(){
+                
+                
+                displayMessages(element);
+                
+            };
         }
-    }
+        btn.appendChild(a);
+        rightcol.appendChild(btn);
 
-    xhr.open("GET",xml_str, true); 
-    xhr.send();
+        // DELETE CONVERSATION BUTTON
+        var del = document.createElement('button');
+  
+        del.innerHTML = "Delete Conversation";
+        del.onclick = function(){
+            delete_conversation(element);
+        }
+        rightcol.appendChild(del);
+        
+        // ADD RIGHT
+        row.appendChild(rightcol);
+        div.appendChild(row);
+    }
 }
 
 
@@ -351,3 +348,63 @@ function get_picure(obj){
     xhr.send();
 }
 
+function is_book_null(element){
+    
+    var xml_str = "../message_feature/get_book_by_bookId.inc.php?bookId=".concat(element.bookId);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            element.bookId = (this.responseText);
+        }
+    }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
+}
+
+function delete_conversation1(element){
+    
+    var xml_str = "../message_feature/delete_conversation.inc.php?".concat(
+        "user1=",element.user1,
+        ",user2=",element.user2,
+        ",bookId=",element.bookId);
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+        }
+    }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
+}
+
+function delete_conversation(convList){
+    var mess_list = [];
+
+    // GET ALL MESSAGE ID'S
+    for (let index = 0; index < convList.message_list.length; index++) {
+        const element = convList.message_list[index];
+        mess_list.push(element.messageId);
+    }
+
+
+
+    var json = JSON.stringify(mess_list);
+
+
+    var xml_str = "../message_feature/delete_conversation.inc.php?".concat("data=",json);
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+        }
+    }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
+}

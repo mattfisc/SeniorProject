@@ -67,6 +67,10 @@ session_start();
                   echo "<p class='success'>Successful Login!!</p>";
                 else if($_GET['success'] == "sent")
                   echo "<p class='success'>Message sent Successfully!!</p>";
+                else if($_GET['success'] == "bookadded")
+                  echo "<p class='success'>Book Added!!</p>";
+                else if($_GET['success'] == "bookdeleted")
+                  echo "<p class='success'>Book Deleted</p>";
               }
               else if(isset($_GET['error'])){
                 if($_GET['error'] == "err")
