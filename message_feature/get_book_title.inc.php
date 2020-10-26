@@ -17,7 +17,6 @@ else{
     mysqli_stmt_bind_param($stmt,"i",$id);
     mysqli_stmt_execute($stmt);
     $result= mysqli_stmt_get_result($stmt);
-    
     // SEARCH RESULTS
     if($row = mysqli_fetch_assoc($result)){
         echo  $row['title'];

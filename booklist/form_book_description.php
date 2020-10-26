@@ -49,7 +49,7 @@
                             <button class='bg-dark text-light' name='submit-description' type='submit'>Submit</button>
                             
                         </form>
-                        <button class='bg-dark text-light' name='' type=''><a href="form_add_book.php">Skip</a></button>
+                        <button class='bg-dark text-light' name='' type=''><a href="../member_feature/member.php?success=bookadded">Skip</a></button>
     
                     </div>
                 </div>

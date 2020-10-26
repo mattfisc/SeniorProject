@@ -17,13 +17,12 @@ require 'db.book.inc.php';
 $query_str = "DELETE FROM booklisting WHERE id =" .$bookid;
 
 // QUERY DATABASE
-if(mysqli_query($conn, $query_str)){
-    header("Location: ../member.php?success=bookdeleted");
-    echo "Success! Book deleted";
-}
-else
-    echo "Failure to delete book";
+mysqli_query($conn, $query_str);
+header("Location: ../../member_feature/member.php?success=bookdeleted");
 
+exit();
+
+    
 
 // CLOSE CONNECTION
 $conn->close();

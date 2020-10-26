@@ -59,19 +59,23 @@ if(isset($_POST['submit'])){
                 
             }
             else{
+                header("Location: ../form_add_pic.php?error=size");
                 echo "Error file too big.";
             }
         }
         else{
+            header("Location: ../form_add_pic.php?error=uploading");
             echo "Error in uploading file";
         }
     }
     else{
+        header("Location: ../form_add_pic.php?error=wrongtype");
         echo"You cannot upload files of this type";
     }
 
 }
 // ERROR REACHED WRONG WAY NOT BY FORM
 else{
+    header("Location: ../form_add_pic.php?error=accesswrong");
     echo"Accessed wrong way";
 }

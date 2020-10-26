@@ -21,7 +21,7 @@
         <!-- CONTENT -->
         <div class="content col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto">
                 <!--MESSAGE RETURNED-->
-                <div class="row p-1" >
+                <div class="row p-1 m-auto" >
                     <?php
                         if(isset($_GET['success'])){
                             if($_GET['success'] == "boodadded"){
@@ -32,8 +32,14 @@
                             if($_GET['error'] == "tableinsert"){
                                 echo "<p class='error'>Insert not successful!</p>";
                             }
-                            if($_GET['error'] == "mysqlerror"){
-                                echo "<p class='error'>sql error</p>";
+                            if($_GET['error'] == "size"){
+                                echo "<p class='error'>Error file was too big</p>";
+                            }
+                            if($_GET['error'] == "uploading"){
+                                echo "<p class='error'>Error uploading file</p>";
+                            }
+                            if($_GET['error'] == "wrongtype"){
+                                echo "<p class='error'>Error wrong file type</p>";
                             }
                         }
                     ?>
