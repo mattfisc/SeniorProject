@@ -14,7 +14,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body class= " p-5" id="mainbody" style="background-color: #6b6b6b; padding-top: 75px;" >
+<body id="mainbody">
     <div class='page'>
         <!--heading-->
         <?php
@@ -25,13 +25,11 @@ session_start();
             
             
             <!--FORM-->
-            <div class="row pt-5" >
+            <div class="row" >
 
-                <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 wrapper-main" id="registration">  
-                <!--REGISTRATION-->
-                    <div class="m-auto col-2">
-                        <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Register</h1>
-                        <?php
+                <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 " id="registration">  
+
+                    <?php
                         
                         // ERROR MESSAGE
                         if(isset($_GET['error'])){
@@ -50,33 +48,40 @@ session_start();
                         }
                         
 
-                        ?>
+                    ?>
+
+
+                <!--REGISTRATION-->
+                    <div >
+                        <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Register</h1>
+                        
                         <form action="../includes/signup.inc.php" method="post">
-                            <input type="text" id="name" name="name" placeholder="Profile name" required>
-                            <input type="text" id="email" name="email" placeholder="Email Address" required>
-                            <input type="password" id="password1" name="password1" placeholder="Password:" required>
-                            <input type="password" id="password2" name="password2" placeholder="Repeat password:" required>
-                            <br><!--SUBMIT BUTTON-->
-                            <button type="submit" name="signup-submit">Signup</button>
+                            <input class="form-control shadow-lg bg-white rounded" type="text" id="name" name="name" placeholder="Profile name" required>
+                            <input class="form-control shadow-lg bg-white rounded" type="text" id="email" name="email" placeholder="Email Address" required>
+                            <input class="form-control shadow-lg bg-white rounded" type="password" id="password1" name="password1" placeholder="Password:" required>
+                            <input class="form-control shadow-lg bg-white rounded" type="password" id="password2" name="password2" placeholder="Repeat password:" required>
+                            <!--SUBMIT BUTTON-->
+                            <br>
+                            <button class="form-control shadow-lg bg-dark text-light rounded" type="submit" name="signup-submit">Signup</button>
                         </form>
                     </div>
                 </div>
 
                 <!--Requirements-->
-                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-8">
+                <div id="readable" class="col-xs-12 col-sm-12 col-md-8 col-xl-4 m-auto">
                     <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Requirements</h1>
                     <div >
                         <div class="row">
-                            <h3 class="col-xs-12 col-sm-8 col-md-4 col-xl-4">Profile Name</h3>
-                            <ul class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
+                            <h3 class="text-center col-xs-12 col-sm-8 col-md-4 col-xl-4">Profile Name</h3>
+                            <ul class="m-2 col-xs-12 col-sm-8 col-md-4 col-xl-4">
                                 <li>Letters and Numbers only</li>
                                 <li>No Spaces</li>
                             </ul>
                         </div>
-                        
+
                         <div class="row">
-                            <h3 class="col-xs-12 col-sm-8 col-md-4 col-xl-4">Password:</h3>
-                            <ul class="col-xs-12 col-sm-8 col-md-4 col-xl-4">
+                            <h3 class="text-center col-xs-12 col-sm-8 col-md-4 col-xl-4">Password:</h3>
+                            <ul class=" col-xs-12 col-sm-8 col-md-4 col-xl-4 ">
                                 <li>Password length must be greater than 8</li>
                                 <li>Must have at least one Uppercase Letter</li>
                                 <li>Must have at least one Lowercase Letter</li>

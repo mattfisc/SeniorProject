@@ -11,7 +11,7 @@ class Book {
    * @param picture string is the name of the picture
    */
 
-    constructor(id, title, author,isbn,location,picture,idUsers) {
+    constructor(id, title, author,isbn,location,picture,idUsers,description) {
     /**
      * Class Book
      * Creates an object Book
@@ -31,6 +31,7 @@ class Book {
       this.location = location;
       this.picture = picture;
       this.idUsers = idUsers;
+      this.description = description;
     }
 
 

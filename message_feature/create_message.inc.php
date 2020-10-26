@@ -60,7 +60,7 @@ if(isset($_POST['submit-message'])){
                 mysqli_stmt_bind_param($stmt,'iisi',$reciever,$sender,$message,$bookId);
                 mysqli_stmt_execute($stmt);
 
-                header("Location: ../home.php?success=sent");
+                header("Location: ../member_feature/member.php?success=sent");
                 exit();
             }
             

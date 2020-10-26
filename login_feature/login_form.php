@@ -14,8 +14,8 @@ session_start();
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
-<body id="mainbody" style="background-color: #6b6b6b;">
-    <div class='page p-3'>
+<body id="mainbody">
+    <div class='page'>
 
     <!--HEADER-->
     <?php
@@ -23,57 +23,60 @@ session_start();
     ?>
 
 
-        <div class="content p-5">
-            
-            
-
+        <div class="content">
             <!--FORM-->
-            <div class="row main-wrapper" >
+            <div class="row " >
 
-                <div class="row pt-3 m-auto" id="login">
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto">
-                        <h2 class="text-center font-weight-bold text-light m-auto p-1" style="text-shadow: 2px 2px black">Login</h2>
-                        <div class="col-2 p-5">
-                            <div class="successorfailure col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto">
-                                <?php
+                
+                <div class="col-xs-12 col-sm-12 col-md-8 col-xl-4 m-auto">
+                    
+                    <div class="successorfailure  text-center">
+                        <?php
                                 
-                                // ERROR MESSAGE
-                                if(isset($_GET['error'])){
-                                    if($_GET['error'] == "invalidemailuid")
-                                        echo "<p class='error'>Error email or username already taken</p>";
-                                    else if($_GET['error'] == "sqlerror")
-                                        echo "<p class='error'>Error sql error.</p>";
-                                    else if($_GET['error'] == "invalidemail"){
-                                        echo "<p class='error'>Error email wrong.</p>";
-                                    }
-                                    else if($_GET['error'] == "wrongway"){
-                                        echo "<p class='error'>Dont access the page that way.</p>";
-                                    }
-                                    else if($_GET['error'] == "wrongpwd")
-                                        echo "<p class='error'>Error password does not match.</p>";
-                                    else if($_GET['error'] == "nouser")
-                                        echo "<p class='error'>Error You are not registered.</p>";    
-
+                            // ERROR MESSAGE
+                            if(isset($_GET['error'])){
+                                if($_GET['error'] == "invalidemailuid")
+                                    echo "<p class='error'>Error email or username already taken</p>";
+                                else if($_GET['error'] == "sqlerror")
+                                    echo "<p class='error'>Error sql error.</p>";
+                                else if($_GET['error'] == "invalidemail"){
+                                    echo "<p class='error'>Error email wrong.</p>";
                                 }
-                                else if(isset($_GET['success'])){
-                                    echo "<p class='success'>Successful Registration!</p>";
-                                    echo "<p class='success'>You are signed up!</p>";
+                                else if($_GET['error'] == "wrongway"){
+                                    echo "<p class='error'>Dont access the page that way.</p>";
                                 }
+                                else if($_GET['error'] == "wrongpwd")
+                                    echo "<p class='error'>Error password does not match.</p>";
+                                else if($_GET['error'] == "nouser")
+                                    echo "<p class='error'>Error You are not registered.</p>";    
 
-                                ?>
-                            </div>
-                            <form action="../includes/login.inc.php" method="post">
-                                <input type="text" name="emailuid" id="emailuid" placeholder="Profile Name or Email" required>
-                                <input type="password" name="password" id="password" placeholder="Password" required>
-                                <br><!--SUBMIT BUTTON -->
-                                <button type="submit" name="login-submit">Login</button>
+                            }
+                            else if(isset($_GET['success'])){
+                                echo "<p class='success'>Successful Registration!</p>";
+                                echo "<p class='success'>You are signed up!</p>";
+                            }
 
-                            </form>
-                            <a href="registration_form.php"></a>
-                            
-                        </div>
+                        ?>
+                    </div>
+
+                    <div >
+
+                        <h1 class=" text-center font-weight-bold text-light p-3 " style="text-shadow: 2px 2px black">Login</h1>
+                        
+                        
+                        <form action="../includes/login.inc.php" method="post">
+                            <input class="form-control shadow-lg bg-white rounded" type="text" name="emailuid" id="emailuid" placeholder="Profile Name or Email" required>
+                            <input class="form-control shadow-lg bg-white rounded" type="password" name="password" id="password" placeholder="Password" required>
+                            <br><!--SUBMIT BUTTON -->
+                            <button class="form-control shadow-lg bg-dark text-light rounded" type="submit" name="login-submit">Login</button>
+                            <br><br>
+                        </form>
+                        <h4 class=" text-center font-weight-bold text-light p-3" style="text-shadow: 2px 2px black">Not Registered</h4>
+                        <a class="form-control shadow-lg bg-dark text-light rounded text-center" href="../signup_feature/signup_form.php">Registration Form</a>
+                        
                     </div>
                 </div>
+                
             </div>
 
             <div class="row" id="message">

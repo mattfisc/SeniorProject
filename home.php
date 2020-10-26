@@ -18,7 +18,7 @@ session_start();
   <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body  id="mainbody" style="background-color: #6b6b6b;">
+<body  id="mainbody">
   <div class='page p-3'>
 
     <!--heading-->
@@ -33,7 +33,7 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger disabled" tabindex="-1" aria-disabled="true" href="home.php">Home</a></li>
+                    <li class="nav-item"><a class="text-light nav-link js-scroll-trigger disabled" tabindex="-1" aria-disabled="true" href="home.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login_feature/login_form.php" >Login</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="signup_feature/signup_form.php">Register</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about_feature/about.php">About</a></li>
@@ -45,14 +45,14 @@ session_start();
                 <?php
                   if(isset($_SESSION['idUsers'])){
                       echo "<li class='nav-item'>
-                              <a href='member_feature/member.php'>
+                              <a class='text-light pr-2' href='member_feature/member.php'>
                                   <img src='img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            
                               </a>
                           </li>
 
                           <li class='nav-item'>
                               <form action='includes/logout.inc.php' method='get'>
-                                  <button name='logout-submit' type='submit'>Logout</button>
+                                  <button class='bg-light text-dark rounded' name='logout-submit' type='submit'>Logout</button>
                               </form>
                           </li>
                       ";
@@ -80,7 +80,7 @@ session_start();
       
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-4 col-xl-4 " id="sticky-sidebar">
-        <div class="row m-4">
+        <div class="row ">
           <!-- DISPLAY SUCCESS OR ERROR MESSAGES-->
          <div>
             <?php
@@ -102,13 +102,16 @@ session_start();
           <!--SEARCH BAR-->
           <div class="container" >
             
-            <p class="text-center font-weight-bold text-light m-auto p-b-1" style="text-shadow: 2px 2px black">Searching filters</p>  
-            <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
-            <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
-            <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
-            <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="University..">
-
-            <button onclick="searchforbook()" type="submit">Submit</button>
+            <p class="text-center font-weight-bold text-light m-auto " style="text-shadow: 2px 2px black">Searching filters</p>  
+            
+              <input class="form-control shadow-lg bg-white rounded" id="title_input" type="text" placeholder="Title..">
+              <input class="form-control shadow-lg bg-white rounded" id="author_input" type="text" placeholder="Author..">
+              <input class="form-control shadow-lg bg-white rounded" id="isbn_input" type="text" placeholder="ISBN..">
+              <input class="form-control shadow-lg bg-white rounded" id="location_input" type="text" placeholder="University..">
+              <br>
+              <button class="form-control shadow-lg bg-dark text-light rounded" onclick="searchforbook()" type="submit">Submit</button>
+            
+            
             <br><br><br>
            
             
@@ -121,7 +124,7 @@ session_start();
         <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8" >
          
           
-          <table id="booklist" class="table table-bordered table-striped bg-light">
+          <table  id="booklist" class="table table-bordered table-striped bg-light">
             
           </table>
 
