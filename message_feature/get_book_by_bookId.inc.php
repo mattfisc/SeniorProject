@@ -3,8 +3,9 @@ session_start();
 
 $id = $_GET['bookId'];
 
+// DATABASE CONNECTIONS
+require '../includes/db.book.inc.php';
 
-require '../booklist/includes/db.book.inc.php';
 $sql = 'SELECT * FROM booklisting WHERE id = ?';
 $stmt = mysqli_stmt_init($conn);
 

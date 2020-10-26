@@ -92,8 +92,9 @@ function set_buyer_list(str){
             // ADD TO LIST GLOBAL LIST
             conversations_list.push(conversation);
 
-            // BOOK IS NULL CHECK
+            // BOOK IS NULL CHECK : NULL = 0
             is_book_null(conversation);
+
             if(conversation.bookId != 0)
                 get_book_title(conversation);
         }
@@ -275,15 +276,15 @@ function displayConversations(){
 
         // LEFT COL
         var leftcol = document.createElement('div');
-        leftcol.className = "col-xs-12 col-sm-12 col-md-8 col-xl-4";
-        leftcol.style = "text-shadow: 2px 2px black";
+        leftcol.className = "col-xs-12 col-sm-6 col-md-6 col-xl-6 bg-light text-dark";
 
         // RIGHT COL
         var rightcol = document.createElement('div');
-        rightcol.className = "col-xs-12 col-sm-12 col-md-4 col-xl-2";
-        rightcol.style = "text-shadow: 2px 2px black";
+        rightcol.className = "col-xs-12 col-sm-6 col-md-2 col-xl-2 ";
         
-
+        // TITLE STRING
+        var node = document.createTextNode(element.booktitle);
+        node.className = "";
         // CREATE IMAGE
         var img = document.createElement('img');
         var pic_loc = element.picture;
@@ -293,15 +294,18 @@ function displayConversations(){
 
         // LEFT COL
         leftcol.appendChild(img);
+        leftcol.appendChild(node);
         row.appendChild(leftcol);
         
 
         // RIGHT COL
         // CONVERSATION INFORMATION
         var btn = document.createElement('button');
+        btn.className = "bg-dark ";
         var a = document.createElement('a');
+        a.className = "text-light";
         a.href = "member.php#focus";
-        a.innerHTML = "CLICK CHAT";
+        a.innerHTML = "Click Chat";
        
         btn.appendChild(a);
        
@@ -322,7 +326,8 @@ function displayConversations(){
 
         // DELETE CONVERSATION BUTTON
         var del = document.createElement('button');
-  
+        del.className = "bg-dark text-light";
+
         del.innerHTML = "Delete Conversation";
         del.onclick = function(){
             delete_conversation(element);
@@ -410,13 +415,13 @@ function delete_conversation(convList){
 }
 
 function get_book_title(conversation){
-    var xml_str = "../message_feature/get_book_by_bookId.inc.php?bookId=".concat(conversation.bookId);
+    var xml_str = "../message_feature/get_book_title.inc.php?bookId=".concat(conversation.bookId);
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
-            conversation.booktitle = (this.responseText);
+            conversation.booktitle = this.responseText;
         }
     }
 

@@ -47,13 +47,20 @@
   border: solid black 3px;
 
 } */
-
+#leftcol {
+  
+}
 #rightcol {
   background-color: honeydew;
 }
 
+.btn {
+  width: 100%;
+}
+
 #myTable {
-  
+  min-width: 200px;
+  max-width: 400px;
 }
 
 #output {

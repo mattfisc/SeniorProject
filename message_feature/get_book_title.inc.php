@@ -3,8 +3,8 @@ session_start();
 
 $id = $_GET['bookId'];
 
+require '../includes/dbh.inc.php';
 
-require '../booklist/includes/db.book.inc.php';
 $sql = 'SELECT * FROM booklisting WHERE id = ?';
 $stmt = mysqli_stmt_init($conn);
 
@@ -17,7 +17,7 @@ else{
     mysqli_stmt_bind_param($stmt,"i",$id);
     mysqli_stmt_execute($stmt);
     $result= mysqli_stmt_get_result($stmt);
-
+    
     // SEARCH RESULTS
     if($row = mysqli_fetch_assoc($result)){
         echo  $row['title'];

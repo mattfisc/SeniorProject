@@ -46,8 +46,8 @@
                         <form action='includes/upload_photo.php' method='post' enctype='multipart/form-data'>
                             <input  id='file' name='file' type='file'>
                             <br>
-                            <button name='submit' type='submit'>Upload</button>
-                            <button name='' type=''><a href="form_book_description.php">Skip</a></button>
+                            <button class='bg-dark text-light' name='submit' type='submit'>Upload</button>
+                            <button class='bg-dark text-light' name='' type=''><a href="form_book_description.php">Skip</a></button>
                         </form>
     
                     </div>

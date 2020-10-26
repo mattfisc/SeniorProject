@@ -62,7 +62,7 @@ session_start();
                         <input class='form-control shadow-lg bg-white rounded' id='isbn_input' name='isbn_input' type='text' placeholder='ISBN..'>
                         <input class='form-control shadow-lg bg-white rounded' id='location_input' name='location_input' type='text' placeholder='City or University..'>
                         <br>
-                        <button name='addbook-submit' type='submit'>Add Book</button>
+                        <button class='bg-dark text-light' name='addbook-submit' type='submit'>Add Book</button>
                     </form>
  
                 </div>
