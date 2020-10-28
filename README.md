@@ -92,7 +92,7 @@ EXTRA FEATURES TO BE ADDED
 
 ###  IM HERE!!!!
 -   WRITE FINAL
--   COMMENT CODE
+-   DOC STRING
 -   GO DADDY- GET RESOURCES - can't find how to connect to godaddy
 -   UNIT TESTING
 
