@@ -22,7 +22,7 @@ session_start();
 
 
 <body id="mainbody" >
-  <div class='page'>
+  <div class='page p-3'>
 
     <!--HEADER AND NAV BAR-->
     <?php
@@ -57,7 +57,7 @@ session_start();
         </div>
 
         <!-- COL TWO -->
-        <div class="col-xs-12 col-sm-12 col-md-4 col-xl-8">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8">
 
           <!-- DISPLAY ERRORS -->
           <div>

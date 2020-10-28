@@ -46,10 +46,10 @@
                         <form action='includes/upload_description.php' method='post' enctype='multipart/form-data'>
                             <textarea name="description" id="description" cols="30" rows="10"></textarea>
                             <br>
-                            <button name='submit-description' type='submit'>Submit</button>
+                            <button class='bg-dark text-light' name='submit-description' type='submit'>Submit</button>
                             
                         </form>
-                        <button name='' type=''><a href="form_add_book.php">Skip</a></button>
+                        <button class='bg-dark text-light' name='' type=''><a href="../member_feature/member.php?success=bookadded">Skip</a></button>
     
                     </div>
                 </div>

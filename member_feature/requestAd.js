@@ -91,7 +91,7 @@ function displayList(){
             );
                 
         cell2.innerHTML = rightstr;
-
+        cell2.className = "col-2";
         // ADD EDIT BUTTON
         var btn = document.createElement("button");
         btn.innerHTML = "Edit Book Ad";
@@ -127,8 +127,10 @@ function displayList(){
             xhr.onreadystatechange = function() {
                 // NO ERRORS
                 if(this.readyState == 4 && this.status == 200){
-                    // CREATE ARRAY of BOOK OBJECT
+                    // DELETE IMAGE IF SUCCESSFUL
                     console.log(this.responseText);
+                    if(this.responseText == true)
+                        delete_image(your_booklist[i].picture);
                 }
             }
 
@@ -138,4 +140,9 @@ function displayList(){
 
         cell2.appendChild(del);
     }
+}
+
+// DELETE IMAGE OUT OF FOLDER
+function delete_image(str){
+    console.log(str);
 }
