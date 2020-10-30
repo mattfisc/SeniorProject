@@ -44,6 +44,8 @@ session_start();
                                 echo "<p class='error'>Error username already taken.</p>";
                             else if($_GET['error'] == "passwordcheck")
                                 echo "<p class='error'>Error repeat password not equal.</p>";    
+                            else if($_GET['error'] == "usersqlerror")
+                                echo "<p class='error'>Error sql statement.</p>";    
 
                         }
                         

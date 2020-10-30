@@ -209,7 +209,7 @@ function displayMessages(conversation_obj){
     var form = document.createElement("form");
 
     form.method = "POST";
-    form.action = "../message_feature/create_message.php";
+    form.action = "../message_feature/create_message.inc.php";
 
     var message = document.createElement("input");  
     message.name = "message";
@@ -228,8 +228,10 @@ function displayMessages(conversation_obj){
     // SEND BOOK ID
     var bookId = document.createElement('input');
     bookId.type = 'hidden';
+    
     bookId.setAttribute("name", "bookId");
     bookId.value = conversation_obj.bookId;
+    //console.log(conversation_obj.bookId);
     form.appendChild(bookId);
 
     // ADD SUBMIT BUTTON

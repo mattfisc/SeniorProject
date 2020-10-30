@@ -18,7 +18,10 @@ session_start();
 <body id="mainbody">
     <div class='page'>
 
-    
+    <!-- header -->
+    <?php
+        include '../includes/header.php';
+    ?>
 
         <div class="content">
             <!--FORM-->
