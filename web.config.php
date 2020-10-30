@@ -3,15 +3,15 @@
 // CONNECT TO DATABASE
 //localhost: $conn = new mysqli("localhost", "root", "", "cs450");
 
-// $servername = "localhost";
-// $dbUsername = "mattfisc";
-// $dbPassword = "GFr9gPhTnNwEW5N";
-// $dbName = "cs450";
-
 $servername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
+$dbUsername = "mattfisc";
+$dbPassword = "GFr9gPhTnNwEW5N";
 $dbName = "cs450";
+
+// $servername = "localhost";
+// $dbUsername = "root";
+// $dbPassword = "";
+// $dbName = "cs450";
 
 //$conn = mysqli_connect($servername,$dbUsername, $dbPassword,$dbName);
 $conn = new mysqli($servername,$dbUsername, $dbPassword,$dbName);
@@ -25,7 +25,7 @@ if (!$conn) {
 // ---------------------------  SIGNUP FORM ---------------------------------------------------
 if(isset($_POST['signup-submit'])){
 
-    require 'dbh.inc.php';
+ 
   
     $username = $_POST['name'];
     $email = $_POST['email'];
@@ -35,29 +35,29 @@ if(isset($_POST['signup-submit'])){
   
     // INVALID EMPTY FIELDS
     if( empty($username) || empty($email) || empty($password1) || empty($password2) ){
-      header("Location: ../signup_feature/signup_form.php?emptyfields&uid= ". $username ."&email=". $email);
+      header("Location: seniorproject/signup_feature/signup_form.php?emptyfields&uid= ". $username ."&email=". $email);
       exit();
     }
     // INVALID email and password
     if(!filter_var($email,FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
-      header("Location: ../signup_feature/signup_form.php?error=invalidemailuid");
+      header("Location: seniorproject/signup_feature/signup_form.php?error=invalidemailuid");
       exit();
     }
     // EMAIL TAKEN
     else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-      header("Location: ../signup_feature/signup_form.php?error=invalidemail&uid=".$username);
+      header("Location: seniorproject/signup_feature/signup_form.php?error=invalidemail&uid=".$username);
       exit();
     }
   
     // USERNAME TAKEN
     else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-      header("Location: ../signup_feature/signup_form.php?error=invalidUserId&uid=".$email);
+      header("Location: seniorproject/signup_feature/signup_form.php?error=invalidUserId&uid=".$email);
       exit();
     }
   
     // PASSWORD REPEAT NOT THE SAME
     else if($password1 != $password2){
-      header("Location: ../signup_feature/signup_form.php?error=passwordcheck&uid=".$username."&email=".$email);
+      header("Location: seniorproject/signup_feature/signup_form.php?error=passwordcheck&uid=".$username."&email=".$email);
       exit();
     }
     // RUN SQL IS USER ID ALREADY USED
@@ -67,7 +67,7 @@ if(isset($_POST['signup-submit'])){
   
       // CHECK CONNECTION
       if(!mysqli_stmt_prepare($stmt,$sql)){
-        header("Location: ../signup_feature/signup_form.php?error=usersqlerror");
+        header("Location: seniorproject/signup_feature/signup_form.php?error=usersqlerror");
         exit();
       }
       // CHECK 
@@ -79,7 +79,7 @@ if(isset($_POST['signup-submit'])){
   
         // EMAIL ALREADY TAKEN
         if($resultCheck > 0){
-          header("Location: ../signup_feature/signup_form.php?error=usertaken&email=".$email);
+          header("Location: seniorproject/signup_feature/signup_form.php?error=usertaken&email=".$email);
           exit();
         }
         // RUN SQL FOR PREP INSERT
@@ -89,7 +89,7 @@ if(isset($_POST['signup-submit'])){
   
           // CHECK CONNECTION
           if(!mysqli_stmt_prepare($stmt,$sql)){
-            header("Location: ../signup_feature/signup_form.php?error=sqlerror");
+            header("Location: seniorproject/signup_feature/signup_form.php?error=sqlerror");
             exit();
           }
           // CHECK MATCH ALREADY IN TABLE
@@ -99,7 +99,7 @@ if(isset($_POST['signup-submit'])){
   
             mysqli_stmt_bind_param($stmt,'sss',$username,$email,$hashedPwd);
             mysqli_stmt_execute($stmt);
-            header("Location: ../login_feature/login_form.php?success=signup");
+            header("Location: seniorproject/login_feature/login_form.php?success=signup");
             exit();
           }
         }
@@ -110,6 +110,6 @@ if(isset($_POST['signup-submit'])){
   
   }
   else{
-    header("Location: ../registration_form.php?error=inappropriatereach");
+    header("Location: seniorproject/registration_form.php?error=inappropriatereach");
       exit();
   }
