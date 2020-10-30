@@ -13,8 +13,8 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "cs450";
 
-//$conn = mysqli_connect($servername,$dbUsername, $dbPassword,$dbName);
-$conn = new mysqli($servername,$dbUsername, $dbPassword,$dbName);
+$conn = mysqli_connect($servername,$dbUsername, $dbPassword,$dbName);
+//$conn = new mysqli($servername,$dbUsername, $dbPassword,$dbName);
 
 // CHECK CONNECTION SHOW ERROR
 if (!$conn) {
