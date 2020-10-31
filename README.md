@@ -59,7 +59,6 @@ EXTRA FEATURES TO BE ADDED
 -   LOGIN DISPLAY
 -   LOGIN MEMBER PAGE ACCESS ONLY TO MEMBER
 
-
 -   LOGIN PROFILE
 -   LOGIN DISPLAY
 -   LOGIN MEMBER PAGE ACCESS ONLY TO MEMBER
@@ -71,7 +70,7 @@ EXTRA FEATURES TO BE ADDED
 -   ADD BOOK FEATURE
 -   LOGOUT FEATURES
 
--   IMPLEMENT UNIT TESTING
+-   TESTING BY CONSOLE
 -	ESTIMATED 40 HOURS
 
 -   MEMBER PAGE
@@ -82,45 +81,43 @@ EXTRA FEATURES TO BE ADDED
 -   MESSAGE TABLE
 -	MESSAGE BY USER ID AND BOOK ID
 -   CREATE MESSAGES
-# IM HERE!!!!
 -   DISPLAY  OR RETRIEVE MESSAGES
 -   ONLOAD SEARCH TABLE FOR ANY MESSAGES
 
 -   ESTIMATED 20 HOURS
 
+## PHASE 4: UPLOAD PHOTO FEATURE
+-   RESEARCH 
+-   UPLOAD PHOTO 
+
+###  IM HERE!!!!
+-   WRITE FINAL
+-   DOC STRING
+-   GO DADDY- GET RESOURCES - can't find how to connect to godaddy
+-   UNIT TESTING
+
 ## PHASE 4: ADMINISTRATOR ACCOUNT
+-   EDIT ACCOUNT
+-   DELETE ACCOUNT
 
-
-## PHASE 4:  APP COST
+## PHASE 5:  APP COST
 - FUTURE PLANNING
 
-## PHASE 5:  PAYMENT AND MAILING BOOK FEATURE
+## PHASE 6:  PAYMENT AND MAILING BOOK FEATURE
 - FUTURE PLANNING
 
-
-
-# TIME PERMITTING PHASE 6
+## TIME PERMITTING PHASE 6
 EXTRA Features:
--   cookie
--   UPLOAD IMAGE FEATURE
+
 -	WEB SCRAP FREE PDF for links
 -	WEB SCRAP FOR TOP THREE STORES AND PRICES
 
 -   All words after validation lowercase and uppcase first letter before adding to table
-
 
 -   All words after validation lowercase and uppcase first letter before adding to table
 -   registration form while input is selected only those requirements are shown
 -   Email request to reset password. displayed at login form and after email already used error
 -   profile names can't contain profainities
 
-
 -   PASSWORD STRENGTH CHECKLENGTH AND ETC
 -   OUTSIDE EXECPTION ERROR
-
-
--   EDIT ACCOUNT
--   DELETE ACCOUNT
-
-
-

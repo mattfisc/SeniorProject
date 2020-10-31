@@ -19,7 +19,7 @@
             ?>
 
         <!-- CONTENT -->
-        <div class="content col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto">
+        <div class="content col-xs-12 col-sm-12 col-md-8 col-xl-8 m-auto text-center">
                 <!--MESSAGE RETURNED-->
                 <div class="row p-1" >
                     <?php

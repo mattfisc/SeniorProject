@@ -89,6 +89,10 @@ session_start();
                 if( $_GET['success'] == 'sent' ){
                   echo "<p class='success'>Message sent successfully!</p>";
                 }
+                else if( $_GET['success'] == 'logout' ){
+                  echo "<p class='success'>Logged out!</p>";
+                }
+
               }
               // ERROR MESSAGES
               if(isset($_GET['error'])){

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require '../booklist/includes/db.book.inc.php';
+require '../includes/dbh.inc.php';
 $sql = 'SELECT * FROM booklisting WHERE idUsers = ?';
 $stmt = mysqli_stmt_init($conn);
 

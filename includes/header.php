@@ -30,7 +30,7 @@
                                     </li>
         
                                     <li class='nav-item'>
-                                        <form action='includes/logout.inc.php' method='get'>
+                                        <form action='../includes/logout.inc.php' method='get'>
                                             <button class='bg-light text-dark rounded' name='logout-submit' type='submit'>Logout</button>
                                         </form>
                                     </li>

@@ -1,7 +1,8 @@
 <?php
 if(isset($_POST['submit-description'])){
     // CONNECT TO DATABASE
-    require 'db.book.inc.php';
+    require '../../includes/dbh.inc.php';
+    
     session_start();
 
 
