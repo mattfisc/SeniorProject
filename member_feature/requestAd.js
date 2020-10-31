@@ -91,7 +91,7 @@ function displayList(){
             );
                 
         cell2.innerHTML = rightstr;
-        cell2.className = "col-2";
+        cell2.className = "col-4";
         // ADD EDIT BUTTON
         var btn = document.createElement("button");
         btn.innerHTML = "Edit Book Ad";

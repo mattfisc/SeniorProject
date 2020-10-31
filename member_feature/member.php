@@ -38,6 +38,27 @@ session_start();
         <!-- COL ONE -->
         <div class="pl-5 col-xs-12 col-sm-12 col-md-4 col-xl-4">
 
+          <!-- DISPLAY ERRORS -->
+          <div>
+            <?php
+              if(isset($_GET['success'])){
+                if($_GET['success'] == "login")
+                  echo "<p class='success'>Successful Login!!</p>";
+                else if($_GET['success'] == "sent")
+                  echo "<p class='success'>Message sent Successfully!!</p>";
+                else if($_GET['success'] == "bookadded")
+                  echo "<p class='success'>Book Added!!</p>";
+                else if($_GET['success'] == "bookdeleted")
+                  echo "<p class='success'>Book Deleted</p>";
+              }
+              else if(isset($_GET['error'])){
+                if($_GET['error'] == "err")
+                  echo "<p class='error'>Error!!</p>";
+              }
+            ?>
+          </div>
+          
+
           <div class="pb-3" id="yourbooks">
             <h2 class=" font-weight-bold text-light m-auto " style="text-shadow: 2px 2px black">Your Book Ads</h2>
             <button type="submit" onclick="requestYourAds();" >Your Ads</button>
@@ -59,25 +80,6 @@ session_start();
         <!-- COL TWO -->
         <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8">
 
-          <!-- DISPLAY ERRORS -->
-          <div>
-            <?php
-              if(isset($_GET['success'])){
-                if($_GET['success'] == "login")
-                  echo "<p class='success'>Successful Login!!</p>";
-                else if($_GET['success'] == "sent")
-                  echo "<p class='success'>Message sent Successfully!!</p>";
-                else if($_GET['success'] == "bookadded")
-                  echo "<p class='success'>Book Added!!</p>";
-                else if($_GET['success'] == "bookdeleted")
-                  echo "<p class='success'>Book Deleted</p>";
-              }
-              else if(isset($_GET['error'])){
-                if($_GET['error'] == "err")
-                  echo "<p class='error'>Error!!</p>";
-              }
-            ?>
-          </div>
           
           <!-- DISPLAY -->
           <h1 id='title' class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black"></h1>

@@ -282,7 +282,7 @@ function displayConversations(){
 
         // RIGHT COL
         var rightcol = document.createElement('div');
-        rightcol.className = "col-xs-12 col-sm-6 col-md-2 col-xl-2 ";
+        rightcol.className = "col-xs-12 col-sm-6 col-md-4 col-xl-4 ";
         
         // TITLE STRING
         var node = document.createTextNode(element.booktitle);

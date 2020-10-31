@@ -25,9 +25,9 @@ session_start();
             
             
             <!--FORM-->
-            <div class="row" >
+            <div class="row m-auto" >
 
-                <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4 " id="registration">  
+                <div class="col-xs-12 col-sm-12 col-md-4 col-xl-4" id="registration">  
 
                     <?php
                         
@@ -46,12 +46,8 @@ session_start();
                                 echo "<p class='error'>Error repeat password not equal.</p>";    
                             else if($_GET['error'] == "usersqlerror")
                                 echo "<p class='error'>Error sql statement.</p>";    
-
                         }
-                        
-
                     ?>
-
 
                 <!--REGISTRATION-->
                     <div >
@@ -70,11 +66,11 @@ session_start();
                 </div>
 
                 <!--Requirements-->
-                <div id="readable" class="col-xs-12 col-sm-12 col-md-8 col-xl-4 m-auto">
+                <div id="readable" class="col-xs-12 col-sm-12 col-md-8 col-xl-8">
                     <h1 class="text-center font-weight-bold text-light  p-1" style="text-shadow: 2px 2px black">Requirements</h1>
                     <div >
                         <div class="row">
-                            <h3 class="text-center col-xs-12 col-sm-8 col-md-4 col-xl-4">Profile Name</h3>
+                            <h3 class="text-center col-xs-12 col-sm-6 col-md-4 col-xl-4">Profile Name</h3>
                             <ul class="m-2 col-xs-12 col-sm-8 col-md-4 col-xl-4">
                                 <li>Letters and Numbers only</li>
                                 <li>No Spaces</li>
@@ -82,7 +78,7 @@ session_start();
                         </div>
 
                         <div class="row">
-                            <h3 class="text-center col-xs-12 col-sm-8 col-md-4 col-xl-4">Password:</h3>
+                            <h3 class="text-center col-xs-12 col-sm-6 col-md-4 col-xl-4">Password:</h3>
                             <ul class=" col-xs-12 col-sm-8 col-md-4 col-xl-4 ">
                                 <li>Password length must be greater than 8</li>
                                 <li>Must have at least one Uppercase Letter</li>

@@ -1,8 +1,10 @@
 <?php
 
 if(isset($_POST['addbook-submit'])){
+
     // CONNECT TO DATABASE
-    require 'db.book.inc.php';
+    require '../../includes/dbh.inc.php';
+
     session_start();
 
     $title = $_POST['title_input'];
@@ -18,7 +20,7 @@ if(isset($_POST['addbook-submit'])){
         exit();
     }
     else{
-       
+
         $sql ='INSERT INTO booklisting (title,author,isbn,location,idUsers) VALUES (?,?,?,?,?)';
         $stmt = mysqli_stmt_init($conn);
     
