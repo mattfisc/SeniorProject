@@ -1,6 +1,6 @@
-
-//SESSION ID
+// GLOBAL USER
 var userId;
+
 // CONVERSATION LISTS
 var conversations_list = [];
 
@@ -12,7 +12,11 @@ class Conversation{
     constructor(user1,user2,bookId){
 
         this.user1 = user1;
+        this.username1 = "";
+
         this.user2 = user2;
+        this.username2 = "";
+
         this.bookId = bookId;
         this.picture = "";
         this.booktitle = "";
@@ -47,7 +51,13 @@ window.onload = function get_conversations(){
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
             // CREATE ARRAY of BOOK OBJECT
-            set_buyer_list(this.response);
+
+            var str = this.responseText;
+            if(str == 0)
+                document.getElementById('title').innerHTML = "You do not have any Conversations";
+            else
+                set_buyer_list(str);
+            
             
         }
     }
