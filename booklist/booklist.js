@@ -1,14 +1,11 @@
-
-
 var booklist = [];
-
 
 function searchforbook(){
     var text = getQueryString();
     
     // SEARCH WITH INPUT
     if(text != ""){
-        var xml_str = "booklist/includes/searchBook.php?".concat(text);
+        var xml_str = "../booklist/includes/searchBook.php?".concat(text);
 
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
@@ -75,7 +72,7 @@ function displayList(){
         var img = document.createElement("img");
         
         // PICTURE FILE
-        leftstr = "upload/".concat(booklist[i].picture);  
+        leftstr = "../upload/".concat(booklist[i].picture);  
         img.src = leftstr; 
         img.id = "img";
 
@@ -115,7 +112,7 @@ function displayList(){
             localStorage["description"] = (booklist[i].description);
 
 
-            window.location.href = "booklist/oneBook.php";
+            window.location.href = "../booklist/oneBook.php";
             //popupCenter({url: 'booklist/oneBook.php', title: 'xtf', w: 900, h: 500});  
         }
         cell2.appendChild(btn);         

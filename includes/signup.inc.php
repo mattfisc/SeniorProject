@@ -38,6 +38,11 @@ if(isset($_POST['signup-submit'])){
     header("Location: ../signup_feature/signup_form.php?error=passwordcheck&uid=".$username."&email=".$email);
     exit();
   }
+  // PASSWORD REQUIREMENTS
+  else if( !preg_match('/^(?=.*[!@#$%^&*-])(?=.*[0-9])(?=.*[A-Z]).{8,20}$/', $password1) ){
+    header("Location: ../signup_feature/signup_form.php?error=passwordrequirements&uid=".$username."&email=".$email);
+    exit();
+  }
   // RUN SQL IS USER ID ALREADY USED
   else{
     $sql = 'SELECT uidUsers FROM users WHERE uidUsers=?';

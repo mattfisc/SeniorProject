@@ -37,15 +37,27 @@ session_start();
                                 echo "<p class='error'>Error empty field found. Please fill out all fields.</p>";
                             else if($_GET['error'] == "invalidemailuid")
                                 echo "<p class='error'>Error invalid email or username.</p>";
-                            else if($_GET['error'] == "invalidemail"){
-                                echo "<p class='error'>Error email already taken.</p>";
-                            }
+                            else if($_GET['error'] == "invalidemail")
+                                echo "<p class='error'>Error email already taken or invalid email.</p>";
                             else if($_GET['error'] == "invalidUserId")
                                 echo "<p class='error'>Error username already taken.</p>";
                             else if($_GET['error'] == "passwordcheck")
                                 echo "<p class='error'>Error repeat password not equal.</p>";    
                             else if($_GET['error'] == "usersqlerror")
                                 echo "<p class='error'>Error sql statement.</p>";    
+                            else if($_GET['error'] == "passwordlength")
+                                echo "<p class='error'>Error password length needs to be greater than 8 characters.</p>"; 
+                            else if($_GET['error'] == "passwordrequirements"){
+                                echo "<p class='error'>Error password requirements: 
+                                    <ul>
+                                        <li>1 uppercase</li> 
+                                        <li>1 lowercase</li>
+                                        <li>1 number</li>
+                                        <li>1 symbol</li>
+                                        <li>length 8 characters</li>
+                                    </ul>
+                                </p>" ;
+                            }
                         }
                     ?>
 
@@ -85,9 +97,6 @@ session_start();
                                 <li>Must have at least one Lowercase Letter</li>
                                 <li>Must have at least one Symbol</li>
                                 <li>Must have at least one Number</li>
-        
-                                <li>Can not have more than two of the same character in a row</li>
-                                <li>Can not have a space</li>
                             </ul>
                         </div>
                     </div>

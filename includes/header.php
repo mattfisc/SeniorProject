@@ -10,7 +10,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../home.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../home/home.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../login_feature/login_form.php">Login</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../signup_feature/signup_form.php">Register</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../about_feature/about.php">About</a></li>
