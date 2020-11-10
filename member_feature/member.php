@@ -50,10 +50,15 @@ session_start();
                   echo "<p class='success'>Book Added!!</p>";
                 else if($_GET['success'] == "bookdeleted")
                   echo "<p class='success'>Book Deleted</p>";
+                else if($_GET['success'] == "conversationdeleted")
+                  echo "<p class='success'>Conversation Deleted</p>";
               }
               else if(isset($_GET['error'])){
                 if($_GET['error'] == "err")
                   echo "<p class='error'>Error!!</p>";
+                else if($_GET['error'] == "conversationnotdeleted")
+                  echo "<p class='error'>Error!!</p>";
+                
               }
             ?>
           </div>
