@@ -80,20 +80,24 @@ function set_buyer_list(str){
     userId = array[0];
 
 
+    // LIST OF MESSAGES
     for (let i = 1; i < array.length; i++) {
         // GET ONE MESSAGE
         const elem = JSON.parse(array[i]);
    
-        // CREATE MESSAGE OBJECT
+        // TEMP MESSAGE OBJECT
         const message = new Message(elem.recieverId, elem.senderId, elem.message_text,
             elem.timestamp, elem.bookId, elem.id);
         
-        
-
         const conv = findConversation(message.recieverId,message.senderId,message.bookId);
         if(conv == null){
             // CREATE NEW CONVERSATION
             const conversation = new Conversation(message.recieverId,message.senderId,message.bookId);
+            
+            // SET CONVERSATION NAMES
+            get_user_by_id(conversation);
+            
+
 
             // ADD MESSAGE TO MESSAGE ARRAY
             conversation.message_list.push(message);
@@ -112,10 +116,20 @@ function set_buyer_list(str){
             // ADD MESSAGE TO ALREADY CREATED CONVERSATION
             conv.message_list.push(message);
         }       
+
+     
     }
 }
 
 function displayMessages(conversation_obj){
+    console.log(conversation_obj.user1);
+    console.log(conversation_obj.username1);
+    console.log(conversation_obj.user2);
+    console.log(conversation_obj.username2);
+
+    console.log(conversation_obj.bookId);
+    console.log(conversation_obj.booktitle);
+
     clear();
     // DISPLAY CONVERSATIONS
     var div = document.getElementById("output");
@@ -125,7 +139,6 @@ function displayMessages(conversation_obj){
 
     // NEW ROW
     var row = document.createElement('div');
-
 
     // GET IMAGE
     var img = document.createElement('img');
@@ -152,18 +165,19 @@ function displayMessages(conversation_obj){
     var sender = document.createElement('h3');
     var reciever = document.createElement('h3');
 
+   
     // RIGHT SIDE USERID IS SENDER
     if(conversation_obj.user1 == userId){
         sender.innerHTML = "YOU";
-        reciever.innerHTML = "BOOK OWNER";
+        reciever.innerHTML = user2;
         leftcol.appendChild(reciever);
-        rightcol.appendChild(sender);
+        rightcol.appendChild(sender);// USER
     }
     else{
-        sender.innerHTML = "BOOK OWNER";
+        sender.innerHTML = user2;
         reciever.innerHTML = "YOU";
         leftcol.appendChild(sender);
-        rightcol.appendChild(reciever);
+        rightcol.appendChild(reciever);// USER
     }
     
     
@@ -418,7 +432,7 @@ function delete_conversation(convList){
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
-            console.log(this.responseText);
+            console.log("successful deleting conversation");
         }
     }
 
@@ -434,6 +448,36 @@ function get_book_title(conversation){
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
             conversation.booktitle = this.responseText;
+        }
+    }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
+}
+
+function get_user_by_id(conversation){
+    var xml_str = "../message_feature/get_user_by_id.php?id=".concat(conversation.user1);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+            conversation.username1 = this.responseText;
+        }
+    }
+
+    xhr.open("GET",xml_str, true); 
+    xhr.send();
+
+    var xml_str = "../message_feature/get_user_by_id.php?id=".concat(conversation.user2);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        // NO ERRORS
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+            conversation.username2 = this.responseText;
         }
     }
 
