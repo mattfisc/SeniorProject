@@ -32,7 +32,7 @@ else{
 
         echo json_encode($obj);
     } else {
-        echo "0 results";
+        echo 0;
     }
    
 }

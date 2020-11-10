@@ -28,7 +28,7 @@ if(isset($_POST['submit-message'])){
 
     // ERROR EMPTY FIELD
     if(empty($reciever) || empty($sender) || empty($message) || empty($bookId)){
-        header("Location: ../home.php?error=emptyfield");
+        header("Location: ../home/home.php?error=emptyfield");
         exit();
         
     }
@@ -39,7 +39,7 @@ if(isset($_POST['submit-message'])){
 
         // QUERY DATABASE ERROR
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../home.php?error=sqlerror");
+            header("Location: ../home/home.php?error=sqlerror");
             exit();
         }
         else{
@@ -51,7 +51,7 @@ if(isset($_POST['submit-message'])){
             // FAILED
            
                 if(!mysqli_stmt_prepare($stmt, $sql)){
-                    header("Location: ../home.php?error=sqlerror");
+                    header("Location: ../home/home.php?error=sqlerror");
                     exit();
                 }
             // SUCCESS
@@ -71,6 +71,6 @@ if(isset($_POST['submit-message'])){
 }
 // ERROR REACHED WRONG PATH
 else{
-    header("Location: ../home.php?error=wrongpath");
+    header("Location: ../home/home.php?error=wrongpath");
       exit();
 }
