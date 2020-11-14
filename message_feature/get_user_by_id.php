@@ -4,7 +4,7 @@ session_start();
 $id = $_GET['id'];
 
 // DATABASE CONNECTIONS
-require '../includes/db.book.inc.php';
+require '../includes/dbh.inc.php';
 
 $sql = 'SELECT * FROM users WHERE idUsers = ?';
 $stmt = mysqli_stmt_init($conn);

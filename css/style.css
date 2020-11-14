@@ -1,7 +1,7 @@
 #mainbody {
   padding-left: 50px;
   padding-right: 50px;
-  /* background-image: url("../img/anastase-maragos.jpg"); */
+  background-image: url("../img/anastase-maragos.jpg");
   background-color: #525151; /* Used if the image is unavailable */
 
   background-position: center; /* Center the image */
@@ -15,7 +15,7 @@
   
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 400px) {
   body { padding-top: 100px; }
 }
 
@@ -24,17 +24,17 @@
 }
 
 
-.error {
-  background-color: rgba(240, 255, 240, 0.582);
+/* .error {
+  background-color: rgba(240, 255, 240, 0.781);
 
-  text-shadow: 1px 1px white;
+  text-shadow: 1px 1px rgb(12, 12, 12);
   color : red;
 }
 
 ul .error {
-  background-color: rgba(240, 255, 240, 0.582);
+  background-color: rgba(240, 255, 240, 0.774);
 
-  text-shadow: 1px 1px white;
+  text-shadow: 1px 1px rgb(20, 20, 20);
   color : red;
 }
 
@@ -43,7 +43,7 @@ ul .error {
 
   text-shadow: 1px 1px white;
   color : blue;
-}
+} */
 
 #readable {
   padding: 10px 20px;
@@ -65,12 +65,12 @@ ul .error {
   
 }
 #rightcol {
-  background-color: honeydew;
+  /* background-color: honeydew; */
 }
 
-.btn {
+/* .btn {
   width: 100%;
-}
+} */
 
 #myTable {
   min-width: 200px;

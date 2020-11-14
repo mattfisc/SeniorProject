@@ -22,12 +22,15 @@ class Conversation{
         this.booktitle = "";
         // ARRAY OF MESSAGE OBJECTS
         this.message_list = [];
+
+        this.bookTrue = true;
     }
 }
 
 
 // FIND CONVERSATION
 function findConversation(user1,user2,bookId){
+    console.log(bookId);
     for (let index = 0; index < conversations_list.length; index++) {
         const element = conversations_list[index];
         // USER1 IS IN CONVERSATION
@@ -69,16 +72,15 @@ window.onload = function get_conversations(){
 
 
 function set_buyer_list(str){
-    // CLEAR
+    // CLEAR LIST
     conversations_list = [];
 
     // PARSE JSON
     var res = JSON.parse('[' + str.replace(/}{/g, '},{') + ']');
     var array = res[0];
 
-    // GET YOUR USERNAME
+    // GET YOUR GLOBAL USERNAME
     userId = array[0];
-
 
     // LIST OF MESSAGES
     for (let i = 1; i < array.length; i++) {
@@ -95,12 +97,12 @@ function set_buyer_list(str){
             const conversation = new Conversation(message.recieverId,message.senderId,message.bookId);
             
             // SET CONVERSATION NAMES
-            get_user_by_id(conversation);
-            
-
+            get_username_by_id(conversation);
 
             // ADD MESSAGE TO MESSAGE ARRAY
             conversation.message_list.push(message);
+
+            // ADD PICTURE TO CONVERSATION
             get_picure(conversation);
 
             // ADD TO LIST GLOBAL LIST
@@ -109,8 +111,7 @@ function set_buyer_list(str){
             // BOOK IS NULL CHECK : NULL = 0
             is_book_null(conversation);
 
-            if(conversation.bookId != 0)
-                get_book_title(conversation);
+            get_book_title(conversation);
         }
         else{
             // ADD MESSAGE TO ALREADY CREATED CONVERSATION
@@ -169,12 +170,12 @@ function displayMessages(conversation_obj){
     // RIGHT SIDE USERID IS SENDER
     if(conversation_obj.user1 == userId){
         sender.innerHTML = "YOU";
-        reciever.innerHTML = user2;
+        reciever.innerHTML = conversation_obj.user2;
         leftcol.appendChild(reciever);
         rightcol.appendChild(sender);// USER
     }
     else{
-        sender.innerHTML = user2;
+        sender.innerHTML = conversation_obj.user2;
         reciever.innerHTML = "YOU";
         leftcol.appendChild(sender);
         rightcol.appendChild(reciever);// USER
@@ -195,7 +196,7 @@ function displayMessages(conversation_obj){
     for (let i = 0; i < m_list.length; i++) {
         // CREATE HTML ELEMENTS
         var row3 = document.createElement('div');
-        row3.className = "col-xs-12 col-sm-12 col-md-4 col-xl-4";
+    
     
 
         // if you are sender right align
@@ -253,6 +254,8 @@ function displayMessages(conversation_obj){
     var bookId = document.createElement('input');
     bookId.type = 'hidden';
     
+    console.log(conversation_obj.bookId);
+   
     bookId.setAttribute("name", "bookId");
     bookId.value = conversation_obj.bookId;
     //console.log(conversation_obj.bookId);
@@ -267,7 +270,6 @@ function displayMessages(conversation_obj){
     // ADD TO FORM
     div_form.appendChild(form);
     div.appendChild(div_form);
-
 
 }
 
@@ -382,15 +384,15 @@ function get_picure(obj){
     xhr.send();
 }
 
-function is_book_null(element){
+function is_book_null(book){
     
-    var xml_str = "../message_feature/get_book_by_bookId.inc.php?bookId=".concat(element.bookId);
+    var xml_str = "../message_feature/get_book_by_bookId.inc.php?bookId=".concat(book.bookId);
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
-            element.bookId = (this.responseText);
+            book.bookTrue = (this.responseText);
         }
     }
 
@@ -432,7 +434,7 @@ function delete_conversation(convList){
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
-            console.log("successful deleting conversation");
+            window.location.replace("../member_feature/member.php?success=conversationdeleted");
         }
     }
 
@@ -455,14 +457,16 @@ function get_book_title(conversation){
     xhr.send();
 }
 
-function get_user_by_id(conversation){
+function get_username_by_id(conversation){
     var xml_str = "../message_feature/get_user_by_id.php?id=".concat(conversation.user1);
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
-            console.log(this.responseText);
+            var str = this.responseText;
+            // console.log( typeof str);
+            // console.log(str);
             conversation.username1 = this.responseText;
         }
     }
@@ -476,7 +480,7 @@ function get_user_by_id(conversation){
     xhr.onreadystatechange = function() {
         // NO ERRORS
         if(this.readyState == 4 && this.status == 200){
-            console.log(this.responseText);
+            // console.log(this.responseText);
             conversation.username2 = this.responseText;
         }
     }

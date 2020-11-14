@@ -41,17 +41,17 @@ session_start();
               // SUCCESS MESSAGES
               if(isset($_GET['success'])){
                 if( $_GET['success'] == 'sent' ){
-                  echo "<p class='success'>Message sent successfully!</p>";
+                  echo "<p class='alert alert-success'>Message sent successfully!</p>";
                 }
                 else if( $_GET['success'] == 'logout' ){
-                  echo "<p class='success'>Logged out!</p>";
+                  echo "<p class='alert alert-success'>Logged out!</p>";
                 }
 
               }
               // ERROR MESSAGES
               if(isset($_GET['error'])){
                 if( $_GET['error'] == 'notloggedin' ){
-                  echo "<p class='messageError '>Not Allowed. Register First!</p>";
+                  echo "<p class='alert alert-danger '>Not Allowed. Register First!</p>";
                 }
               }
             ?>
@@ -76,10 +76,10 @@ session_start();
       </div><!--END OF SEARCH-->
 
         <!--BOOK LISTING-->
-        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8" >
+        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8 " >
          
           
-          <table  id="booklist" class="table table-bordered table-striped bg-light">
+          <table  id="booklist" class="table table-bordered table-striped bg-light thead-dark">
             
           </table>
 

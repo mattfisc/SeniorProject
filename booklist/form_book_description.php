@@ -25,15 +25,15 @@
                     <?php
                         if(isset($_GET['success'])){
                             if($_GET['success'] == "boodadded"){
-                                echo "<p class='success'>Book Added! Please add a picture!</p>";
+                                echo "<p class='alert alert-success'>Book Added! Please add a picture!</p>";
                             }
                         }
                         else if(isset($_GET['error'])){
                             if($_GET['error'] == "tableinsert"){
-                                echo "<p class='error'>Insert not successful!</p>";
+                                echo "<p class='alert alert-danger'>Insert not successful!</p>";
                             }
                             if($_GET['error'] == "mysqlerror"){
-                                echo "<p class='error'>sql error</p>";
+                                echo "<p class='alert alert-danger'>sql error</p>";
                             }
                         }
                     ?>

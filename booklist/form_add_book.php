@@ -32,17 +32,17 @@ session_start();
             <?php
               if(isset($_GET['success'])){
                 if($_GET['success'] == "login")
-                  echo "<p class='success'>Successful Login!!</p>";
+                  echo "<p class='alert alert-success'>Successful Login!!</p>";
                 else if($_GET['success'] == "sent")
-                  echo "<p class='success'>Message sent Successfully!!</p>";
+                  echo "<p class='alert alert-success'>Message sent Successfully!!</p>";
                 else if($_GET['success'] == "bookadded")
-                  echo "<p class='success'>Book Added!!</p>";
+                  echo "<p class='alert alert-success'>Book Added!!</p>";
                 else if($_GET['success'] == "bookdeleted")
-                  echo "<p class='success'>Book Deleted</p>";
+                  echo "<p class='alert alert-success'>Book Deleted</p>";
               }
               else if(isset($_GET['error'])){
                 if($_GET['error'] == "emptyfields")
-                  echo "<p class='error'>Error empty fields</p>";
+                  echo "<p class='alert alert-danger'>Error empty fields</p>";
               }
             ?>
           </div>

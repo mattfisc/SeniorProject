@@ -34,21 +34,21 @@ session_start();
                         // ERROR MESSAGE
                         if(isset($_GET['error'])){
                             if($_GET['error'] == "emptyfields")
-                                echo "<p class='error'>Error empty field found. Please fill out all fields.</p>";
+                                echo "<p class='alert alert-danger'>Error empty field found. Please fill out all fields.</p>";
                             else if($_GET['error'] == "invalidemailuid")
-                                echo "<p class='error'>Error invalid email or username.</p>";
+                                echo "<p class='alert alert-danger'>Error invalid email or username.</p>";
                             else if($_GET['error'] == "invalidemail")
-                                echo "<p class='error'>Error email already taken or invalid email.</p>";
+                                echo "<p class='alert alert-danger'>Error email already taken or invalid email.</p>";
                             else if($_GET['error'] == "invalidUserId")
-                                echo "<p class='error'>Error username already taken.</p>";
+                                echo "<p class='alert alert-danger'>Error username already taken.</p>";
                             else if($_GET['error'] == "passwordcheck")
-                                echo "<p class='error'>Error repeat password not equal.</p>";    
+                                echo "<p class='alert alert-danger'>Error repeat password not equal.</p>";    
                             else if($_GET['error'] == "usersqlerror")
-                                echo "<p class='error'>Error sql statement.</p>";    
+                                echo "<p class='alert alert-danger'>Error sql statement.</p>";    
                             else if($_GET['error'] == "passwordlength")
-                                echo "<p class='error'>Error password length needs to be greater than 8 characters.</p>"; 
+                                echo "<p class='alert alert-danger'>Error password length needs to be greater than 8 characters.</p>"; 
                             else if($_GET['error'] == "passwordrequirements"){
-                                echo "<p class='error'>Error password requirements: 
+                                echo "<p class='alert alert-danger'>Error password requirements: 
                                     <ul>
                                         <li>1 uppercase</li> 
                                         <li>1 lowercase</li>

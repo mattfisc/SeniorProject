@@ -25,21 +25,21 @@
                     <?php
                         if(isset($_GET['success'])){
                             if($_GET['success'] == "boodadded"){
-                                echo "<p class='success'>Book Added! Please add a picture!</p>";
+                                echo "<p class='alert alert-success'>Book Added! Please add a picture!</p>";
                             }
                         }
                         else if(isset($_GET['error'])){
                             if($_GET['error'] == "tableinsert"){
-                                echo "<p class='error'>Insert not successful!</p>";
+                                echo "<p class='alert alert-danger'>Insert not successful!</p>";
                             }
                             if($_GET['error'] == "size"){
-                                echo "<p class='error'>Error file was too big</p>";
+                                echo "<p class='alert alert-danger'>Error file was too big</p>";
                             }
                             if($_GET['error'] == "uploading"){
-                                echo "<p class='error'>Error uploading file</p>";
+                                echo "<p class='alert alert-danger'>Error uploading file</p>";
                             }
                             if($_GET['error'] == "wrongtype"){
-                                echo "<p class='error'>Error wrong file type</p>";
+                                echo "<p class='alert alert-danger'>Error wrong file type</p>";
                             }
                         }
                     ?>

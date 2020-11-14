@@ -80,7 +80,8 @@ function displayList(){
 
         cell1.appendChild(img);
         // RIGHT CELL BOOK LIST ATTRIBUTES
-        var rightstr = "<ul>".concat(
+        var rightstr = 
+            "<ul>".concat(
             "<li>Title:  ",booklist[i].title,"</li>",
             "<li>Author:  ",booklist[i].author,"</li>",
             "<li>Isbn:  ",booklist[i].isbn,"</li>",
@@ -119,27 +120,27 @@ function displayList(){
     }
 }
 
-const popupCenter = ({url, title, w, h}) => {
-    // Fixes dual-screen position                             Most browsers      Firefox
-    const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
-    const dualScreenTop = window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
+// const popupCenter = ({url, title, w, h}) => {
+//     // Fixes dual-screen position                             Most browsers      Firefox
+//     const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
+//     const dualScreenTop = window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
 
-    const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-    const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+//     const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+//     const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
 
-    const systemZoom = width / window.screen.availWidth;
-    const left = (width - w) / 2 / systemZoom + dualScreenLeft
-    const top = (height - h) / 2 / systemZoom + dualScreenTop
-    const newWindow = window.open(url, title, 
-      `
-      scrollbars=yes,
-      width=${w / systemZoom}, 
-      height=${h / systemZoom}, 
-      top=${top}, 
-      left=${left}
-      `
-    )
+//     const systemZoom = width / window.screen.availWidth;
+//     const left = (width - w) / 2 / systemZoom + dualScreenLeft
+//     const top = (height - h) / 2 / systemZoom + dualScreenTop
+//     const newWindow = window.open(url, title, 
+//       `
+//       scrollbars=yes,
+//       width=${w / systemZoom}, 
+//       height=${h / systemZoom}, 
+//       top=${top}, 
+//       left=${left}
+//       `
+//     )
 
-    if (window.focus) newWindow.focus();
-}
+//     if (window.focus) newWindow.focus();
+// }
 

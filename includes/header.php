@@ -28,7 +28,7 @@
                                             <img src='../img/user.png' width='30' height='30' class='d-inline-block align-top'>".$_SESSION['userUid']."            
                                         </a>
                                     </li>
-        
+                                    
                                     <li class='nav-item'>
                                         <form action='../includes/logout.inc.php' method='get'>
                                             <button class='bg-light text-dark rounded' name='logout-submit' type='submit'>Logout</button>

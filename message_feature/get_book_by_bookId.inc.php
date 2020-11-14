@@ -23,11 +23,11 @@ else{
 
     // SEARCH RESULTS
     if($row = mysqli_fetch_assoc($result)){
-        echo  $id;
+        echo  true;
         exit();
         
     } else {
-        echo 0;
+        echo false;
         exit();
     }
 }
