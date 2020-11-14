@@ -1,3 +1,18 @@
+@media (max-width: 575.98px) { 
+  body { padding-top: 200px; }
+}
+@media (max-width: 767.98px) { 
+  body { padding-top: 150px; }
+ }
+
+@media screen  { 
+  body { padding-top: 100px; }
+ }
+
+
+
+
+
 #mainbody {
   padding-left: 50px;
   padding-right: 50px;
@@ -15,35 +30,6 @@
   
 }
 
-@media screen and (min-width: 400px) {
-  body { padding-top: 100px; }
-}
-
-.content {
-  padding-top: 75px;
-}
-
-
-/* .error {
-  background-color: rgba(240, 255, 240, 0.781);
-
-  text-shadow: 1px 1px rgb(12, 12, 12);
-  color : red;
-}
-
-ul .error {
-  background-color: rgba(240, 255, 240, 0.774);
-
-  text-shadow: 1px 1px rgb(20, 20, 20);
-  color : red;
-}
-
-.success {
-  background-color: rgba(240, 255, 240, 0.582);
-
-  text-shadow: 1px 1px white;
-  color : blue;
-} */
 
 #readable {
   padding: 10px 20px;
@@ -55,22 +41,6 @@ ul .error {
   height: 200px;
 }
 
-/* .successorfailure {
-  width: 200px;
-
-  border: solid black 3px;
-
-} */
-#leftcol {
-  
-}
-#rightcol {
-  /* background-color: honeydew; */
-}
-
-/* .btn {
-  width: 100%;
-} */
 
 #myTable {
   min-width: 200px;
