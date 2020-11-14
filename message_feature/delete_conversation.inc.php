@@ -14,12 +14,15 @@ foreach ($arr as &$id) {
    
     
     // QUERY DATABASE
-    if(mysqli_query($conn, $sql))
-        echo "true";
-    else
-        echo "false";
+    if(mysqli_query($conn, $sql)){
+        header("Location: ../member_feature/member.php?success=conversationdeleted");
+        exit();
+    }
+    else{
+        header("Location: ../member_feature/member.php?error=conversationnotdeleted");
+        exit();
+    }
 
-    
 }
 
 

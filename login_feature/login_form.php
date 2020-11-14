@@ -36,24 +36,24 @@ session_start();
                             // ERROR MESSAGE
                             if(isset($_GET['error'])){
                                 if($_GET['error'] == "invalidemailuid")
-                                    echo "<p class='error'>Error email or username already taken</p>";
+                                    echo "<p class='alert alert-danger'>Error email or username already taken</p>";
                                 else if($_GET['error'] == "sqlerror")
-                                    echo "<p class='error'>Error sql error.</p>";
+                                    echo "<p class='alert alert-danger'>Error sql error.</p>";
                                 else if($_GET['error'] == "invalidemail"){
-                                    echo "<p class='error'>Error email wrong.</p>";
+                                    echo "<p class='alert alert-danger'>Error email wrong.</p>";
                                 }
                                 else if($_GET['error'] == "wrongway"){
-                                    echo "<p class='error'>Dont access the page that way.</p>";
+                                    echo "<p class='alert alert-danger'>Error accessed the page that way.</p>";
                                 }
                                 else if($_GET['error'] == "wrongpwd")
-                                    echo "<p class='error'>Error password does not match.</p>";
+                                    echo "<p class='alert alert-danger'>Error password does not match.</p>";
                                 else if($_GET['error'] == "nouser")
-                                    echo "<p class='error'>Error You are not registered.</p>";    
+                                    echo "<p class='alert alert-danger'>Error You are not registered.</p>";    
 
                             }
                             else if(isset($_GET['success'])){
-                                echo "<p class='success'>Successful Registration!</p>";
-                                echo "<p class='success'>You are signed up!</p>";
+                                echo "<p class='alert alert-success'>Successful Registration!</p>";
+                                echo "<p class='alert alert-success'>You are signed up!</p>";
                             }
 
                         ?>

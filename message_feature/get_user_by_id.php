@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-$id = $_GET['bookId'];
+$id = $_GET['id'];
 
 // DATABASE CONNECTIONS
-require '../includes/db.book.inc.php';
+require '../includes/dbh.inc.php';
 
-$sql = 'SELECT * FROM booklisting WHERE id = ?';
+$sql = 'SELECT * FROM users WHERE idUsers = ?';
 $stmt = mysqli_stmt_init($conn);
 
 
@@ -23,17 +23,14 @@ else{
 
     // SEARCH RESULTS
     if($row = mysqli_fetch_assoc($result)){
-        echo  true;
+        echo  $row;
         exit();
         
     } else {
-        echo false;
+        echo 0;
         exit();
     }
 }
-
-
-
 
 
 
