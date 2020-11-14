@@ -53,6 +53,10 @@ session_start();
                 if( $_GET['error'] == 'notloggedin' ){
                   echo "<p class='alert alert-danger '>Not Allowed. Register First!</p>";
                 }
+                else if( $_GET['error'] == 'yourbook' ){
+                  echo "<p class='alert alert-danger '>That is your book!</p>";
+                  echo "<p class='alert alert-danger '>You are messaging yourself!</p>";
+                }
               }
             ?>
           </div>

@@ -43,10 +43,13 @@ session_start();
 
                     <!-- MESSAGE BOOK OWNER -->
                     <div>
+                        
                         <?php
-                            if(isset($_SESSION['idUsers'])){
-                                echo 
-                                '<h5 class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black">Message Owner</h5>
+                            
+                            // MEMBER LOGGED IN
+                            if(isset($_SESSION['idUsers'])  ){
+                                
+                                echo '<h5 class="text-center font-weight-bold text-light m-auto" style="text-shadow: 2px 2px black">Message Owner</h5>
                                 <form action="../message_feature/create_message.inc.php" method="post">
                                     <input type="text" name="message" >
                                     <input type="hidden" name="reciever" id="reciever">
@@ -55,7 +58,7 @@ session_start();
                                 </form>';
                             }
                             else{
-                                echo "<p class='p-3' id='readable'>Register to message the Owner!</p>";
+                                echo "<p class='p-3 alert alert-info'>Register to message the Owner!</p>";
                             }
 
                         ?>
