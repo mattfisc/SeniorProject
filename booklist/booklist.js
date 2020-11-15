@@ -15,7 +15,6 @@ function searchforbook(){
                 fillBookList(this.responseText);
             }
         }
-
         xhr.open("GET",xml_str, true); 
         xhr.send();
     }
@@ -83,14 +82,8 @@ function displayList(){
             "<li>Title:  ",booklist[i].title,"</li>",
             "<li>Author:  ",booklist[i].author,"</li>",
             "<li>Isbn:  ",booklist[i].isbn,"</li>",
-            "<li>Location:  ",booklist[i].location,"</li>",
+            "<li>Location:  ",booklist[i].location,"</li></ul>",
             );
-        
-        if(booklist[i].description == null)
-            rightstr = rightstr.concat("</ul>");
-        else
-            rightstr = rightstr.concat("<li>Description:  ",booklist[i].description,"</li>",
-            "</ul>");
 
         cell2.innerHTML = rightstr;
         
@@ -112,7 +105,6 @@ function displayList(){
 
 
             window.location.href = "../booklist/oneBook.php";
-            //popupCenter({url: 'booklist/oneBook.php', title: 'xtf', w: 900, h: 500});  
         }
         cell2.appendChild(btn);         
     }
