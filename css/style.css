@@ -1,14 +1,3 @@
-@media (max-width: 575.98px) { 
-  body { padding-top: 200px; }
-}
-@media (max-width: 767.98px) { 
-  body { padding-top: 150px; }
- }
-
-@media screen  { 
-  body { padding-top: 100px; }
- }
-
 
 
 
@@ -31,23 +20,32 @@
 }
 
 
-#readable {
-  padding: 10px 20px;
-  background-color: rgba(250, 248, 248, 0.624);
-}
-
 #img {
   width: 200px;
   height: 200px;
 }
 
-
+/* 
 #myTable {
   min-width: 200px;
   max-width: 400px;
-}
+} */
 
-#output {
+/* #output {
   min-width: 100px;
   max-width: 400px;
-}
+} */
+@media (max-width: 575.98px) and (max-width: 767.98px) { 
+  body { 
+    padding-top: 250px; 
+  }
+  #img {
+    width: 100px;
+    height: 100px;
+  }
+ }
+
+@media screen  { 
+  body { padding-top: 100px; }
+ }
+

@@ -38,17 +38,20 @@ session_start();
                                 if($_GET['error'] == "invalidemailuid")
                                     echo "<p class='alert alert-danger'>Error email or username already taken</p>";
                                 else if($_GET['error'] == "sqlerror")
-                                    echo "<p class='alert alert-danger'>Error sql error.</p>";
+                                    echo "<p class='alert alert-danger'>Error sql error</p>";
                                 else if($_GET['error'] == "invalidemail"){
-                                    echo "<p class='alert alert-danger'>Error email wrong.</p>";
+                                    echo "<p class='alert alert-danger'>Error email wrong</p>";
                                 }
                                 else if($_GET['error'] == "wrongway"){
                                     echo "<p class='alert alert-danger'>Error accessed the page that way.</p>";
                                 }
-                                else if($_GET['error'] == "wrongpwd")
-                                    echo "<p class='alert alert-danger'>Error password does not match.</p>";
+                                else if($_GET['error'] == "wrongpwd"){
+                                    echo "<p class='alert alert-danger'>Error wrong password</p>";
+                                    echo "<p class='alert alert-danger'>Check if CAPS LOCK is on</p>";
+                                }
+                                    
                                 else if($_GET['error'] == "nouser")
-                                    echo "<p class='alert alert-danger'>Error You are not registered.</p>";    
+                                    echo "<p class='alert alert-danger'>Error You are not registered</p>";    
 
                             }
                             else if(isset($_GET['success'])){
