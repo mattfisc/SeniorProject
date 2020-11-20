@@ -80,10 +80,10 @@ session_start();
       </div><!--END OF SEARCH-->
 
         <!--BOOK LISTING-->
-        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8 " >
+        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8" >
          
           
-          <table  id="booklist" class="table table-bordered table-striped bg-light thead-dark">
+          <table  id="booklist" class="table  table-bordered table-striped bg-light thead-dark ">
             
           </table>
 
