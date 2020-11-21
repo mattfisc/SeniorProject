@@ -14,10 +14,9 @@ window.onload = function(){
         var textnode = document.createTextNode(element);         
         node.appendChild(textnode);                              
         document.getElementById("myList").appendChild(node);   
-        
     }  
 
-    document.getElementById('reciever').value = localStorage['idUsers'];
+    document.getElementById('reciever').value = localStorage['bookowner'];
     document.getElementById('bookId').value = localStorage['id'];
 
 }

@@ -53,6 +53,10 @@ session_start();
                 if( $_GET['error'] == 'notloggedin' ){
                   echo "<p class='alert alert-danger '>Not Allowed. Register First!</p>";
                 }
+                else if( $_GET['error'] == 'yourbook' ){
+                  echo "<p class='alert alert-danger '>That is your book!</p>";
+                  echo "<p class='alert alert-danger '>You are messaging yourself!</p>";
+                }
               }
             ?>
           </div>
@@ -76,10 +80,10 @@ session_start();
       </div><!--END OF SEARCH-->
 
         <!--BOOK LISTING-->
-        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8 " >
+        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-8" >
          
           
-          <table  id="booklist" class="table table-bordered table-striped bg-light thead-dark">
+          <table  id="booklist" class="table  table-bordered table-striped bg-light thead-dark ">
             
           </table>
 

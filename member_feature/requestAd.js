@@ -98,22 +98,22 @@ function displayList(){
         btn.className = "bg-dark text-light";
   
         // EVENT ON DELETE BUTTON
-        btn.onclick = function(){
-            localStorage["id"] = (your_booklist[i].id);
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                // NO ERRORS
-                if(this.readyState == 4 && this.status == 200){
-                    // CREATE ARRAY of BOOK OBJECT
-                    console.log(this.responseText);
-                }
-            }
+        // btn.onclick = function(){
+        //     localStorage["id"] = (your_booklist[i].id);
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.onreadystatechange = function() {
+        //         // NO ERRORS
+        //         if(this.readyState == 4 && this.status == 200){
+        //             // CREATE ARRAY of BOOK OBJECT
+        //             console.log(this.responseText);
+        //         }
+        //     }
 
-            xhr.open("GET","../booklist/includes/editBook.php", true); 
-            xhr.send();
-        }
+        //     xhr.open("GET","../booklist/includes/editBook.php", true); 
+        //     xhr.send();
+        // }
 
-        cell2.appendChild(btn);
+        //cell2.appendChild(btn);
 
         // ADD DELETE BUTTON
         var del = document.createElement("button");

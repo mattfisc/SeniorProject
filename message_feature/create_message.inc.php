@@ -3,9 +3,11 @@ session_start();
 
 // ERROR IF NOT LOGGED IN
 if(!isset($_SESSION['idUsers'])){
-    header("Location: ../home.php?error=notloggedin");
+    header("Location: ../home/home.php?error=notloggedin");
     exit();
 }
+
+
 
 // ACCESSED ONLY BY FORM
 if(isset($_POST['submit-message'])){
@@ -20,6 +22,11 @@ if(isset($_POST['submit-message'])){
     $message = $_POST['message'];
     $bookId = $_POST['bookId'];
 
+
+    if( strcmp($_SESSION['idUsers'],$reciever) === 0 ){
+        header("Location: ../home/home.php?error=yourbook");
+        exit();
+    }
 
 
     // INSERT INTO `messages`(`recieverId`, `senderId`, `message_text`, `bookId`) 
