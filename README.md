@@ -122,4 +122,4 @@ EXTRA Features:
 
 -   registration form: while input is selected only those requirements are shown
 -   Email request to reset password. displayed at login form and after email already used error
--   profile names can't contain profainities
+-   profile names can't contain profanities
